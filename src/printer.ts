@@ -61,7 +61,9 @@ const printTotalResults = (
   scanner: Scanner,
 ): void => {
   if (scanner.options.realtimeOutput) {
-    console.log(c.green(`\nFinished in ${Math.round(Timer.end() / 1000)} seconds.`));
+    console.log(
+      c.green(`\nFinished in ${Math.round(Timer.end() / 1000)} seconds.`),
+    );
     console.log(
       c.green(
         `Found a total of ${

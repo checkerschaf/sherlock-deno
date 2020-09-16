@@ -5,12 +5,11 @@ import {
 } from "./printer.ts";
 import Timer from "./lib/timer.ts";
 import { CliArguments } from "./deps.ts";
-import Scanner from "./scanner.ts";
 import { readCliArguments } from "./lib/cli.ts";
+import Scanner from "./scanner.ts";
 
-const run = async (): Promise<void> => {
-  // Start a timer and show a beatiful Sherlock.ts ASCII image
-  Timer.start();
+const runSherlock = async (): Promise<void> => {
+  // Show a beautiful Sherlock ASCII image
   printSherlockDeno();
 
   // Get command line arguments
@@ -28,6 +27,9 @@ const run = async (): Promise<void> => {
   // Show the total results after finishing all sub-processes
   window.onunload = () => printTotalResults(scanner);
 
+  // Start a Timer to track the runtime
+  Timer.start();
+
   // Start the scan and wait for it to finish
   await scanner.scan()
     .catch(
@@ -35,6 +37,9 @@ const run = async (): Promise<void> => {
     );
 };
 
+// If this script is run directly, also make it work :)
 if (import.meta.main) {
-  await run();
+  await runSherlock();
 }
+
+export { runSherlock };
