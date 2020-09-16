@@ -40,7 +40,7 @@ async function readCliArguments(args: Array<string>): Promise<CliArguments> {
 }
 
 const ask = async (
-  question: string = "",
+  question = "",
   addEmptyLine = false,
   stdin = Deno.stdin,
   stdout = Deno.stdout,
