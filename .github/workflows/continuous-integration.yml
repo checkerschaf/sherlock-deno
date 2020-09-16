@@ -1,0 +1,28 @@
+name: Deno CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        deno: ["v1.x"]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Deno
+        uses: denolib/setup-deno@v2
+        with:
+          deno-version: ${{ matrix.deno }}
+
+      - name: Show Deno Version
+        run: deno --version
+
+      - name: Lint Code
+        run: deno lint --unstable
+
+      - name: Run Tests
+        run: deno test
