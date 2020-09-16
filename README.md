@@ -8,7 +8,7 @@
 Sherlock-Deno is a remake of the original [sherlock](https://github.com/sdushantha/sherlock) by [sdushantha](https://github.com/sdushantha).
 
 Why use Sherlock-Deno?
-- Super lighweight
+- Super lightweight
 - Runs all checks concurrently in multiple threads
 - Cleverly looks through the response to determine if a user has an account
 - Follows HTTP(S) redirections
