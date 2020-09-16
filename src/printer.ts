@@ -84,10 +84,10 @@ const printTotalResults = (
       console.log(JSON.stringify(scanner.results, null, 4));
       break;
     case OutputFormat.CSV:
-      console.log("site,url,result,error");
+      console.log("site,url,result");
       for (const site of scanner.results) {
         console.log(
-          `${site.site},${site.url},${site.result},${site.error ?? "null"}`,
+          `${site.site},${site.url},${site.result}`,
         );
       }
       break;
