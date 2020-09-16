@@ -16,7 +16,6 @@ const printSherlockDeno = (): void => {
                       Made with ${
     c.red("<3")
   } by checkerschaf.                     '     \\
-
 `));
 };
 

@@ -5,7 +5,7 @@
   <br>
 </p>
 
-Sherlock-Deno is a remake of the original [sherlock](https://github.com/sdushantha/sherlock) by [sdushantha](https://github.com/sdushantha) with many advantages over its original.
+Sherlock-Deno is a remake of the original [sherlock](https://github.com/sdushantha/sherlock) by [sdushantha](https://github.com/sdushantha).
 
 Why use Sherlock-Deno?
 - Super lighweight
@@ -20,10 +20,10 @@ Why use Sherlock-Deno?
 Simply install deno on your system with one command. You can find the offical command [here](https://deno.land/#installation).
 
 #### Without installation:
-`deno run --allow-read --allow-net https://raw.githubusercontent.com/checkerschaf/sherlock-deno/master/main.ts`
+`deno run --allow-read --allow-net https://deno.land/x/sherlock/main.ts`
 
-#### With installation:
-`deno install -n sherlock https://raw.githubusercontent.com/checkerschaf/sherlock-deno/master/main.ts`
+#### With installation (WIP):
+`deno install -n sherlock https://deno.land/x/sherlock/main.ts`
 
 Done! 🎉 You now have a running version of Sherlock-Deno.
 
@@ -32,7 +32,6 @@ Done! 🎉 You now have a running version of Sherlock-Deno.
 |:-:|:-:|
 | `--help` | Show help |
 | `--version` | Show version number |
-| `-n, -u, --name, --username` | Username to look for |
 | `-m, --onlyMatching` | Only show matching results |
 | `-t, --timeout` | Set timout for requests in ms |
 | `-f, --format` | Select output format [json,pretty_json,csv] |

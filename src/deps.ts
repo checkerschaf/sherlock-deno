@@ -26,7 +26,7 @@ import {
 } from "https://deno.land/x/yargs@v16.0.3-deno/types.ts";
 export { yargs, Arguments, YargsType };
 export interface CliArguments extends Arguments {
-  username?: string;
+  _?: Array<string>;
   onlyMatching?: boolean;
   realtimeOutput?: boolean;
   timeout?: number;

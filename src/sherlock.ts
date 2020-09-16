@@ -5,8 +5,10 @@ import {
 } from "./printer.ts";
 import Timer from "./lib/timer.ts";
 import { CliArguments } from "./deps.ts";
-import { readCliArguments } from "./lib/cli.ts";
+import { getUsername, readCliArguments } from "./lib/cli.ts";
 import Scanner from "./scanner.ts";
+
+const VERSION = "1.1.0";
 
 const runSherlock = async (): Promise<void> => {
   // Show a beautiful Sherlock ASCII image
@@ -17,7 +19,7 @@ const runSherlock = async (): Promise<void> => {
 
   // Create a new scanner with the arguments from the command line
   const scanner = new Scanner({
-    username: argv.username ?? "",
+    username: await getUsername(argv),
     onlyMatching: argv.onlyMatching,
     realtimeOutput: !argv.format,
     timeout: argv.timeout ?? 100000,
@@ -42,4 +44,4 @@ if (import.meta.main) {
   await runSherlock();
 }
 
-export { runSherlock };
+export { runSherlock, VERSION };
