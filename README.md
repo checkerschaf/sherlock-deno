@@ -50,6 +50,5 @@ Done! 🎉 You now have a running version of Sherlock-Deno on your local machine
 ### Useful development commands:
 - `deno lint --unstable` - Runs a code linter to look for check the code style.
 - `deno test` - Runs all tests.
-- `npm run pkg` - Create a local executable on you current system in the root directory.
 
 *Tip: You can find more info about the deno cli [here](https://deno.land/manual/getting_started/command_line_interface).*
