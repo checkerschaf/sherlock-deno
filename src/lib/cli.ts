@@ -1,6 +1,7 @@
 import { c, CliArguments, yargs } from "../deps.ts";
 import { OutputFormat } from "../enums.ts";
 import { VERSION } from "../sherlock.ts";
+import {sites} from "../sites.ts";
 
 async function readCliArguments(args: Array<string>): Promise<CliArguments> {
   return await yargs()
@@ -35,7 +36,7 @@ async function readCliArguments(args: Array<string>): Promise<CliArguments> {
       c.yellow("sherlock -m JohnDoe"),
       "Search for JohnDoe and only show matches",
     )
-    .version(c.green(`You are using version v${c.bold(VERSION)}.`))
+    .version(c.green(`You are using version v${c.bold(VERSION)}. with a total of ${c.bold(`${Object.keys(sites).length}`)} sites.`))
     .parse(args);
 }
 

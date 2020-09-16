@@ -18,14 +18,3 @@ export type SiteResult = {
 export type Sites = {
   [sites: string]: string;
 };
-
-export interface WorkerStartMessage {
-  username: string;
-  url: string;
-  timeout: number;
-}
-
-export interface WorkerResultMessage {
-  result: ScannerResult;
-  error?: string;
-}

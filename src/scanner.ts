@@ -1,17 +1,15 @@
 import {
   ScannerOptions,
   SiteResult,
-  Sites,
-  WorkerResultMessage,
-  WorkerStartMessage,
 } from "./types.ts";
 import { printSiteResult } from "./printer.ts";
 import { ScannerResult } from "./enums.ts";
+import { getSiteResult } from "./lib/fetcher.ts";
+import {sites} from "./sites.ts";
 
 export default class Scanner {
   options: ScannerOptions;
   results: Array<SiteResult> = new Array<SiteResult>();
-  sites: Sites = {};
 
   constructor(options: ScannerOptions) {
     this.options = options;
@@ -19,12 +17,11 @@ export default class Scanner {
 
   async scan(): Promise<void> {
     this.verifyUsername();
-    await this.loadSites();
 
-    Object.keys(this.sites).forEach((site) => {
-      this.createWorker(
+    Object.keys(sites).forEach((site) => {
+      this.processSite(
         site,
-        this.sites[site].replace("{}", this.options.username),
+        sites[site].replace("{}", this.options.username),
       );
     });
   }
@@ -35,37 +32,20 @@ export default class Scanner {
     }
   }
 
-  async loadSites(): Promise<void> {
-    this.sites = JSON.parse(await Deno.readTextFile("./sites.json"));
-  }
-
-  createWorker(site: string, url: string) {
-    const startMsg: WorkerStartMessage = {
-      username: this.options.username,
+  async processSite(site: string, url: string) {
+    const siteResult = await getSiteResult(
+      site,
       url,
-      timeout: this.options.timeout,
-    };
-
-    const worker = new Worker(
-      new URL("worker.ts", import.meta.url).href,
-      { type: "module" },
+      this.options.username,
+      this.options.timeout,
     );
-    worker.onmessage = (event) => {
-      const msg: WorkerResultMessage = event.data;
-      const siteResult: SiteResult = {
-        site,
-        url,
-        result: msg.result,
-        error: msg.error,
-      };
-      if (
-        siteResult.result === ScannerResult.SUCCESS ||
-        !this.options.onlyMatching
-      ) {
-        this.results.push(siteResult);
-        printSiteResult(siteResult, this.options);
-      }
-    };
-    worker.postMessage(startMsg);
+
+    if (
+      siteResult.result === ScannerResult.SUCCESS ||
+      !this.options.onlyMatching
+    ) {
+      this.results.push(siteResult);
+      printSiteResult(siteResult, this.options);
+    }
   }
 }

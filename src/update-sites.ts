@@ -1,4 +1,4 @@
-import { c } from "./deps";
+import { c } from "./deps.ts";
 
 interface Site {
   [key: string]: string;
