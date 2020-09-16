@@ -37,7 +37,7 @@ export default class Scanner {
       site,
       url,
       this.options.username,
-      this.options.timeout,
+      this.options.timeout * 1000, // convert seconds from CLI to milliseconds
     );
 
     if (

@@ -22,7 +22,7 @@ const runSherlock = async (): Promise<void> => {
     username: await getUsername(argv),
     onlyMatching: argv.onlyMatching,
     realtimeOutput: !argv.format,
-    timeout: argv.timeout ?? 100000,
+    timeout: argv.timeout ?? 30,
     format: argv.format,
   });
 

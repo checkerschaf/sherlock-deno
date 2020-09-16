@@ -33,7 +33,7 @@ Done! 🎉 You now have a running version of Sherlock-Deno.
 | `--help` | Show help |
 | `--version` | Show version number |
 | `-m, --onlyMatching` | Only show matching results |
-| `-t, --timeout` | Set timout for requests in ms |
+| `-t, --timeout` | Set timout for requests in seconds |
 | `-f, --format` | Select output format [json,pretty_json,csv] |
 
 ## How to contribute?

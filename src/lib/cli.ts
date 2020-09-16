@@ -13,9 +13,9 @@ async function readCliArguments(args: Array<string>): Promise<CliArguments> {
       },
       timeout: {
         alias: "t",
-        description: "Set timout for requests in ms",
+        description: "Set timout for requests in seconds",
         type: "number",
-        default: 100000,
+        default: 30,
       },
       format: {
         description: "Select output format",
