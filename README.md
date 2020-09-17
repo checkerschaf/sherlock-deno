@@ -17,7 +17,7 @@ Sherlock-Deno is an improved remake of the original [sherlock](https://github.co
 
 #### Status
 ![Deno CI](https://github.com/checkerschaf/sherlock-deno/workflows/Deno%20CI/badge.svg?branch=master)
-![Tested Deno Version](https://img.shields.io/badge/Tested%20Deno%20Version-1.4-brightgreen)
+![Deno Version](https://img.shields.io/badge/Deno%20Version-1.4-brightgreen)
 ![Code size](https://img.shields.io/github/languages/code-size/checkerschaf/sherlock-deno?label=Code%20Size)
 
 ## How to use?
