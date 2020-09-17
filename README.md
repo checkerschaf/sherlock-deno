@@ -39,7 +39,7 @@ Then you only need to type `sherlock`.
 | `--help` | Show help |
 | `--version` | Show version number and active sites count |
 | `-a, --all` | Show all results |
-| `-t, --timeout` | Set timout for requests in seconds |
+| `-t, --timeout` | Set timout for requests in seconds (WIP) |
 | `-f, --format` | Select output format [json,pretty_json,csv] |
 
 ## How to contribute?
