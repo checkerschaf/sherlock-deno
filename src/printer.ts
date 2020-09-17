@@ -104,7 +104,7 @@ const getTotalMatches = (results: Array<SiteResult>): number => {
 const printPermissionError = () => {
   printFatalError(
     new Error(
-      "Permission error. Try running again with the --allow-net --allow-read flags.",
+      "Permission error. Try again with the --allow-net flag. Learn more: https://deno.land/manual/getting_started/permissions#network-access",
     ),
   );
 };

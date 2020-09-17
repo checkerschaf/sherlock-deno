@@ -5,25 +5,28 @@
   <br>
 </p>
 
-Sherlock-Deno is a remake of the original [sherlock](https://github.com/sdushantha/sherlock) by [sdushantha](https://github.com/sdushantha).
+Sherlock-Deno is an improved remake of the original [sherlock](https://github.com/sdushantha/sherlock) by [sdushantha](https://github.com/sdushantha).
 
 Why use Sherlock-Deno?
 - Super lightweight
-- Runs all checks concurrently in multiple threads
-- Cleverly looks through the response to determine if a user has an account
+- Can be run without installation
+- Runs all checks concurrently (asynchronous)
+- Cleverly looks through the response to determine if a user has an account (status code, redirect, page content)
 - Follows HTTP(S) redirections
+- Only 2 std dependencies (colors, flags)
 
 #### Master-Branch Status
 ![Deno CI](https://github.com/checkerschaf/sherlock-deno/workflows/Deno%20CI/badge.svg?branch=master)
 
 ## How to use?
-Simply install deno on your system with one command. You can find the offical command [here](https://deno.land/#installation).
+Simply install deno on your system with a single command. You can find the offical command [here](https://deno.land/#installation).
 
 #### Without installation:
-`deno run --allow-read --allow-net https://deno.land/x/sherlock/main.ts`
+`deno run --allow-net https://deno.land/x/sherlock/main.ts`
 
 #### With installation (WIP):
-`deno install -n sherlock https://deno.land/x/sherlock/main.ts`
+`deno install -f -n sherlock https://deno.land/x/sherlock/main.ts`
+Then you only need to type `sherlock`.
 
 Done! 🎉 You now have a running version of Sherlock-Deno.
 
@@ -31,7 +34,7 @@ Done! 🎉 You now have a running version of Sherlock-Deno.
 | Argument | Description |
 |:-:|:-:|
 | `--help` | Show help |
-| `--version` | Show version number |
+| `--version` | Show version number and active sites count |
 | `-m, --onlyMatching` | Only show matching results |
 | `-t, --timeout` | Set timout for requests in seconds |
 | `-f, --format` | Select output format [json,pretty_json,csv] |
@@ -41,14 +44,21 @@ If you encounter any issues please create an issue [here](https://github.com/che
 
 Feel free to create an issue if you have an idea what could be added next. Thanks in advance!
 
+## How to update?
+Deno caches the dependencies locally, so you may need to clear the cache to update. To do so simply run:
+
+`deno cache --reload https://deno.land/x/sherlock/main.ts`
+
+Next run the installation command from above again.
+
 ## How to install the source code?
 1. Clone the repository.
-2. Run `deno run --allow-read --allow-net main.ts`
+2. Run `deno run --allow-net main.ts`
 
 Done! 🎉 You now have a running version of Sherlock-Deno on your local machine.
 
 ### Useful development commands:
-- `deno lint --unstable` - Runs a code linter to look for check the code style.
+- `deno lint --unstable` - Runs a code linter to check the code style.
 - `deno test` - Runs all tests.
 
 *Tip: You can find more info about the deno cli [here](https://deno.land/manual/getting_started/command_line_interface).*
