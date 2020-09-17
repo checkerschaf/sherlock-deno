@@ -1,5 +1,6 @@
 import { ScannerResult } from "../enums.ts";
-import { SiteResult } from "../types.ts";
+import { Site, SiteResult } from "../types.ts";
+import { responseIsUserPage } from "./response-checker.ts";
 
 const fetchWithTimeout = (
   input: RequestInfo,
@@ -14,53 +15,51 @@ const fetchWithTimeout = (
   ]) as Promise<Response>;
 };
 
-const checkUsernameAtUrl = async (
-  url: URL,
-  username: string,
+// TODO: use this version once https://github.com/denoland/deno/pull/6093 has been implemented
+const fetchTimeout = (
+  input: RequestInfo,
   timeout: number,
-): Promise<ScannerResult> => {
-  const response = await fetchWithTimeout(url.toString(), timeout, {
-    redirect: "follow",
-    headers: new Headers({
-      "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36",
-    }),
-  });
-
-  if (response.status != 200) return ScannerResult.NOT_FOUND;
-
-  const text = await response.text();
-  return pageContainsUsername(text, username)
-    ? ScannerResult.SUCCESS
-    : ScannerResult.NOT_FOUND;
+  init?: RequestInit,
+) => {
+  const controller = new AbortController();
+  const promise = fetch(input, { signal: controller.signal });
+  const timeoutId = setTimeout(() => {
+    controller.abort();
+  }, timeout);
+  return promise.finally(() => clearTimeout(timeoutId));
 };
 
-const pageContainsUsername = (data: string, username: string) => {
-  return data.includes(username) && !data.includes("Not Found") &&
-    !data.includes("Not found") && !data.includes("exist");
+const getUserUrl = (url: string, username: string) => {
+  return url.replace("{}", username);
 };
 
 const getSiteResult = async (
-  site: string,
-  url: string,
+  site: Site,
   username: string,
   timeout = 10000,
 ): Promise<SiteResult> => {
+  const userPageUrl = getUserUrl(site.url, username);
   try {
-    const result = await checkUsernameAtUrl(new URL(url), username, timeout);
+    const response = await fetchWithTimeout(userPageUrl, timeout, {
+      headers: new Headers({
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36",
+      }),
+    });
+
     return {
       site,
-      url: url.toString(),
-      result,
+      url: userPageUrl,
+      result: await responseIsUserPage(response, site, username),
     };
   } catch (error) {
     return {
       site,
-      url: url.toString(),
+      url: userPageUrl,
       result: ScannerResult.ERROR,
       error,
     };
   }
 };
 
-export { checkUsernameAtUrl, fetchWithTimeout, getSiteResult };
+export { fetchTimeout, fetchWithTimeout, getSiteResult, getUserUrl };

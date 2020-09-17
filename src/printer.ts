@@ -3,6 +3,7 @@ import { ScannerOptions, SiteResult } from "./types.ts";
 import { OutputFormat, ScannerResult } from "./enums.ts";
 import Timer from "./lib/timer.ts";
 import Scanner from "./scanner.ts";
+import {sites} from "./sites.ts";
 
 const printSherlockDeno = (): void => {
   console.log(c.cyan(`
@@ -24,6 +25,7 @@ const printFatalError = (err: Error): void => {
 };
 
 const printSiteResult = (
+  siteName: string,
   siteResult: SiteResult,
   options: ScannerOptions,
 ): void => {
@@ -32,7 +34,7 @@ const printSiteResult = (
       if (options.realtimeOutput) {
         console.log(
           c.bold(
-            `[${c.green("+")}] ${c.green(siteResult.site)}: ${siteResult.url}`,
+            `[${c.green("+")}] ${c.green(siteName)}: ${siteResult.url}`,
           ),
         );
       }
@@ -41,7 +43,7 @@ const printSiteResult = (
     case ScannerResult.NOT_FOUND:
       if (options.realtimeOutput) {
         console.log(
-          c.bold(`[${c.red("-")}] ${c.gray(siteResult.site)}`),
+          c.bold(`[${c.red("-")}] ${c.gray(siteName)}`),
         );
       }
 
@@ -50,7 +52,7 @@ const printSiteResult = (
       if (options.realtimeOutput) {
         console.log(
           c.bold(
-            `[${c.red("-")}] ${c.red(siteResult.site)}: ${siteResult.error}`,
+            `[${c.red("-")}] ${c.red(siteName)}: ${siteResult.error}`,
           ),
         );
       }
@@ -68,7 +70,7 @@ const printTotalResults = (
       c.green(
         `Found a total of ${
           c.bold(`${getTotalMatches(scanner.results)} matches`)
-        } across ${Object.keys(scanner.results).length} sites.`,
+        } across ${Object.keys(sites).length} sites.`,
       ),
     );
     return;

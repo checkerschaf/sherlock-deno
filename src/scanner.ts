@@ -1,11 +1,12 @@
 import {
   ScannerOptions,
+  Site,
   SiteResult,
 } from "./types.ts";
 import { printSiteResult } from "./printer.ts";
 import { ScannerResult } from "./enums.ts";
 import { getSiteResult } from "./lib/fetcher.ts";
-import {sites} from "./sites.ts";
+import { sites } from "./sites.ts";
 
 export default class Scanner {
   options: ScannerOptions;
@@ -21,7 +22,7 @@ export default class Scanner {
     Object.keys(sites).forEach((site) => {
       this.processSite(
         site,
-        sites[site].replace("{}", this.options.username),
+        sites[site],
       );
     });
   }
@@ -32,10 +33,9 @@ export default class Scanner {
     }
   }
 
-  async processSite(site: string, url: string) {
+  async processSite(siteName: string, site: Site) {
     const siteResult = await getSiteResult(
       site,
-      url,
       this.options.username,
       this.options.timeout * 1000, // convert seconds from CLI to milliseconds
     );
@@ -45,7 +45,7 @@ export default class Scanner {
       !this.options.onlyMatching
     ) {
       this.results.push(siteResult);
-      printSiteResult(siteResult, this.options);
+      printSiteResult(siteName, siteResult, this.options);
     }
   }
 }

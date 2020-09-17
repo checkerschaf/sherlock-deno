@@ -1,4 +1,4 @@
-# Sherlock-Deno 🕵️ - search users across 295+ websites
+# Sherlock-Deno 🕵️ - search users across 275+ websites
 <p align="center">
   <br>
   <img alt="Screenshot" src="https://github.com/checkerschaf/sherlock-deno/raw/master/screenshot.png" />

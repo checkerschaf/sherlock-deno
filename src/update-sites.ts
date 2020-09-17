@@ -1,35 +1,38 @@
 import { c } from "./deps.ts";
+import { SiteList } from "./types.ts";
 
-interface Site {
-  [key: string]: string;
-}
-
-const getSites = async (url: string): Promise<Site> => {
+const getSites = async (url: string): Promise<SiteList> => {
   const response = await fetch(url);
-  const json = await response.json();
-  const sites: Site = {};
-  for (const site in json) {
-    if (Object.prototype.hasOwnProperty.call(json, site)) {
-      sites[site] = json[site].url;
-    }
-  }
-  return sites;
+  return await response.json();
 };
 
 /**
  * This removes sites that are currently defined as "buggy" due to bugs in deno itself.
  * @param sites
  */
-const removeBuggySites = (sites: Site): Site => {
-  // TODO: reenable "WordPressOrg": "https://profiles.wordpress.org/{}/", in sites-old.json when https://github.com/denoland/deno/issues/7208 is fixed because of special character header
-  delete sites["WordPressOrg"];
+const removeBuggySites = (sites: SiteList): SiteList => {
+  const sitesToRemove = [
+    // TODO: reenable "WordPressOrg": "https://profiles.wordpress.org/{}/", in sites-old.json when https://github.com/denoland/deno/issues/7208 is fixed because of special character header
+    "WordPressOrg",
+    // TODO: reenable "Photobucket": "https://photobucket.com/user/{}/library", in sites-old.json when https://github.com/denoland/deno/issues/6465 is fixed because of HandshakeFailure in TLSv1_2
+    "Photobucket",
+    // Other broken sites
+    "Pling",
+    "Championat",
+    "YouNow",
+    "Carbonmade",
+    "ResearchGate",
+    "Duolingo",
+    "Taringa",
+    "pr0gramm",
+    "Polarsteps",
+    "4pda",
+    "Rate Your Music",
+  ];
 
-  // TODO: reenable "Photobucket": "https://photobucket.com/user/{}/library", in sites-old.json when https://github.com/denoland/deno/issues/6465 is fixed because of HandshakeFailure in TLSv1_2
-  delete sites["Photobucket"];
-
-  // These sites are very slow and mostly time out. So let's remove them for now.
-  delete sites["Pling"];
-  delete sites["Championat"];
+  for (let site of sitesToRemove) {
+    delete sites[site];
+  }
 
   return sites;
 };
