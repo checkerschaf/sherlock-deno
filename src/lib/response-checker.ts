@@ -13,6 +13,7 @@ const responseIsUserPage = async (
     case SiteErrorType.response_url:
       return checkResponseUrl(response, site, username);
     case SiteErrorType.status_code:
+      return checkStatusCode(response);
     default:
       return checkStatusCode(response);
   }
