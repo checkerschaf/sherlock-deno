@@ -1,4 +1,4 @@
-import { SiteList } from "./types.ts";
+import type { SiteList } from "./types.ts";
 
 export const sites: SiteList = {
   "2Dimensions": {

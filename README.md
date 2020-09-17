@@ -7,7 +7,7 @@
 
 Sherlock-Deno is an improved remake of the original [sherlock](https://github.com/sdushantha/sherlock) by [sdushantha](https://github.com/sdushantha).
 
-Why use Sherlock-Deno?
+#### Why use Sherlock-Deno?
 - Super lightweight
 - Can be run without installation
 - Runs all checks concurrently (asynchronous)
@@ -15,8 +15,10 @@ Why use Sherlock-Deno?
 - Follows HTTP(S) redirections
 - Only 2 std dependencies (colors, flags)
 
-#### Master-Branch Status
+#### Status
 ![Deno CI](https://github.com/checkerschaf/sherlock-deno/workflows/Deno%20CI/badge.svg?branch=master)
+![Tested Deno Version](https://img.shields.io/badge/Tested%20Deno%20Version-1.4-brightgreen)
+![Code size](https://img.shields.io/github/languages/code-size/checkerschaf/sherlock-deno?label=Code%20Size)
 
 ## How to use?
 Simply install deno on your system with a single command. You can find the offical command [here](https://deno.land/#installation).
@@ -26,9 +28,10 @@ Simply install deno on your system with a single command. You can find the offic
 
 #### With installation (WIP):
 `deno install -f -n sherlock https://deno.land/x/sherlock/main.ts`
+
 Then you only need to type `sherlock`.
 
-Done! 🎉 You now have a running version of Sherlock-Deno.
+**Done!** 🎉 You now have a running version of Sherlock-Deno.
 
 ## Command Options
 | Argument | Description |

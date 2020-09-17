@@ -1,4 +1,4 @@
-import { OutputFormat, ScannerResult } from "./enums.ts";
+import type { OutputFormat, ScannerResult } from "./enums.ts";
 
 export type ScannerOptions = {
   username: string;

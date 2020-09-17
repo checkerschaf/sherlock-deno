@@ -1,8 +1,8 @@
 import { c } from "./deps.ts";
-import { ScannerOptions, SiteResult } from "./types.ts";
+import type { ScannerOptions, SiteResult } from "./types.ts";
 import { OutputFormat, ScannerResult } from "./enums.ts";
 import Timer from "./lib/timer.ts";
-import Scanner from "./scanner.ts";
+import type Scanner from "./scanner.ts";
 import { sites } from "./sites.ts";
 
 const printSherlockDeno = (): void => {

@@ -27,7 +27,8 @@ const getPageContent = async (response: Response): Promise<string> => {
   return decoder.decode(dataView);
 };
 
-const checkStatusCode = (response: Response): ScannerResult => {
+const checkStatusCode = async (response: Response): Promise<ScannerResult> => {
+  await response.arrayBuffer();
   if (response.status === 200) return ScannerResult.SUCCESS;
   if (response.status >= 500 && response.status <= 599) {
     return ScannerResult.ERROR;
@@ -73,4 +74,9 @@ const checkResponseUrl = async (
   return ScannerResult.SUCCESS;
 };
 
-export { responseIsUserPage };
+export {
+  responseIsUserPage,
+  checkResponseUrl,
+  checkStatusCode,
+  checkStatusMessage,
+};

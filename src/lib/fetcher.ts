@@ -1,14 +1,14 @@
 import { ScannerResult } from "../enums.ts";
-import { Site, SiteResult } from "../types.ts";
+import type { Site, SiteResult } from "../types.ts";
 import { responseIsUserPage } from "./response-checker.ts";
 import { printPermissionError } from "../printer.ts";
 
 // TODO: use this version once https://github.com/denoland/deno/pull/6093 has been implemented
 const fetchTimeout = (
   input: RequestInfo,
-  timeout: number,
+  timeout = 10000,
   init?: RequestInit,
-) => {
+): Promise<Response> => {
   const controller = new AbortController();
   const promise = fetch(input, { signal: controller.signal, ...init });
   const timeoutId = setTimeout(() => controller.abort(), timeout);
