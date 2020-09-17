@@ -1,6 +1,6 @@
-import {Site, SiteErrorType} from "../types.ts";
-import {ScannerResult} from "../enums.ts";
-import {getUserUrl} from "./fetcher.ts";
+import { Site, SiteErrorType } from "../types.ts";
+import { ScannerResult } from "../enums.ts";
+import { getUserUrl } from "./fetcher.ts";
 
 const responseIsUserPage = async (
   response: Response,
@@ -42,7 +42,12 @@ const checkStatusMessage = async (
 ): Promise<ScannerResult> => {
   const pageText = await getPageContent(response);
 
-  if (pageText.includes(site.errorMsg || "not found") || pageText.includes("went wrong") || pageText.includes("exist")) return ScannerResult.NOT_FOUND;
+  if (
+    pageText.includes(site.errorMsg || "not found") ||
+    pageText.includes("went wrong") || pageText.includes("exist")
+  ) {
+    return ScannerResult.NOT_FOUND;
+  }
 
   return pageText.includes(username)
     ? ScannerResult.SUCCESS
@@ -54,10 +59,16 @@ const checkResponseUrl = async (
   site: Site,
   username: string,
 ): Promise<ScannerResult> => {
-  if(response.url !==
-      getUserUrl(site.url, username)) return ScannerResult.NOT_FOUND;
+  if (
+    response.url !==
+      getUserUrl(site.url, username)
+  ) {
+    return ScannerResult.NOT_FOUND;
+  }
 
-  if (!(await getPageContent(response)).includes(username)) return ScannerResult.NOT_FOUND;
+  if (!(await getPageContent(response)).includes(username)) {
+    return ScannerResult.NOT_FOUND;
+  }
 
   return ScannerResult.SUCCESS;
 };

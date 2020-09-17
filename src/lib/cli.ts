@@ -1,50 +1,55 @@
-import { c, CliArguments, yargs } from "../deps.ts";
-import { OutputFormat } from "../enums.ts";
-import { VERSION } from "../sherlock.ts";
+import { Args, c, parse } from "../deps.ts";
 import { sites } from "../sites.ts";
+import { ScannerOptions } from "../types.ts";
+import { SHERLOCK_VERSION } from "../../main.ts";
 
-async function readCliArguments(args: Array<string>): Promise<CliArguments> {
-  return await yargs()
-    .options({
-      onlyMatching: {
-        alias: "m",
-        description: "Only show matching results",
-        type: "boolean",
-      },
-      timeout: {
-        alias: "t",
-        description: "Set timout for requests in seconds",
-        type: "number",
-        default: 30,
-      },
-      format: {
-        description: "Select output format",
-        type: "string",
-        alias: "f",
-        choices: Object.keys(OutputFormat).map((val) =>
-          val.toLocaleLowerCase()
-        ),
-      },
-    })
-    .epilogue(
-      `📖 ${c.cyan("For more details please visit")} ${
-        c.underline(c.blue("https://github.com/checkerschaf/sherlock-deno"))
-      }`,
-    )
-    .example(c.yellow("sherlock JohnDoe"), "Search for JohnDoe")
-    .example(
-      c.yellow("sherlock -m JohnDoe"),
-      "Search for JohnDoe and only show matches",
-    )
-    .version(
-      c.green(
-        `You are using version v${c.bold(VERSION)}. with a total of ${
-          c.bold(`${Object.keys(sites).length}`)
-        } sites.`,
-      ),
-    )
-    .parse(args);
-}
+const readCliArguments = async (): Promise<ScannerOptions> => {
+  const args = parse(Deno.args);
+
+  // Show help
+  if (args.help) {
+    showHelp();
+    Deno.exit();
+  }
+
+  // Show version
+  if (args.version) {
+    showVersion();
+    Deno.exit();
+  }
+
+  return {
+    username: await getUsername(args),
+    onlyMatching: args.onlyMatching || args.m || false,
+    realtimeOutput: !(args.format || args.f),
+    timeout: args.timeout || args.t || 30,
+    format: args.format || args.f || "",
+  };
+};
+
+const showHelp = () => {
+  console.log(`Options:
+      --help          Show help
+      --version       Show version number and number of active sites
+  -m, --onlyMatching  Only show matching results                         [boolean]
+  -t, --timeout       Set timout for requests in seconds    [number] [default: 30]
+  -f, --format        Select output format [choices: "json", "pretty_json", "csv"]`);
+  console.log("\n\nExamples:");
+  console.log(`${c.yellow("sherlock JohnDoe")}     Search for JohnDoe`);
+  console.log(
+    `${
+      c.yellow("sherlock -m JohnDoe")
+    }     Search for JohnDoe and only show matches`,
+  );
+};
+
+const showVersion = () => {
+  console.log(c.green(
+    `You are using version v${c.bold(SHERLOCK_VERSION)}. with a total of ${
+      c.bold(`${Object.keys(sites).length}`)
+    } sites.`,
+  ));
+};
 
 const ask = async (
   question = "",
@@ -70,8 +75,8 @@ const askForUsername = (): Promise<string> => {
   return ask(c.green(c.bold(`[>] Input username: `)), true);
 };
 
-const getUsername = async (argv: CliArguments): Promise<string> => {
-  if (argv._?.length) return argv._[0];
+const getUsername = async (args: Args): Promise<string> => {
+  if (args._?.length) return String(args._[0]);
   return askForUsername();
 };
 

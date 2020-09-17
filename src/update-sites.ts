@@ -1,5 +1,5 @@
 import { c } from "./deps.ts";
-import { SiteList } from "./types.ts";
+import { SiteErrorType, SiteList } from "./types.ts";
 
 const getSites = async (url: string): Promise<SiteList> => {
   const response = await fetch(url);
@@ -16,6 +16,17 @@ const removeBuggySites = (sites: SiteList): SiteList => {
     "WordPressOrg",
     // TODO: reenable "Photobucket": "https://photobucket.com/user/{}/library", in sites-old.json when https://github.com/denoland/deno/issues/6465 is fixed because of HandshakeFailure in TLSv1_2
     "Photobucket",
+    // These sites mostly require active JavaScript -> disable them
+    "Facebook",
+    "MixCloud",
+    "Twitch",
+    "Kik",
+    "Docker Hub",
+    "Twitter",
+    "Nightbot",
+    "radio_echo_msk",
+    "Spotify",
+    "RubyGems",
     // Other broken sites
     "Pling",
     "Championat",
@@ -37,11 +48,17 @@ const removeBuggySites = (sites: SiteList): SiteList => {
   return sites;
 };
 
+const patchSites = (sites: SiteList): SiteList => {
+  // No sites to patch yet
+  return sites;
+};
+
 // Get sites from original sherlock and remove buggy ones
 let sites = await getSites(
   "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/resources/data.json",
 );
 sites = removeBuggySites(sites);
+sites = patchSites(sites);
 
 // Write the new sites-old.json
 await Deno.writeTextFile("./sites.json", JSON.stringify(sites, null, 4));

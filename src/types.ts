@@ -23,16 +23,16 @@ export enum SiteErrorType {
 
 export type Site = {
   url: string;
-  urlMain: string;
   errorType: SiteErrorType | string;
   errorUrl?: string;
-  urlProbe?: string;
   errorMsg?: string;
-  regexCheck?: string;
 
   // Unused
-  username_claimed: string;
-  username_unclaimed: string;
+  regexCheck?: string;
+  urlProbe?: string;
+  urlMain?: string;
+  username_claimed?: string;
+  username_unclaimed?: string;
   request_head_only?: boolean;
   noPeriod?: string;
   rank?: number;

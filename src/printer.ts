@@ -3,7 +3,7 @@ import { ScannerOptions, SiteResult } from "./types.ts";
 import { OutputFormat, ScannerResult } from "./enums.ts";
 import Timer from "./lib/timer.ts";
 import Scanner from "./scanner.ts";
-import {sites} from "./sites.ts";
+import { sites } from "./sites.ts";
 
 const printSherlockDeno = (): void => {
   console.log(c.cyan(`
@@ -101,9 +101,18 @@ const getTotalMatches = (results: Array<SiteResult>): number => {
     .length;
 };
 
+const printPermissionError = () => {
+  printFatalError(
+    new Error(
+      "Permission error. Try running again with the --allow-net --allow-read flags.",
+    ),
+  );
+};
+
 export {
   printSherlockDeno,
   printFatalError,
   printSiteResult,
   printTotalResults,
+  printPermissionError,
 };
