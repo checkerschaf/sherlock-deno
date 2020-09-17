@@ -57,7 +57,7 @@ const getSiteResult = async (
       site,
       url: userPageUrl,
       result: ScannerResult.ERROR,
-      error,
+      error: 'Http Error',
     };
   }
 };
