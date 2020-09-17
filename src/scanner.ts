@@ -42,7 +42,7 @@ export default class Scanner {
 
     if (
       siteResult.result === ScannerResult.SUCCESS ||
-      !this.options.onlyMatching
+      this.options.showAll
     ) {
       this.results.push(siteResult);
       printSiteResult(siteName, siteResult, this.options);

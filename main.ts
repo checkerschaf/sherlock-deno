@@ -7,7 +7,7 @@ import Timer from "./src/lib/timer.ts";
 import { readCliArguments } from "./src/lib/cli.ts";
 import Scanner from "./src/scanner.ts";
 
-const SHERLOCK_VERSION = "1.4.0";
+const SHERLOCK_VERSION = "1.5.0";
 
 /**
  * This is the entry point to the sherlock script.

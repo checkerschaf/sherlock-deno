@@ -20,7 +20,7 @@ const readCliArguments = async (): Promise<ScannerOptions> => {
 
   return {
     username: await getUsername(args),
-    onlyMatching: args.onlyMatching || args.m || false,
+    showAll: args.all || args.a || false,
     realtimeOutput: !(args.format || args.f),
     timeout: args.timeout || args.t || 30,
     format: args.format || args.f || "",
@@ -31,15 +31,15 @@ const showHelp = () => {
   console.log(`Options:
       --help          Show help
       --version       Show version number and number of active sites
-  -m, --onlyMatching  Only show matching results                         [boolean]
+      -a, --all       Show all results                                   [boolean]
   -t, --timeout       Set timout for requests in seconds    [number] [default: 30]
   -f, --format        Select output format [choices: "json", "pretty_json", "csv"]`);
   console.log("\n\nExamples:");
   console.log(`${c.yellow("sherlock JohnDoe")}     Search for JohnDoe`);
   console.log(
     `${
-      c.yellow("sherlock -m JohnDoe")
-    }     Search for JohnDoe and only show matches`,
+      c.yellow("sherlock -a JohnDoe")
+    }     Search for JohnDoe and show all results`,
   );
 };
 

@@ -2,7 +2,7 @@ import { OutputFormat, ScannerResult } from "./enums.ts";
 
 export type ScannerOptions = {
   username: string;
-  onlyMatching?: boolean;
+  showAll: boolean;
   realtimeOutput?: boolean;
   timeout: number;
   format?: OutputFormat | string;
