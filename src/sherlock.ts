@@ -8,7 +8,7 @@ import { CliArguments } from "./deps.ts";
 import { getUsername, readCliArguments } from "./lib/cli.ts";
 import Scanner from "./scanner.ts";
 
-const VERSION = "1.3.0";
+const VERSION = "1.3.1";
 
 const runSherlock = async (): Promise<void> => {
   // Show a beautiful Sherlock ASCII image
