@@ -13,11 +13,12 @@ Sherlock-Deno is an improved remake of the original [sherlock](https://github.co
 - Runs all checks concurrently (asynchronous)
 - Cleverly looks through the response to determine if a user has an account (status code, redirect, page content)
 - Follows HTTP(S) redirections
-- Only uses the 2 deno standard modules (colors, flags)
+- Only uses the two deno standard modules (colors, flags)
 
 #### Status
-![Deno CI](https://github.com/checkerschaf/sherlock-deno/workflows/Deno%20CI/badge.svg?branch=master)
-![Deno Version](https://img.shields.io/badge/Deno%20Version-1.4-brightgreen)
+![Latest Release](https://img.shields.io/github/release/checkerschaf/sherlock-deno.svg?color=bright_green&label=Latest%20Release)
+![Deno CI](https://img.shields.io/github/workflow/status/checkerschaf/sherlock-deno/Deno%20CI?label=Deno%20CI&logo=GitHub)
+![Deno Version](https://img.shields.io/badge/Deno%20Version-1.4-bright_green)
 ![Code size](https://img.shields.io/github/languages/code-size/checkerschaf/sherlock-deno?label=Code%20Size)
 
 ## How to use the CLI (Command Line Interface)?
