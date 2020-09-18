@@ -105,18 +105,9 @@ const getTotalMatches = (results: Array<SiteResult>): number => {
     .length;
 };
 
-const printPermissionError = () => {
-  printFatalError(
-    new Error(
-      "Permission error. Try again with the --allow-net flag. Learn more: https://deno.land/manual/getting_started/permissions#network-access",
-    ),
-  );
-};
-
 export {
   printSherlockDeno,
   printFatalError,
   printSiteResult,
   printTotalResults,
-  printPermissionError,
 };
