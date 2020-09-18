@@ -27,10 +27,12 @@ Simply install deno on your system with a single command. You can find the offic
 #### Without installation:
 `deno run --allow-net https://deno.land/x/sherlock/cli.ts`
 
-#### With installation (WIP):
-`deno install -f -n sherlock https://deno.land/x/sherlock/cli.ts`
-
-Then you only need to type `sherlock`.
+#### With installation:
+Due to a bug in Deno 1.4 the bundling from an url is not working properly. So please follow these steps:
+1. Clone the repository into a directory of your choice.
+2. Run `deno bundle cli.ts > sherlock.js`
+3. Run `deno install -f -n sherlock sherlock.js`
+4. Verify the installation by typing `sherlock --allow-net`
 
 **Done!** 🎉 You now have a running version of Sherlock-Deno.
 
