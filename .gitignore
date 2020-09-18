@@ -1,4 +1,4 @@
 /.vscode
 /.idea
 sites.json
-sherlock.js
+*.bundle.js
