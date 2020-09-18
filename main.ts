@@ -1,40 +1,20 @@
-import {
-  printFatalError,
-  printSherlockDeno,
-  printTotalResults,
-} from "./src/printer.ts";
-import Timer from "./src/lib/timer.ts";
-import { readCliArguments } from "./src/lib/cli.ts";
-import Scanner from "./src/scanner.ts";
-
-const SHERLOCK_VERSION = "1.5.1";
-
 /**
- * This is the entry point to the sherlock script.
+ * @deprecated Please use cli.ts instead as the entry point.
+ * TODO: Remove in 2.0.0!
  */
-const runSherlock = async (): Promise<void> => {
-  // Show a beautiful Sherlock ASCII image
-  printSherlockDeno();
 
-  // Create a new scanner with the arguments from the command line
-  const scanner = new Scanner(await readCliArguments());
+import { runSherlockCli } from "./cli.ts";
+import { c } from "./src/deps.ts";
 
-  // Show the total results after finishing all sub-processes
-  window.onunload = () => printTotalResults(scanner);
-
-  // Start a Timer to track the runtime
-  Timer.start();
-
-  // Start the scan and wait for it to finish
-  await scanner.scan()
-    .catch(
-      (err: Error) => printFatalError(err),
-    );
-};
+const deprecatedWarning = `${
+  c.yellow(
+    `[!] This script for running Sherlock-Deno is deprecated and will break in 2.0.0! Please use`,
+  )
+} ${c.green(c.bold("deno run cli.ts"))} ${c.yellow(`instead.`)}`;
 
 // Start the sherlock script
 if (import.meta.main) {
-  await runSherlock();
+  console.log(deprecatedWarning);
+  await runSherlockCli();
+  console.log(deprecatedWarning);
 }
-
-export { SHERLOCK_VERSION };

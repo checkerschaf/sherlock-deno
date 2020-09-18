@@ -1,7 +1,7 @@
 import { Args, c, parse } from "../deps.ts";
-import { sites } from "../sites.ts";
+import { sites } from "../../sites.ts";
 import type { ScannerOptions } from "../types.ts";
-import { SHERLOCK_VERSION } from "../../main.ts";
+import { SHERLOCK_VERSION } from "../../mod.ts";
 
 const readCliArguments = async (): Promise<ScannerOptions> => {
   const args = parse(Deno.args);

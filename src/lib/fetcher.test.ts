@@ -6,7 +6,7 @@ import {
   stub,
   testUsername,
 } from "../deps-testing.ts";
-import { sites } from "../sites.ts";
+import { sites } from "../../sites.ts";
 import { ScannerResult } from "../enums.ts";
 
 const githubPromise = new Promise((resolve) =>

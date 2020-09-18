@@ -1,11 +1,18 @@
 export default class Timer {
-  private static begin: number;
+  private startTime = 0;
+  private endTime = 0;
 
-  static start(): void {
-    Timer.begin = Date.now();
+  start(): void {
+    this.startTime = Date.now();
   }
 
-  static end(): number {
-    return Math.abs(Date.now() - Timer.begin);
+  end(): number {
+    this.endTime = Date.now();
+    return this.getRuntime();
+  }
+
+  getRuntime() {
+    if (this.endTime) return Math.abs(this.endTime - this.startTime);
+    return Math.abs(Date.now() - this.startTime);
   }
 }

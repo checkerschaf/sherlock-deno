@@ -24,10 +24,10 @@ Sherlock-Deno is an improved remake of the original [sherlock](https://github.co
 Simply install deno on your system with a single command. You can find the offical command [here](https://deno.land/#installation).
 
 #### Without installation:
-`deno run --allow-net https://deno.land/x/sherlock/main.ts`
+`deno run --allow-net https://deno.land/x/sherlock/cli.ts`
 
 #### With installation (WIP):
-`deno install -f -n sherlock https://deno.land/x/sherlock/main.ts`
+`deno install -f -n sherlock https://deno.land/x/sherlock/cli.ts`
 
 Then you only need to type `sherlock`.
 
@@ -50,13 +50,13 @@ Feel free to create an issue if you have an idea what could be added next. Thank
 ## How to update?
 Deno caches the dependencies locally, so you may need to clear the cache to update. To do so simply run:
 
-`deno cache --reload https://deno.land/x/sherlock/main.ts`
+`deno cache --reload https://deno.land/x/sherlock/cli.ts`
 
 Next run the installation command from above again.
 
 ## How to install the source code?
 1. Clone the repository.
-2. Run `deno run --allow-net main.ts`
+2. Run `deno run --allow-net cli.ts`
 
 Done! 🎉 You now have a running version of Sherlock-Deno on your local machine.
 

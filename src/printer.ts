@@ -1,9 +1,9 @@
 import { c } from "./deps.ts";
 import type { ScannerOptions, SiteResult } from "./types.ts";
 import { OutputFormat, ScannerResult } from "./enums.ts";
-import Timer from "./lib/timer.ts";
 import type Scanner from "./scanner.ts";
-import { sites } from "./sites.ts";
+import { SHERLOCK_VERSION } from "../mod.ts";
+import { sitesCount } from "../sites.ts";
 
 const printSherlockDeno = (): void => {
   console.log(c.cyan(`
@@ -14,9 +14,9 @@ const printSherlockDeno = (): void => {
    ╚════██║██╔══██║██╔══╝  ██╔══██╗██║     ██║   ██║██║     ██╔═██╗   ' |'  -{.  )
    ███████║██║  ██║███████╗██║  ██║███████╗╚██████╔╝╚██████╗██║  ██╗    /\\__-' \\[]
    ╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝ ╚═════╝  ╚═════╝╚═╝  ╚═╝    /\`-_\`\\
-                      Made with ${
+    Version: ${SHERLOCK_VERSION}  |  Sites: ${sitesCount}  |  Made with ${
     c.red("<3")
-  } by checkerschaf.                     '     \\
+  } by checkerschaf.     '     \\
 `));
 };
 
@@ -25,8 +25,8 @@ const printFatalError = (err: Error): void => {
 };
 
 const printSiteResult = (
-  siteName: string,
   siteResult: SiteResult,
+  siteName: string,
   options: ScannerOptions,
 ): void => {
   switch (siteResult.result) {
@@ -64,13 +64,17 @@ const printTotalResults = (
 ): void => {
   if (scanner.options.realtimeOutput) {
     console.log(
-      c.green(`\nFinished in ${Math.round(Timer.end() / 1000)} seconds.`),
+      c.green(
+        `\nFinished in ${
+          Math.round(scanner.timer.getRuntime() / 1000)
+        } seconds.`,
+      ),
     );
     console.log(
       c.green(
         `Found a total of ${
           c.bold(`${getTotalMatches(scanner.results)} matches`)
-        } across ${Object.keys(sites).length} sites.`,
+        } across ${sitesCount} sites.`,
       ),
     );
     return;
