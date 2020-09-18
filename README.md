@@ -29,7 +29,7 @@ Simply install deno on your system with a single command. You can find the offic
 `deno run --allow-net https://deno.land/x/sherlock/cli.ts`
 
 #### With installation:
-`deno install --allow-net -f -n sherlock https://deno.land/x/sherlock@v1.6.0/cli.ts`
+`deno install --allow-net -f -n sherlock https://deno.land/x/sherlock@v1.6.1/cli.ts`
 
 Verify the installation by typing `sherlock`
 
