@@ -13,12 +13,13 @@ Sherlock-Deno is an improved remake of the original [sherlock](https://github.co
 - Runs all checks concurrently (asynchronous)
 - Cleverly looks through the response to determine if a user has an account (status code, redirect, page content)
 - Follows HTTP(S) redirections
-- Only uses the two deno standard modules (colors, flags)
+- Only uses the deno standard modules (colors, flags)
 
 #### Status
-![Latest Release](https://img.shields.io/github/release/checkerschaf/sherlock-deno.svg?color=bright_green&label=Latest%20Release)
+![Latest Release](https://img.shields.io/github/release/checkerschaf/sherlock-deno.svg?label=Latest%20Release)
 ![Deno CI](https://img.shields.io/github/workflow/status/checkerschaf/sherlock-deno/Deno%20CI?label=Deno%20CI&logo=GitHub)
-![Deno Version](https://img.shields.io/badge/Deno%20Version-1.4-bright_green?logo=deno)
+[![deno land](http://img.shields.io/badge/available%20on-deno.land/x-lightgrey.svg?logo=deno)](https://deno.land/x/sherlock)
+![Deno Version](https://img.shields.io/badge/Deno%20Version-1.4-lightgrey?logo=deno)
 ![Code size](https://img.shields.io/github/languages/code-size/checkerschaf/sherlock-deno?label=Code%20Size)
 
 ## How to use the CLI (Command Line Interface)?
@@ -28,10 +29,9 @@ Simply install deno on your system with a single command. You can find the offic
 `deno run --allow-net https://deno.land/x/sherlock/cli.ts`
 
 #### With installation:
-1. Clone the repository into a directory of your choice.
-2. Run `deno bundle cli.ts sherlock.bundle.js`
-3. Run ` deno install -f --allow-net -n sherlock sherlock.bundle.js`
-4. Verify the installation by typing `sherlock`
+`deno install --allow-net -f -n sherlock https://deno.land/x/sherlock@v1.6.0/cli.ts`
+
+Verify the installation by typing `sherlock`
 
 **Done!** 🎉 You now have a running version of Sherlock-Deno.
 

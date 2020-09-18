@@ -73,10 +73,11 @@ const printTotalResults = (
     console.log(
       c.green(
         `Found a total of ${
-          c.bold(`${getTotalMatches(scanner.results)} matches`)
+          c.bold(c.brightGreen(`${getTotalMatches(scanner.results)} matches`))
         } across ${sitesCount} sites.`,
       ),
     );
+
     return;
   }
 
@@ -99,9 +100,12 @@ const printTotalResults = (
   }
 };
 
-const getTotalMatches = (results: Array<SiteResult>): number => {
+const getTotalMatches = (
+  results: Array<SiteResult>,
+  resultToCheckFor = ScannerResult.SUCCESS,
+): number => {
   return results
-    .filter((siteResult) => (siteResult.result === ScannerResult.SUCCESS))
+    .filter((siteResult) => (siteResult.result === resultToCheckFor))
     .length;
 };
 
