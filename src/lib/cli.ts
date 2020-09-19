@@ -4,7 +4,14 @@ import type { ScannerOptions } from "../types.ts";
 import { SHERLOCK_VERSION } from "../../mod.ts";
 
 const readCliArguments = async (): Promise<ScannerOptions> => {
-  const args = parse(Deno.args);
+  const args = parse(Deno.args, {
+    boolean: ["all"],
+    alias: {
+      all: ["a"],
+      timeout: ["t"],
+      format: ["f"],
+    },
+  });
 
   // Show help
   if (args.help) {
@@ -20,10 +27,10 @@ const readCliArguments = async (): Promise<ScannerOptions> => {
 
   return {
     username: await getUsername(args),
-    showAll: args.all || args.a || false,
-    realtimeOutput: !(args.format || args.f),
-    timeout: args.timeout || args.t || 30,
-    format: args.format || args.f || "",
+    showAll: args.all ?? false,
+    realtimeOutput: !args.format,
+    timeout: args.timeout ?? 30,
+    format: args.format ?? "",
   };
 };
 
