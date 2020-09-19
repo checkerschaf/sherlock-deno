@@ -26,13 +26,13 @@ export type Site = {
   errorType: SiteErrorType | string;
   errorUrl?: string;
   errorMsg?: string;
+  username_claimed?: string;
+  username_unclaimed?: string;
 
   // Unused
   regexCheck?: string;
   urlProbe?: string;
   urlMain?: string;
-  username_claimed?: string;
-  username_unclaimed?: string;
   request_head_only?: boolean;
   noPeriod?: string;
   rank?: number;

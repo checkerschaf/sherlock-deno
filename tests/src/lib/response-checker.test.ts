@@ -3,17 +3,19 @@ import {
   checkStatusCode,
   checkStatusMessage,
   responseIsUserPage,
-} from "./response-checker.ts";
+} from "../../../src/lib/response-checker.ts";
+import { ScannerResult } from "../../../src/enums.ts";
+import { getUserUrl } from "../../../src/lib/fetcher.ts";
 import {
   assertEquals,
+} from "../../testing-deps.ts";
+import {
   siteRedirect,
   siteStatusCode,
   siteStatusMessage,
   successResponse,
   testUsername,
-} from "../deps-testing.ts";
-import { ScannerResult } from "../enums.ts";
-import { getUserUrl } from "./fetcher.ts";
+} from "../../testing-helpers.ts";
 
 Deno.test("response-checker.ts: checkStatusCode() - success if status is 200", async () => {
   assertEquals(await checkStatusCode(successResponse), ScannerResult.SUCCESS);

@@ -25,4 +25,4 @@ jobs:
         run: deno lint --unstable
 
       - name: Run Tests
-        run: deno test
+        run: deno test tests/src

@@ -1,13 +1,17 @@
-import { fetchTimeout, getSiteResult, getUserUrl } from "./fetcher.ts";
+import {
+  fetchTimeout,
+  getSiteResult,
+  getUserUrl,
+} from "../../../src/lib/fetcher.ts";
+import { sites } from "../../../sites.ts";
+import { ScannerResult } from "../../../src/enums.ts";
 import {
   assertEquals,
   assertStringContains,
   Stub,
   stub,
-  testUsername,
-} from "../deps-testing.ts";
-import { sites } from "../../sites.ts";
-import { ScannerResult } from "../enums.ts";
+} from "../../testing-deps.ts";
+import { testUsername } from "../../testing-helpers.ts";
 
 const githubPromise = new Promise((resolve) =>
   resolve(
