@@ -41,15 +41,15 @@ const checkStatusMessage = async (
   site: Site,
   username: string,
 ): Promise<ScannerResult> => {
-  const pageText = await getPageContent(response);
+  const pageContent = await getPageContent(response);
 
   if (
-    pageText.includes(site.errorMsg || "not found")
+    pageContent.includes(site.errorMsg || "not found")
   ) {
     return ScannerResult.NOT_FOUND;
   }
 
-  return pageText.includes(username)
+  return pageContent.includes(username)
     ? ScannerResult.SUCCESS
     : ScannerResult.NOT_FOUND;
 };
@@ -59,6 +59,8 @@ const checkResponseUrl = async (
   site: Site,
   username: string,
 ): Promise<ScannerResult> => {
+  const pageContent = await getPageContent(response);
+
   if (
     response.url !==
       getUserUrl(site.url, username)
@@ -66,7 +68,7 @@ const checkResponseUrl = async (
     return ScannerResult.NOT_FOUND;
   }
 
-  if (!(await getPageContent(response)).includes(username)) {
+  if (!pageContent.includes(username)) {
     return ScannerResult.NOT_FOUND;
   }
 
