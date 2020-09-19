@@ -19,7 +19,7 @@ Sherlock-Deno is an improved remake of the original [sherlock](https://github.co
 ![Latest Release](https://img.shields.io/github/release/checkerschaf/sherlock-deno.svg?label=Latest%20Release)
 ![Deno CI](https://img.shields.io/github/workflow/status/checkerschaf/sherlock-deno/Deno%20CI?label=Deno%20CI&logo=GitHub)
 [![deno land](http://img.shields.io/badge/available%20on-deno.land/x-lightgrey.svg?logo=deno)](https://deno.land/x/sherlock)
-![Deno Version](https://img.shields.io/badge/Deno%20Version-1.4-lightgrey?logo=deno)
+![Deno Version](https://img.shields.io/badge/Deno%20Version-1.4.1-lightgrey?logo=deno)
 ![Code size](https://img.shields.io/github/languages/code-size/checkerschaf/sherlock-deno?label=Code%20Size)
 
 ## How to use the CLI (Command Line Interface)?
@@ -29,7 +29,7 @@ Simply install deno on your system with a single command. You can find the offic
 `deno run --allow-net https://deno.land/x/sherlock/cli.ts`
 
 #### With installation:
-`deno install --allow-net -f -n sherlock https://deno.land/x/sherlock@v1.6.1/cli.ts`
+`deno install --allow-net -f -n sherlock https://deno.land/x/sherlock/cli.ts`
 
 Verify the installation by typing `sherlock`
 
@@ -64,7 +64,7 @@ Feel free to create an issue if you have an idea what could be added next. Thank
 
 ### Useful development commands:
 - `deno lint --unstable` - Runs a code linter to check the code style.
-- `deno test` - Runs all tests.
-- `deno test --coverage --unstable` - Runs all tests and creates a code coverage report.
+- `deno test src` - Runs all tests.
+- `deno test src --coverage --unstable` - Runs all tests and creates a code coverage report.
 
 *Tip: You can find more info about the deno cli [here](https://deno.land/manual/getting_started/command_line_interface).*

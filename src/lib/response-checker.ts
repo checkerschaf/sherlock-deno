@@ -44,8 +44,7 @@ const checkStatusMessage = async (
   const pageText = await getPageContent(response);
 
   if (
-    pageText.includes(site.errorMsg || "not found") ||
-    pageText.includes("went wrong") || pageText.includes("exist")
+    pageText.includes(site.errorMsg || "not found")
   ) {
     return ScannerResult.NOT_FOUND;
   }
