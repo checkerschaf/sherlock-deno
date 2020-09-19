@@ -24,13 +24,6 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
-  "9GAG": {
-    "errorType": "status_code",
-    "url": "https://www.9gag.com/u/{}",
-    "urlMain": "https://www.9gag.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
   "About.me": {
     "errorType": "status_code",
     "url": "https://about.me/{}",
@@ -159,16 +152,6 @@ export const sites: SiteList = {
     "urlMain": "https://www.behance.net/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
-  },
-  "BinarySearch": {
-    "errorMsg": "{}",
-    "errorType": "message",
-    "regexCheck": "^[a-zA-Z0-9-_]{1,15}$",
-    "url": "https://binarysearch.io/@/{}",
-    "urlMain": "https://binarysearch.io/",
-    "urlProbe": "https://binarysearch.io/api/users/{}/profile",
-    "username_claimed": "Eyes_Wide_Shut",
-    "username_unclaimed": "hihowareyou101",
   },
   "BitBucket": {
     "errorType": "status_code",

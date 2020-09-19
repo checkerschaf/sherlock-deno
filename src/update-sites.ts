@@ -1,5 +1,5 @@
 import { c } from "./deps.ts";
-import { SiteErrorType, SiteList } from "./types.ts";
+import { SiteList } from "./types.ts";
 
 const getSites = async (url: string): Promise<SiteList> => {
   const response = await fetch(url);
@@ -27,6 +27,8 @@ const removeBuggySites = (sites: SiteList): SiteList => {
     "radio_echo_msk",
     "Spotify",
     "RubyGems",
+    "9GAG",
+    "BinarySearch",
     // Other broken sites
     "Pling",
     "Championat",
