@@ -20,7 +20,7 @@ const readCliArguments = async (): Promise<ScannerOptions> => {
 
   return {
     username: await getUsername(args),
-    showAll: args.all || args.a || false,
+    showAll: getShowAllStatus(args),
     realtimeOutput: !(args.format || args.f),
     timeout: args.timeout || args.t || 30,
     format: args.format || args.f || "",
@@ -71,11 +71,18 @@ const ask = async (
   return answer.trim();
 };
 
+const getShowAllStatus = (args: Args): boolean => {
+  return [args.a, args.all].some((arg) => arg != null);
+};
+
 const askForUsername = (): Promise<string> => {
   return ask(c.green(c.bold(`[>] Input username: `)), true);
 };
 
 const getUsername = async (args: Args): Promise<string> => {
+  if (typeof args.a === "string" || typeof args.all === "string") {
+    return String(args.a || args.all);
+  }
   if (args._?.length) return String(args._[0]);
   return askForUsername();
 };
