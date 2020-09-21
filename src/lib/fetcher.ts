@@ -14,7 +14,11 @@ const fetchTimeout = (
   return promise.finally(() => clearTimeout(timeoutId));
 };
 
-const getUserUrl = (url: string, username: string) => {
+const getSiteUserUrl = (site: Site, username: string) => {
+  return replaceUsernameInUrl(site.urlProbe ?? site.url, username);
+};
+
+const replaceUsernameInUrl = (url: string, username: string) => {
   return url.replace("{}", username);
 };
 
@@ -23,7 +27,7 @@ const getSiteResult = async (
   username: string,
   timeout = 10000,
 ): Promise<SiteResult> => {
-  const userPageUrl = getUserUrl(site.url, username);
+  const userPageUrl = getSiteUserUrl(site, username);
   try {
     const response = await fetchTimeout(userPageUrl, timeout, {
       headers: new Headers({
@@ -53,4 +57,4 @@ const getSiteResult = async (
   }
 };
 
-export { fetchTimeout, getSiteResult, getUserUrl };
+export { fetchTimeout, getSiteResult, getSiteUserUrl, replaceUsernameInUrl };

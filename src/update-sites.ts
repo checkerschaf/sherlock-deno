@@ -41,6 +41,7 @@ const removeBuggySites = (sites: SiteList): SiteList => {
     "Polarsteps",
     "4pda",
     "Rate Your Music",
+    "Filmogs", // Site is closed
   ];
 
   for (let site of sitesToRemove) {

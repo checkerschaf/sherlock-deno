@@ -1,7 +1,8 @@
 import {
   fetchTimeout,
   getSiteResult,
-  getUserUrl,
+  getSiteUserUrl,
+  replaceUsernameInUrl,
 } from "../../../src/lib/fetcher.ts";
 import { sites } from "../../../sites.ts";
 import { ScannerResult } from "../../../src/enums.ts";
@@ -11,7 +12,7 @@ import {
   Stub,
   stub,
 } from "../../testing-deps.ts";
-import { testUsername } from "../../testing-helpers.ts";
+import { siteStatusCode, testUsername } from "../../testing-helpers.ts";
 
 const githubPromise = new Promise((resolve) =>
   resolve(
@@ -22,10 +23,17 @@ const githubPromise = new Promise((resolve) =>
   )
 );
 
-Deno.test("fetcher.ts: getUserUrl() - replaces a site url placeholder with the username", async () => {
+Deno.test("fetcher.ts: replaceUsernameInUrl() - replaces an url placeholder with the username", async () => {
   assertEquals(
-    getUserUrl("http://localhost/this/is/{}/special/page", testUsername),
-    "http://localhost/this/is/checkerschaf/special/page",
+    replaceUsernameInUrl(siteStatusCode.url, testUsername),
+    "http://localhost/users/checkerschaf/hello",
+  );
+});
+
+Deno.test("fetcher.ts: getSiteUserUrl() - replaces a site url placeholder with the username", async () => {
+  assertEquals(
+    getSiteUserUrl(siteStatusCode, testUsername),
+    "http://localhost/users/checkerschaf/hello",
   );
 });
 
@@ -63,7 +71,7 @@ Deno.test("fetcher.ts: getSiteResult() - gets the scanner result of a site (GitH
       {
         result: ScannerResult.SUCCESS,
         site,
-        url: getUserUrl(site.url, testUsername),
+        url: getSiteUserUrl(site, testUsername),
       },
     );
   } finally {

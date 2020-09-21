@@ -5,7 +5,7 @@ import {
   responseIsUserPage,
 } from "../../../src/lib/response-checker.ts";
 import { ScannerResult } from "../../../src/enums.ts";
-import { getUserUrl } from "../../../src/lib/fetcher.ts";
+import { getSiteUserUrl } from "../../../src/lib/fetcher.ts";
 import {
   assertEquals,
 } from "../../testing-deps.ts";
@@ -72,7 +72,7 @@ Deno.test("response-checker.ts: checkResponseUrl() - success if url is not the e
     await checkResponseUrl(
       {
         ...successResponse,
-        url: getUserUrl(siteRedirect.url, testUsername),
+        url: getSiteUserUrl(siteRedirect, testUsername),
         arrayBuffer: successResponse.arrayBuffer,
       },
       siteRedirect,
@@ -123,7 +123,7 @@ Deno.test("response-checker.ts: responseIsUserPage() - can select the check meth
     await responseIsUserPage(
       {
         ...successResponse,
-        url: getUserUrl(siteRedirect.url, testUsername),
+        url: getSiteUserUrl(siteRedirect, testUsername),
         arrayBuffer: successResponse.arrayBuffer,
       },
       siteRedirect,

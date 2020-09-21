@@ -23,6 +23,7 @@ export enum SiteErrorType {
 
 export type Site = {
   url: string;
+  urlProbe?: string;
   errorType: SiteErrorType | string;
   errorUrl?: string;
   errorMsg?: string;
@@ -31,14 +32,10 @@ export type Site = {
 
   // Unused
   regexCheck?: string;
-  urlProbe?: string;
   urlMain?: string;
   request_head_only?: boolean;
   noPeriod?: string;
   rank?: number;
-  headers?: {
-    "User-Agent"?: string;
-  };
 };
 
 export type SiteList = {

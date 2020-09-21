@@ -1,6 +1,6 @@
 import { Site, SiteErrorType } from "../types.ts";
 import { ScannerResult } from "../enums.ts";
-import { getUserUrl } from "./fetcher.ts";
+import { getSiteUserUrl } from "./fetcher.ts";
 
 const responseIsUserPage = async (
   response: Response,
@@ -49,7 +49,7 @@ const checkStatusMessage = async (
     return ScannerResult.NOT_FOUND;
   }
 
-  return pageContent.includes(username)
+  return pageContent.toLowerCase().includes(username.toLowerCase())
     ? ScannerResult.SUCCESS
     : ScannerResult.NOT_FOUND;
 };
@@ -63,7 +63,7 @@ const checkResponseUrl = async (
 
   if (
     response.url !==
-      getUserUrl(site.url, username)
+      getSiteUserUrl(site, username)
   ) {
     return ScannerResult.NOT_FOUND;
   }
