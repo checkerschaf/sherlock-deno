@@ -1,5 +1,5 @@
-import { ScannerResult } from "../enums.ts";
-import type { Site, SiteResult } from "../types.ts";
+import { ScannerResult } from "./enums.ts";
+import type { Site, SiteResult } from "./types.ts";
 import { responseIsUserPage } from "./response-checker.ts";
 
 // TODO: use this version once https://github.com/denoland/deno/pull/6093 has been implemented

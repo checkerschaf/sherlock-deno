@@ -1,4 +1,4 @@
-import { getSiteResult } from "../../src/lib/fetcher.ts";
+import { getSiteResult } from "../../src/fetcher.ts";
 import { sites } from "../../sites.ts";
 import { assert } from "../testing-deps.ts";
 import { ScannerResult } from "../../src/enums.ts";

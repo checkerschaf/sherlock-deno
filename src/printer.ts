@@ -1,5 +1,5 @@
 import { c } from "./deps.ts";
-import type { ScannerOptions, SiteResult } from "./types.ts";
+import type { SiteResult } from "./types.ts";
 import { OutputFormat, ScannerResult } from "./enums.ts";
 import type Scanner from "./scanner.ts";
 import { SHERLOCK_VERSION } from "../mod.ts";
@@ -27,35 +27,26 @@ const printFatalError = (err: Error): void => {
 const printSiteResult = (
   siteResult: SiteResult,
   siteName: string,
-  options: ScannerOptions,
 ): void => {
   switch (siteResult.result) {
     case ScannerResult.SUCCESS:
-      if (options.realtimeOutput) {
-        console.log(
-          c.bold(
-            `[${c.green("+")}] ${c.green(siteName)}: ${siteResult.url}`,
-          ),
-        );
-      }
-
+      console.log(
+        c.bold(
+          `[${c.green("+")}] ${c.green(siteName)}: ${siteResult.url}`,
+        ),
+      );
       break;
     case ScannerResult.NOT_FOUND:
-      if (options.realtimeOutput) {
-        console.log(
-          c.bold(`[${c.red("-")}] ${c.gray(siteName)}`),
-        );
-      }
-
+      console.log(
+        c.bold(`[${c.red("-")}] ${c.gray(siteName)}`),
+      );
       break;
     default:
-      if (options.realtimeOutput) {
-        console.log(
-          c.bold(
-            `[${c.red("-")}] ${c.red(siteName)}: ${siteResult.error}`,
-          ),
-        );
-      }
+      console.log(
+        c.bold(
+          `[${c.red("-")}] ${c.red(siteName)}: ${siteResult.error}`,
+        ),
+      );
   }
 };
 

@@ -1,4 +1,5 @@
 import type { OutputFormat, ScannerResult } from "./enums.ts";
+import type { SiteErrorType } from "./enums.ts";
 
 export type ScannerOptions = {
   username: string;
@@ -14,12 +15,6 @@ export type SiteResult = {
   result: ScannerResult;
   error?: string;
 };
-
-export enum SiteErrorType {
-  status_code = "status_code",
-  message = "message",
-  response_url = "response_url",
-}
 
 export type Site = {
   url: string;

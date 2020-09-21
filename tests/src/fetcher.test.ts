@@ -3,16 +3,16 @@ import {
   getSiteResult,
   getSiteUserUrl,
   replaceUsernameInUrl,
-} from "../../../src/lib/fetcher.ts";
-import { sites } from "../../../sites.ts";
-import { ScannerResult } from "../../../src/enums.ts";
+} from "../../src/fetcher.ts";
+import { sites } from "../../sites.ts";
+import { ScannerResult } from "../../src/enums.ts";
 import {
   assertEquals,
   assertStringContains,
   Stub,
   stub,
-} from "../../testing-deps.ts";
-import { siteStatusCode, testUsername } from "../../testing-helpers.ts";
+} from "../testing-deps.ts";
+import { siteStatusCode, testUsername } from "../testing-helpers.ts";
 
 const githubPromise = new Promise((resolve) =>
   resolve(

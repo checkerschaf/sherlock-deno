@@ -2,10 +2,8 @@ import Scanner from "./src/scanner.ts";
 import {
   printFatalError,
   printSherlockDeno,
-  printSiteResult,
-  printTotalResults,
 } from "./src/printer.ts";
-import { readCliArguments } from "./src/lib/cli.ts";
+import { readCliArguments } from "./src/cli.ts";
 
 /**
  * This is the entry point to the Sherlock-CLI.
@@ -16,9 +14,6 @@ const runSherlockCli = async (): Promise<void> => {
 
   // Create a new scanner with the arguments from the command line
   const scanner = new Scanner(await readCliArguments());
-  scanner.onSiteProcessed = (result, siteName) =>
-    printSiteResult(result, siteName, scanner.options);
-  scanner.onFinish = () => printTotalResults(scanner);
 
   // Start the scan and wait for it to finish
   await scanner.scan()

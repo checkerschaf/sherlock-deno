@@ -1,5 +1,5 @@
-import { Site, SiteErrorType } from "../types.ts";
-import { ScannerResult } from "../enums.ts";
+import type { Site } from "./types.ts";
+import { ScannerResult, SiteErrorType } from "./enums.ts";
 import { getSiteUserUrl } from "./fetcher.ts";
 
 const responseIsUserPage = async (

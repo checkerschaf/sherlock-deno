@@ -1,4 +1,5 @@
-import { Site, SiteErrorType } from "../src/types.ts";
+import type { Site } from "../src/types.ts";
+import { SiteErrorType } from "../src/enums.ts";
 
 const testUsername = "checkerschaf";
 

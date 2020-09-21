@@ -3,12 +3,12 @@ import {
   getShowVersionStr,
   parseArguments,
   readCliArguments,
-} from "../../../src/lib/cli.ts";
-import { assertEquals, assertStringContains } from "../../testing-deps.ts";
-import { SHERLOCK_VERSION } from "../../../mod.ts";
-import { sitesCount } from "../../../sites.ts";
+} from "../../src/cli.ts";
+import { assertEquals, assertStringContains } from "../testing-deps.ts";
+import { SHERLOCK_VERSION } from "../../mod.ts";
+import { sitesCount } from "../../sites.ts";
 
-Deno.test("clit.ts: parseArguments() parses all arguments correctly", () => {
+Deno.test("cli.ts: parseArguments() parses all arguments correctly", () => {
   assertEquals(
     parseArguments(["--help"]),
     { _: [], all: false, a: false, help: true },
@@ -23,7 +23,7 @@ Deno.test("clit.ts: parseArguments() parses all arguments correctly", () => {
   );
 });
 
-Deno.test("clit.ts: readCliArguments() parses all arguments correctly", async () => {
+Deno.test("cli.ts: readCliArguments() parses all arguments correctly", async () => {
   assertEquals(
     await readCliArguments(["-a", "-f=csv", "checkerschaf"]),
     {

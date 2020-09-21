@@ -3,7 +3,7 @@ import type {
   SiteResult,
 } from "./types.ts";
 import { ScannerResult } from "./enums.ts";
-import { getSiteResult } from "./lib/fetcher.ts";
+import { getSiteResult } from "./fetcher.ts";
 import { sites } from "../sites.ts";
 import { printSiteResult, printTotalResults } from "./printer.ts";
 import Timer from "./lib/timer.ts";
@@ -77,7 +77,9 @@ export default class Scanner {
    * @param siteName The name of the site.
    */
   onSiteProcessed(result: SiteResult, siteName: string): void {
-    printSiteResult(result, siteName, this.options);
+    if (this.options.realtimeOutput) {
+      printSiteResult(result, siteName);
+    }
   }
 
   /**
