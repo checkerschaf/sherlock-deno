@@ -41,7 +41,11 @@ const removeBuggySites = (sites: SiteList): SiteList => {
     "Polarsteps",
     "4pda",
     "Rate Your Music",
+    "tracr.co", // Site is closed
     "Filmogs", // Site is closed
+    "fixya", // Uses Cloudflare
+    "svidbook", // Super slow
+    "ProductHunt", // Super slow
   ];
 
   for (let site of sitesToRemove) {
@@ -52,7 +56,8 @@ const removeBuggySites = (sites: SiteList): SiteList => {
 };
 
 const patchSites = (sites: SiteList): SiteList => {
-  // No sites to patch yet
+  // 404 message is not working as site includes CSS with 404 in it
+  sites["Repl.it"].errorMsg = "USER_DATA = undefined";
   return sites;
 };
 

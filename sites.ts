@@ -467,13 +467,6 @@ export const sites: SiteList = {
     "username_claimed": "Jungypoo",
     "username_unclaimed": "noonewouldeverusethis7",
   },
-  "Filmogs": {
-    "errorType": "status_code",
-    "url": "https://www.filmo.gs/users/{}",
-    "urlMain": "https://www.filmo.gs/",
-    "username_claimed": "cupparober",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
   "Flickr": {
     "errorType": "status_code",
     "url": "https://www.flickr.com/people/{}",
@@ -1118,14 +1111,6 @@ export const sites: SiteList = {
     "username_claimed": "swiftstickler",
     "username_unclaimed": "noonewouldeverusethis7",
   },
-  "ProductHunt": {
-    "errorMsg": "Page Not Found",
-    "errorType": "message",
-    "url": "https://www.producthunt.com/@{}",
-    "urlMain": "https://www.producthunt.com/",
-    "username_claimed": "jenny",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
   "PromoDJ": {
     "errorType": "status_code",
     "url": "http://promodj.com/{}",
@@ -1178,7 +1163,7 @@ export const sites: SiteList = {
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Repl.it": {
-    "errorMsg": "404",
+    "errorMsg": "USER_DATA = undefined",
     "errorType": "message",
     "url": "https://repl.it/@{}",
     "urlMain": "https://repl.it/",
@@ -1763,13 +1748,6 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
-  "fixya": {
-    "errorType": "status_code",
-    "url": "https://www.fixya.com/users/{}",
-    "urlMain": "https://www.fixya.com",
-    "username_claimed": "adam",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
   "fl": {
     "errorType": "status_code",
     "url": "https://www.fl.ru/users/{}",
@@ -2055,27 +2033,11 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
-  "svidbook": {
-    "errorType": "status_code",
-    "url": "https://www.svidbook.ru/user/{}",
-    "urlMain": "https://www.svidbook.ru/",
-    "username_claimed": "green",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
   "toster": {
     "errorType": "status_code",
     "url": "https://www.toster.ru/user/{}/answers",
     "urlMain": "https://www.toster.ru/",
     "username_claimed": "adam",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
-  "tracr.co": {
-    "errorMsg": "No search results",
-    "errorType": "message",
-    "regexCheck": "^[A-Za-z0-9]{2,32}$",
-    "url": "https://tracr.co/users/1/{}",
-    "urlMain": "https://tracr.co/",
-    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "uid": {
