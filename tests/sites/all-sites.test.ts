@@ -2,7 +2,7 @@ import { getSiteResult } from "../../src/lib/fetcher.ts";
 import { sites } from "../../sites.ts";
 import { assert } from "../testing-deps.ts";
 import { ScannerResult } from "../../src/enums.ts";
-import { Site } from "../../src/types.ts";
+import type { Site } from "../../src/types.ts";
 
 const getClaimedUsername = (site: Site) => site.username_claimed ?? "JohnDoe";
 

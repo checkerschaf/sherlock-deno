@@ -3,25 +3,22 @@ import { sites } from "../../sites.ts";
 import type { ScannerOptions } from "../types.ts";
 import { SHERLOCK_VERSION } from "../../mod.ts";
 
-const readCliArguments = async (): Promise<ScannerOptions> => {
-  const args = parse(Deno.args, {
-    boolean: ["all"],
-    alias: {
-      all: ["a"],
-      timeout: ["t"],
-      format: ["f"],
-    },
-  });
+const readCliArguments = async (
+  argsInput = Deno.args,
+): Promise<ScannerOptions> => {
+  const args = parseArguments(argsInput);
+
+  console.log(Deno.args, args);
 
   // Show help
   if (args.help) {
-    showHelp();
+    console.log(getShowHelpStr());
     Deno.exit();
   }
 
   // Show version
   if (args.version) {
-    showVersion();
+    console.log(getShowVersionStr());
     Deno.exit();
   }
 
@@ -34,28 +31,36 @@ const readCliArguments = async (): Promise<ScannerOptions> => {
   };
 };
 
-const showHelp = () => {
-  console.log(`Options:
-      --help          Show help
-      --version       Show version number and number of active sites
-      -a, --all       Show all results                                   [boolean]
-  -t, --timeout       Set timout for requests in seconds    [number] [default: 30]
-  -f, --format        Select output format [choices: "json", "pretty_json", "csv"]`);
-  console.log("\n\nExamples:");
-  console.log(`${c.yellow("sherlock JohnDoe")}     Search for JohnDoe`);
-  console.log(
-    `${
-      c.yellow("sherlock -a JohnDoe")
-    }     Search for JohnDoe and show all results`,
-  );
+const parseArguments = (argsInput = Deno.args): Args => {
+  return parse(argsInput, {
+    boolean: ["all"],
+    alias: {
+      all: ["a"],
+      timeout: ["t"],
+      format: ["f"],
+    },
+  });
 };
 
-const showVersion = () => {
-  console.log(c.green(
+const getShowHelpStr = (): string => {
+  return `Options:
+    --help          Show help
+    --version       Show version number and number of active sites
+    -a, --all       Show all results                                   [boolean]
+-t, --timeout       Set timout for requests in seconds    [number] [default: 30]
+-f, --format        Select output format [choices: "json", "pretty_json", "csv"]
+
+Examples:
+${c.yellow("sherlock JohnDoe")}        Search for JohnDoe
+${c.yellow("sherlock -a JohnDoe")}     Search for JohnDoe and show all results`;
+};
+
+const getShowVersionStr = (): string => {
+  return c.green(
     `You are using version v${c.bold(SHERLOCK_VERSION)}. with a total of ${
       c.bold(`${Object.keys(sites).length}`)
     } sites.`,
-  ));
+  );
 };
 
 const ask = async (
@@ -87,4 +92,11 @@ const getUsername = async (args: Args): Promise<string> => {
   return askForUsername();
 };
 
-export { ask, getUsername, readCliArguments };
+export {
+  ask,
+  getUsername,
+  getShowHelpStr,
+  getShowVersionStr,
+  readCliArguments,
+  parseArguments,
+};
