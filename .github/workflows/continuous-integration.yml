@@ -21,6 +21,9 @@ jobs:
       - name: Show Deno Version
         run: deno --version
 
+      - name: Check Code Format
+        run: deno fmt --check
+
       - name: Lint Code
         run: deno lint --unstable
 
