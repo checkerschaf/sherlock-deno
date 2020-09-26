@@ -811,15 +811,6 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
-  "Linkedin": {
-    "errorMsg": "could not be found",
-    "errorType": "message",
-    "rank": 0,
-    "url": "https://www.linkedin.com/in/{}",
-    "urlMain": "https://www.linkedin.com/",
-    "username_claimed": "alex",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
   "LiveJournal": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
@@ -1381,6 +1372,13 @@ export const sites: SiteList = {
     "url": "https://tellonym.me/{}",
     "urlMain": "https://tellonym.me/",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "TikTok": {
+    "errorType": "status_code",
+    "url": "https://tiktok.com/@{}",
+    "urlMain": "https://tiktok.com/",
+    "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Tinder": {
