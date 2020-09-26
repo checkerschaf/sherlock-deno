@@ -70,7 +70,7 @@ Deno.test("response-checker.ts: checkStatusMessage() - not found if body contain
 Deno.test("response-checker.ts: checkResponseUrl() - success if url is not the error url", async () => {
   assertEquals(
     await checkResponseUrl(
-      {
+      <Response> {
         ...successResponse,
         url: getSiteUserUrl(siteRedirect, testUsername),
         arrayBuffer: successResponse.arrayBuffer,
@@ -85,7 +85,7 @@ Deno.test("response-checker.ts: checkResponseUrl() - success if url is not the e
 Deno.test("response-checker.ts: checkResponseUrl() - not found if url is the error url", async () => {
   assertEquals(
     await checkResponseUrl(
-      {
+      <Response> {
         ...successResponse,
         url: String(siteRedirect.errorUrl),
         arrayBuffer: successResponse.arrayBuffer,
@@ -108,7 +108,7 @@ Deno.test("response-checker.ts: responseIsUserPage() - can select the check meth
     ScannerResult.SUCCESS,
   );
 
-  // Status Code
+  // Status Message
   assertEquals(
     await responseIsUserPage(
       successResponse,
@@ -121,7 +121,7 @@ Deno.test("response-checker.ts: responseIsUserPage() - can select the check meth
   // Redirect
   assertEquals(
     await responseIsUserPage(
-      {
+      <Response> {
         ...successResponse,
         url: getSiteUserUrl(siteRedirect, testUsername),
         arrayBuffer: successResponse.arrayBuffer,

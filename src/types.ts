@@ -4,8 +4,8 @@ import type { SiteErrorType } from "./enums.ts";
 export type ScannerOptions = {
   username: string;
   showAll: boolean;
-  realtimeOutput?: boolean;
   timeout: number;
+  realtimeOutput?: boolean;
   format?: OutputFormat | string;
 };
 
