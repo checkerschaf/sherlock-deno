@@ -8,11 +8,13 @@ export default class Timer {
 
   end(): number {
     this.endTime = Date.now();
-    return this.getRuntime();
+    return this.elapsedTime();
   }
 
-  getRuntime() {
-    if (this.endTime) return Math.abs(this.endTime - this.startTime);
+  elapsedTime() {
+    if (this.endTime) {
+      return Math.abs(this.endTime - this.startTime);
+    }
     return Math.abs(Date.now() - this.startTime);
   }
 }

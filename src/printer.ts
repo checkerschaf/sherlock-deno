@@ -57,7 +57,7 @@ const printTotalResults = (
     console.log(
       c.green(
         `\nFinished in ${
-          Math.round(scanner.timer.getRuntime() / 1000)
+          Math.round(scanner.timer.elapsedTime() / 1000)
         } seconds.`,
       ),
     );
