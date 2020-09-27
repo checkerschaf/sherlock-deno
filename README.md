@@ -67,5 +67,6 @@ Feel free to create an issue if you have an idea what could be added next. Thank
 - `deno test tests/src` - Runs all tests.
 - `deno test tests/src --coverage --unstable` - Runs all tests and creates a code coverage report.
 - `deno test --allow-net tests/sites` - Runs false positive & false negative tests for every site. Add `--filter=SITE` to only test a specific site.
+- `deno run -A src/scripts/update-sites.ts` - Downloads all sites from project-sherlock, applies patches and saves them to sites.ts.
 
 *Tip: You can find more info about the deno cli [here](https://deno.land/manual/getting_started/command_line_interface).*

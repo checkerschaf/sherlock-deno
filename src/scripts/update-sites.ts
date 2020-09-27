@@ -68,8 +68,34 @@ let sites = await getSites(
 sites = removeBuggySites(sites);
 sites = patchSites(sites);
 
-// Write the new sites-old.json
-await Deno.writeTextFile("./sites.json", JSON.stringify(sites, null, 4));
-console.log(
-  c.green(`Successfully written ${Object.keys(sites).length} to sites.json`),
+// Write the new file
+const fileName = "sites.ts";
+await Deno.writeTextFile(
+  `./${fileName}`,
+  `/**
+ * Please do NOT modify this file directly. This is an auto-generated file.
+ * If you want to add or remove websites then please modify src/scripts/update-sites.ts instead.
+ *
+ * For details on how to run the update script please visit: https://github.com/checkerschaf/sherlock-deno#useful-development-commands
+ */
+import type { SiteList } from "./src/types.ts";
+
+export const sites: SiteList = ${JSON.stringify(sites, null, 2)};
+
+export const sitesCount = Object.keys(sites).length;
+`,
 );
+console.log(
+  c.green(
+    `Successfully downloaded, patched and saved ${
+      Object.keys(sites).length
+    } sites to ${fileName}.`,
+  ),
+);
+
+// Format the new file with "deno fmt"
+console.log(c.green(`Running ${c.yellow(`deno fmt ${fileName}`)}...`));
+await Deno.run({
+  cmd: ["deno", "fmt", fileName],
+}).status();
+console.log(c.green(`${fileName} formatted successfully. Done.`));
