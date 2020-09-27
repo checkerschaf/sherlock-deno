@@ -2,11 +2,17 @@ import { Args, c, parse } from "./deps.ts";
 import { sites } from "../sites.ts";
 import type { ScannerOptions } from "./types.ts";
 import { SHERLOCK_VERSION } from "../mod.ts";
+import { printSherlockDeno } from "./printer.ts";
 
 const readCliArguments = async (
   argsInput = Deno.args,
 ): Promise<ScannerOptions> => {
   const args = parseArguments(argsInput);
+
+  // Show a beautiful Sherlock ASCII image if no format is
+  if (!args.format || args.help || args.version) {
+    printSherlockDeno();
+  }
 
   // Show help
   if (args.help) {
