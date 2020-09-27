@@ -2,27 +2,44 @@ import { ScannerResult } from "./enums.ts";
 import type { Site, SiteResult } from "./types.ts";
 import { responseIsUserPage } from "./response-checker.ts";
 
-// TODO: use this version once https://github.com/denoland/deno/pull/6093 has been implemented
-const fetchTimeout = (
+export class TimeoutError extends Error {
+  constructor(message?: string) {
+    super(message);
+    this.name = "TimeoutError";
+  }
+}
+
+export const fetchTimeout = (
   input: RequestInfo,
   timeout = 10000,
   init?: RequestInit,
 ): Promise<Response> => {
-  const controller = new AbortController();
-  const promise = fetch(input, { signal: controller.signal, ...init });
-  const timeoutId = setTimeout(() => controller.abort(), timeout);
-  return promise.finally(() => clearTimeout(timeoutId));
+  const abortController = new AbortController();
+
+  return new Promise((resolve, reject) => {
+    const timeoutId = setTimeout(() => {
+      abortController.abort();
+      reject(new TimeoutError("Request timed out"));
+    }, timeout);
+
+    fetch(input, { signal: abortController.signal, ...init })
+      .then(resolve)
+      .catch(reject)
+      .finally(
+        () => clearTimeout(timeoutId),
+      );
+  });
 };
 
-const getSiteUserUrl = (site: Site, username: string) => {
+export const getSiteUserUrl = (site: Site, username: string): string => {
   return replaceUsernameInUrl(site.urlProbe ?? site.url, username);
 };
 
-const replaceUsernameInUrl = (url: string, username: string) => {
+export const replaceUsernameInUrl = (url: string, username: string): string => {
   return url.replace("{}", username);
 };
 
-const getSiteResult = async (
+export const getSiteResult = async (
   site: Site,
   username: string,
   timeout = 10000,
@@ -52,9 +69,7 @@ const getSiteResult = async (
       site,
       url: userPageUrl,
       result: ScannerResult.ERROR,
-      error: "Http Error",
+      error: error instanceof TimeoutError ? "Timeout" : "Http Error",
     };
   }
 };
-
-export { fetchTimeout, getSiteResult, getSiteUserUrl, replaceUsernameInUrl };
