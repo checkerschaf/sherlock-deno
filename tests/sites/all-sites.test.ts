@@ -8,8 +8,8 @@ const getClaimedUsername = (site: Site) => site.username_claimed ?? "JohnDoe";
 
 const generateRandomString = (strLength = 12) => {
   let result = "";
-  let characters = "abcdefghijklmnopqrstuvwxyz0123456789";
-  let charactersLength = characters.length;
+  const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+  const charactersLength = characters.length;
   for (let i = 0; i < strLength; i++) {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }

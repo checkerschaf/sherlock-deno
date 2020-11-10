@@ -47,7 +47,7 @@ const removeBuggySites = (sites: SiteList): SiteList => {
     "ProductHunt", // Super slow
   ];
 
-  for (let site of sitesToRemove) {
+  for (const site of sitesToRemove) {
     delete sites[site];
   }
 
