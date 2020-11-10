@@ -1,4 +1,4 @@
-import { assertStringContains, stub, Stub } from "../testing-deps.ts";
+import { assertStringIncludes, Stub, stub } from "../testing-deps.ts";
 import {
   printFatalError,
   printSherlockDeno,
@@ -22,9 +22,9 @@ Deno.test("printer.ts: printSherlockDeno() prints a beautiful ASCII art to the c
   try {
     printSherlockDeno();
     const consoleCallArgs = consoleStub.calls[0]?.args[0];
-    assertStringContains(consoleCallArgs, `Version: ${SHERLOCK_VERSION}`);
-    assertStringContains(consoleCallArgs, `Sites: ${sitesCount}`);
-    assertStringContains(consoleCallArgs, "checkerschaf");
+    assertStringIncludes(consoleCallArgs, `Version: ${SHERLOCK_VERSION}`);
+    assertStringIncludes(consoleCallArgs, `Sites: ${sitesCount}`);
+    assertStringIncludes(consoleCallArgs, "checkerschaf");
   } finally {
     consoleStub.restore();
   }
@@ -35,8 +35,8 @@ Deno.test("printer.ts: printFatalError() prints a beautified error message", () 
   try {
     printFatalError(new Error("checkerschaf is a sheep"));
     const consoleCallArgs = consoleStub.calls[0]?.args[0];
-    assertStringContains(consoleCallArgs, `Fatal error`);
-    assertStringContains(consoleCallArgs, "checkerschaf is a sheep");
+    assertStringIncludes(consoleCallArgs, `Fatal error`);
+    assertStringIncludes(consoleCallArgs, "checkerschaf is a sheep");
   } finally {
     consoleStub.restore();
   }
@@ -54,9 +54,9 @@ Deno.test("printer.ts: printSiteResult() prints a SUCCESS result", () => {
       "Demo Site",
     );
     const consoleCallArgs = consoleStub.calls[0]?.args[0];
-    assertStringContains(consoleCallArgs, `+`);
-    assertStringContains(consoleCallArgs, c.green("Demo Site"));
-    assertStringContains(consoleCallArgs, siteStatusCode.url);
+    assertStringIncludes(consoleCallArgs, `+`);
+    assertStringIncludes(consoleCallArgs, c.green("Demo Site"));
+    assertStringIncludes(consoleCallArgs, siteStatusCode.url);
   } finally {
     consoleStub.restore();
   }
@@ -74,8 +74,8 @@ Deno.test("printer.ts: printSiteResult() prints a NOT_FOUND result", () => {
       "Demo Site",
     );
     const consoleCallArgs = consoleStub.calls[0]?.args[0];
-    assertStringContains(consoleCallArgs, c.red("-"));
-    assertStringContains(consoleCallArgs, c.gray("Demo Site"));
+    assertStringIncludes(consoleCallArgs, c.red("-"));
+    assertStringIncludes(consoleCallArgs, c.gray("Demo Site"));
   } finally {
     consoleStub.restore();
   }
@@ -94,9 +94,9 @@ Deno.test("printer.ts: printSiteResult() prints an ERROR result", () => {
       "Demo Site",
     );
     const consoleCallArgs = consoleStub.calls[0]?.args[0];
-    assertStringContains(consoleCallArgs, c.red("-"));
-    assertStringContains(consoleCallArgs, c.red("Demo Site"));
-    assertStringContains(consoleCallArgs, "Example Error");
+    assertStringIncludes(consoleCallArgs, c.red("-"));
+    assertStringIncludes(consoleCallArgs, c.red("Demo Site"));
+    assertStringIncludes(consoleCallArgs, "Example Error");
   } finally {
     consoleStub.restore();
   }

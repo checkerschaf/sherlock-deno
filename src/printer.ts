@@ -101,8 +101,8 @@ const getTotalMatches = (
 };
 
 export {
-  printSherlockDeno,
   printFatalError,
+  printSherlockDeno,
   printSiteResult,
   printTotalResults,
 };

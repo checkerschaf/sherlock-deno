@@ -2,8 +2,7 @@ import { c } from "../deps.ts";
 import { SiteList } from "../types.ts";
 
 const getSites = async (url: string): Promise<SiteList> => {
-  const response = await fetch(url);
-  return await response.json();
+  return (await fetch(url)).json();
 };
 
 /**

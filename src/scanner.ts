@@ -1,7 +1,4 @@
-import type {
-  ScannerOptions,
-  SiteResult,
-} from "./types.ts";
+import type { ScannerOptions, SiteResult } from "./types.ts";
 import { ScannerResult } from "./enums.ts";
 import { getSiteResult } from "./fetcher.ts";
 import { sites } from "../sites.ts";

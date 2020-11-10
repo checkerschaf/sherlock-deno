@@ -8,7 +8,7 @@ import { sites } from "../../sites.ts";
 import { ScannerResult } from "../../src/enums.ts";
 import {
   assertEquals,
-  assertStringContains,
+  assertStringIncludes,
   Stub,
   stub,
 } from "../testing-deps.ts";
@@ -51,7 +51,7 @@ Deno.test("fetcher.ts: fetchTimeout() can get the response of a site", async () 
     assertEquals(response.status, 200);
 
     const content = await response.text();
-    assertStringContains(content, "sherlock-deno");
+    assertStringIncludes(content, "sherlock-deno");
   } finally {
     fetchStub.restore();
   }

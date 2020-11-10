@@ -44,7 +44,11 @@ const checkStatusMessage = async (
   const pageContent = await getPageContent(response);
 
   if (
-    pageContent.includes(site.errorMsg || "not found")
+    pageContent.includes(
+      site.errorMsg instanceof Array
+        ? site.errorMsg[0]
+        : site.errorMsg || "not found",
+    )
   ) {
     return ScannerResult.NOT_FOUND;
   }
@@ -76,8 +80,8 @@ const checkResponseUrl = async (
 };
 
 export {
-  responseIsUserPage,
   checkResponseUrl,
   checkStatusCode,
   checkStatusMessage,
+  responseIsUserPage,
 };

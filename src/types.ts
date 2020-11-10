@@ -21,7 +21,7 @@ export type Site = {
   urlProbe?: string;
   errorType: SiteErrorType | string;
   errorUrl?: string;
-  errorMsg?: string;
+  errorMsg?: string | string[];
   username_claimed?: string;
   username_unclaimed?: string;
 

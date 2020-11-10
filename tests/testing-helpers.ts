@@ -30,9 +30,9 @@ const siteRedirect: Site = {
 };
 
 export {
-  successResponse,
-  testUsername,
+  siteRedirect,
   siteStatusCode,
   siteStatusMessage,
-  siteRedirect,
+  successResponse,
+  testUsername,
 };

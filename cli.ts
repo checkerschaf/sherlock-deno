@@ -1,7 +1,5 @@
 import Scanner from "./src/scanner.ts";
-import {
-  printFatalError,
-} from "./src/printer.ts";
+import { printFatalError } from "./src/printer.ts";
 import { readCliArguments } from "./src/cli.ts";
 
 /**

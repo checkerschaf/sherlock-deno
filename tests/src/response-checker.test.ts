@@ -6,9 +6,7 @@ import {
 } from "../../src/response-checker.ts";
 import { ScannerResult } from "../../src/enums.ts";
 import { getSiteUserUrl } from "../../src/fetcher.ts";
-import {
-  assertEquals,
-} from "../testing-deps.ts";
+import { assertEquals } from "../testing-deps.ts";
 import {
   siteRedirect,
   siteStatusCode,
