@@ -23,6 +23,16 @@ export const sites: SiteList = {
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "500px": {
+    "errorMsg": "No message available",
+    "errorType": "message",
+    "url": "https://500px.com/p/{}",
+    "urlMain": "https://500px.com/",
+    "urlProbe":
+      "https://api.500px.com/graphql?operationName=ProfileRendererQuery&variables=%7B%22username%22%3A%22{}%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%224d02ff5c13927a3ac73b3eef306490508bc765956940c31051468cf30402a503%22%7D%7D",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "7Cups": {
     "errorType": "status_code",
     "url": "https://www.7cups.com/@{}",
@@ -66,6 +76,15 @@ export const sites: SiteList = {
     "urlMain": "https://www.anobii.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Apple Discussions": {
+    "errorMsg":
+      "The page you tried was not found. You may have used an outdated link or may have typed the address (URL) incorrectly.",
+    "errorType": "message",
+    "url": "https://discussions.apple.com/profile/{}",
+    "urlMain": "https://discussions.apple.com",
+    "username_claimed": "jason",
+    "username_unclaimed": "noonewouldeverusethis",
   },
   "Archive.org": {
     "errorMsg": "cannot find account",
@@ -237,13 +256,6 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
-  "CashMe": {
-    "errorType": "status_code",
-    "url": "https://cash.me/${}",
-    "urlMain": "https://cash.me/",
-    "username_claimed": "Jenny",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
   "Cent": {
     "errorMsg": "<title>Cent</title>",
     "errorType": "message",
@@ -306,11 +318,25 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Codepen": {
+    "errorType": "status_code",
+    "url": "https://codepen.io/{}",
+    "urlMain": "https://codepen.io/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "Codewars": {
     "errorType": "status_code",
     "url": "https://www.codewars.com/users/{}",
     "urlMain": "https://www.codewars.com",
     "username_claimed": "example",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "ColourLovers": {
+    "errorType": "status_code",
+    "url": "https://www.colourlovers.com/lover/{}",
+    "urlMain": "https://www.colourlovers.com/",
+    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Contently": {
@@ -444,8 +470,7 @@ export const sites: SiteList = {
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "EyeEm": {
-    "errorMsg": "<title>Not Found (404) | EyeEm</title>",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.eyeem.com/u/{}",
     "urlMain": "https://www.eyeem.com/",
     "username_claimed": "blue",
@@ -461,6 +486,7 @@ export const sites: SiteList = {
   "Facenama": {
     "errorType": "response_url",
     "errorUrl": "https://facenama.com/404.html",
+    "regexCheck": "^[-a-zA-Z0-9_]+$",
     "url": "https://facenama.com/{}",
     "urlMain": "https://facenama.com/",
     "username_claimed": "blue",
@@ -514,6 +540,7 @@ export const sites: SiteList = {
   "Freelance.habr": {
     "errorMsg": '<div class="icon_user_locked"></div>',
     "errorType": "message",
+    "regexCheck": "^((?!\\.).)*$",
     "url": "https://freelance.habr.com/freelancers/{}",
     "urlMain": "https://freelance.habr.com/",
     "username_claimed": "adam",
@@ -694,6 +721,14 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "ICQ": {
+    "errorMsg": "Profile not found",
+    "errorType": "message",
+    "url": "https://icq.im/{}",
+    "urlMain": "https://icq.com/",
+    "username_claimed": "Micheal",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "IFTTT": {
     "errorMsg": "The requested page or file does not exist",
     "errorType": "message",
@@ -710,19 +745,29 @@ export const sites: SiteList = {
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis",
   },
-  "Instagram": {
+  "Imgur": {
     "errorType": "status_code",
-    "request_head_only": false,
+    "url": "https://imgur.com/user/{}",
+    "urlMain": "https://imgur.com/",
+    "urlProbe":
+      "https://api.imgur.com/account/v1/accounts/{}?client_id=546c25a59c58ad7",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Instagram": {
+    "errorMsg": 'href="/static/bundles/metro/HttpErrorPage.js/',
+    "errorType": "message",
     "url": "https://www.instagram.com/{}",
     "urlMain": "https://www.instagram.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Instructables": {
-    "errorMsg": "404: We're sorry, things break sometimes",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.instructables.com/member/{}",
     "urlMain": "https://www.instructables.com/",
+    "urlProbe":
+      "https://www.instructables.com/json-api/showAuthorExists?screenName={}",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
@@ -850,9 +895,11 @@ export const sites: SiteList = {
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Medium": {
-    "errorType": "status_code",
+    "errorMsg": "<body",
+    "errorType": "message",
     "url": "https://medium.com/@{}",
     "urlMain": "https://medium.com/",
+    "urlProbe": "https://medium.com/feed/@{}",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
@@ -898,20 +945,6 @@ export const sites: SiteList = {
     "urlMain": "https://www.native-instruments.com/forum/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis",
-  },
-  "NPM": {
-    "errorType": "status_code",
-    "url": "https://www.npmjs.com/~{}",
-    "urlMain": "https://www.npmjs.com/",
-    "username_claimed": "kennethsweezy",
-    "username_unclaimed": "noonewould",
-  },
-  "NPM-Package": {
-    "errorType": "status_code",
-    "url": "https://www.npmjs.com/package/{}",
-    "urlMain": "https://www.npmjs.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7",
   },
   "NameMC (Minecraft.net skins)": {
     "errorMsg": "Profiles: 0 results",
@@ -987,7 +1020,7 @@ export const sites: SiteList = {
     "errorType": "status_code",
     "url": "https://community.oracle.com/people/{}",
     "urlMain": "https://community.oracle.com",
-    "username_claimed": "blue",
+    "username_claimed": "dev",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Otzovik": {
@@ -1094,13 +1127,6 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
-  "PokerStrategy": {
-    "errorType": "status_code",
-    "url": "http://www.pokerstrategy.net/user/{}/profile/",
-    "urlMain": "http://www.pokerstrategy.net",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
   "Polygon": {
     "errorType": "status_code",
     "url": "https://www.polygon.com/users/{}",
@@ -1123,11 +1149,18 @@ export const sites: SiteList = {
     "username_unclaimed": "noonewouldeverusethis",
   },
   "Quora": {
-    "errorType": "response_url",
-    "errorUrl": "https://www.quora.com/profile/{}",
+    "errorMsg": "Page Not Found",
+    "errorType": "message",
     "url": "https://www.quora.com/profile/{}",
     "urlMain": "https://www.quora.com/",
     "username_claimed": "Matt-Riggsby",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Raidforums": {
+    "errorType": "status_code",
+    "url": "https://raidforums.com/User-{}",
+    "urlMain": "https://raidforums.com/",
+    "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Rajce.net": {
@@ -1160,12 +1193,12 @@ export const sites: SiteList = {
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Repl.it": {
-    "errorMsg": "USER_DATA = undefined",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://repl.it/@{}",
     "urlMain": "https://repl.it/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
+    "errorMsg": "USER_DATA = undefined",
   },
   "ReverbNation": {
     "errorMsg": "Sorry, we couldn't find that page",
@@ -1388,8 +1421,10 @@ export const sites: SiteList = {
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Tinder": {
-    "errorMsg":
+    "errorMsg": [
+      '<title data-react-helmet="true">Tinder | Dating, Make Friends &amp; Meet New People</title>',
       '<title data-react-helmet="true">Tinder | Match. Chat. Date.</title>',
+    ],
     "errorType": "message",
     "url": "https://www.gotinder.com/@{}",
     "urlMain": "https://tinder.com/",
@@ -1513,6 +1548,14 @@ export const sites: SiteList = {
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Vero": {
+    "errorType": "status_code",
+    "request_head_only": false,
+    "url": "https://vero.co/{}",
+    "urlMain": "https://vero.co/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis",
+  },
   "Vimeo": {
     "errorType": "status_code",
     "url": "https://vimeo.com/{}",
@@ -1529,10 +1572,11 @@ export const sites: SiteList = {
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "VirusTotal": {
-    "errorMsg": "not found",
-    "errorType": "message",
+    "errorType": "status_code",
+    "request_head_only": false,
     "url": "https://www.virustotal.com/ui/users/{}/trusted_users",
     "urlMain": "https://www.virustotal.com/",
+    "urlProbe": "https://www.virustotal.com/ui/users/{}/avatar",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
@@ -1544,10 +1588,10 @@ export const sites: SiteList = {
     "username_unclaimed": "noonewouldeverusethis77777",
   },
   "Wattpad": {
-    "errorMsg": "userError-404",
-    "errorType": "message",
+    "errorType": "status_code",
     "url": "https://www.wattpad.com/user/{}",
     "urlMain": "https://www.wattpad.com/",
+    "urlProbe": "https://www.wattpad.com/api/v3/users/{}/",
     "username_claimed": "Dogstho7951",
     "username_unclaimed": "noonewouldeverusethis7",
   },
@@ -1845,6 +1889,13 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "jbzd.com.pl": {
+    "errorType": "status_code",
+    "url": "https://jbzd.com.pl/uzytkownik/{}",
+    "urlMain": "https://jbzd.com.pl/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "jeuxvideo": {
     "errorMsg": "Vous êtes",
     "errorType": "message",
@@ -1976,10 +2027,17 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "npm": {
+    "errorType": "status_code",
+    "url": "https://www.npmjs.com/~{}",
+    "urlMain": "https://www.npmjs.com/",
+    "username_claimed": "kennethsweezy",
+    "username_unclaimed": "noonewould",
+  },
   "opennet": {
     "errorMsg": "Имя участника не найдено",
     "errorType": "message",
-    "regexCheck": "^[^_]*$",
+    "regexCheck": "^[^-]*$",
     "url": "https://www.opennet.ru/~{}",
     "urlMain": "https://www.opennet.ru/",
     "username_claimed": "anonismus",
