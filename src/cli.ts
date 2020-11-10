@@ -67,37 +67,12 @@ const getShowVersionStr = (): string => {
   );
 };
 
-const ask = async (
-  question = "",
-  addEmptyLine = false,
-  stdin = Deno.stdin,
-  stdout = Deno.stdout,
-): Promise<string> => {
-  const buf = new Uint8Array(1024);
-
-  // Write question to console
-  await stdout.write(new TextEncoder().encode(question));
-
-  // Read console's input into answer
-  const n = <number> await stdin.read(buf);
-  const answer = new TextDecoder().decode(buf.subarray(0, n));
-
-  if (addEmptyLine) console.log();
-
-  return answer.trim();
-};
-
-const askForUsername = (): Promise<string> => {
-  return ask(c.green(c.bold(`[>] Input username: `)), true);
-};
-
 const getUsername = async (args: Args): Promise<string> => {
   if (args._?.length) return String(args._[0]);
-  return askForUsername();
+  return prompt(c.green(c.bold(`[>] Input username: `))) ?? "";
 };
 
 export {
-  ask,
   getShowHelpStr,
   getShowVersionStr,
   getUsername,
