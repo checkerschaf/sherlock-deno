@@ -16,10 +16,10 @@ Sherlock-Deno is an improved remake of the original [sherlock](https://github.co
 - Only uses the deno standard modules (colors, flags)
 
 #### Status
-![Latest Release](https://img.shields.io/github/release/checkerschaf/sherlock-deno.svg?label=Latest%20Release)
-![Deno CI](https://img.shields.io/github/workflow/status/checkerschaf/sherlock-deno/Deno%20CI?label=Deno%20CI&logo=GitHub)
-[![deno land](http://img.shields.io/badge/available%20on-deno.land/x-lightgrey.svg?logo=deno)](https://deno.land/x/sherlock)
-![Deno Version](https://img.shields.io/badge/Deno%20Version-^1.5.0-lightgrey?logo=deno)
+[![Latest Release](https://img.shields.io/github/release/checkerschaf/sherlock-deno.svg?label=Latest%20Release)](https://github.com/checkerschaf/sherlock-deno/releases/latest)
+[![Deno CI](https://img.shields.io/github/workflow/status/checkerschaf/sherlock-deno/Deno%20CI?label=Deno%20CI&logo=GitHub)](https://github.com/checkerschaf/sherlock-deno/actions)
+[![Deno Land](http://img.shields.io/badge/available%20on-deno.land/x-lightgrey.svg?logo=deno)](https://deno.land/x/sherlock)
+[![Deno Version](https://img.shields.io/badge/Deno%20Version-^1.5.0-lightgrey?logo=deno)](https://deno.land)
 ![Code size](https://img.shields.io/github/languages/code-size/checkerschaf/sherlock-deno?label=Code%20Size)
 
 ## How to use the CLI (Command Line Interface)?
