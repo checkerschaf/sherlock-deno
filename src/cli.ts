@@ -98,9 +98,9 @@ const getUsername = async (args: Args): Promise<string> => {
 
 export {
   ask,
-  getUsername,
   getShowHelpStr,
   getShowVersionStr,
-  readCliArguments,
+  getUsername,
   parseArguments,
+  readCliArguments,
 };
