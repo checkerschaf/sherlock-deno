@@ -25,11 +25,11 @@ Sherlock-Deno is an improved remake of the original [sherlock](https://github.co
 ## How to use the CLI (Command Line Interface)?
 Simply install deno on your system with a single command. You can find the offical command [here](https://deno.land/#installation).
 
+#### With installation (recommended):
+`deno install --allow-net -f -n sherlock https://deno.land/x/sherlock/cli.ts`
+
 #### Without installation:
 `deno run --allow-net https://deno.land/x/sherlock/cli.ts`
-
-#### With installation:
-`deno install --allow-net -f -n sherlock https://deno.land/x/sherlock/cli.ts`
 
 Verify the installation by typing `sherlock`
 
