@@ -117,6 +117,14 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Atom Discussions": {
+    "errorMsg": "Oops! That page doesn’t exist or is private.",
+    "errorType": "message",
+    "url": "https://discuss.atom.io/u/{}/summary",
+    "urlMain": "https://discuss.atom.io",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis",
+  },
   "Audiojungle": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9_]+$",
@@ -1146,6 +1154,14 @@ export const sites: SiteList = {
     "url": "https://pypi.org/user/{}",
     "urlMain": "https://pypi.org",
     "username_claimed": "Blue",
+    "username_unclaimed": "noonewouldeverusethis",
+  },
+  "Quizlet": {
+    "errorMsg": "Page Unavailable",
+    "errorType": "message",
+    "url": "https://quizlet.com/{}",
+    "urlMain": "https://quizlet.com",
+    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis",
   },
   "Quora": {
