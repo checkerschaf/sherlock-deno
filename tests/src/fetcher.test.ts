@@ -23,14 +23,14 @@ const githubPromise = new Promise((resolve) =>
   )
 );
 
-Deno.test("fetcher.ts: replaceUsernameInUrl() - replaces an url placeholder with the username", async () => {
+Deno.test("fetcher.ts: replaceUsernameInUrl() - replaces an url placeholder with the username", () => {
   assertEquals(
     replaceUsernameInUrl(siteStatusCode.url, testUsername),
     "http://localhost/users/checkerschaf/hello",
   );
 });
 
-Deno.test("fetcher.ts: getSiteUserUrl() - replaces a site url placeholder with the username", async () => {
+Deno.test("fetcher.ts: getSiteUserUrl() - replaces a site url placeholder with the username", () => {
   assertEquals(
     getSiteUserUrl(siteStatusCode, testUsername),
     "http://localhost/users/checkerschaf/hello",

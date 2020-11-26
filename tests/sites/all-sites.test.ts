@@ -16,7 +16,7 @@ const generateRandomString = (strLength = 12) => {
   return result;
 };
 
-const testSite = async (siteName: string) => {
+const testSite = (siteName: string) => {
   const site = sites[siteName];
 
   Deno.test(`site ${siteName}: a claimed username results in SUCCESS or ERROR`, async () => {
