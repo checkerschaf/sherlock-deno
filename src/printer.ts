@@ -68,8 +68,7 @@ const printTotalResults = (
         } across ${sitesCount} sites.`,
       ),
     );
-
-    return;
+    Deno.exit();
   }
 
   // Export in different formats
@@ -89,6 +88,7 @@ const printTotalResults = (
       }
       break;
   }
+  Deno.exit();
 };
 
 const getTotalMatches = (

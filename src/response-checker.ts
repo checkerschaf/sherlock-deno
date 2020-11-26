@@ -2,7 +2,7 @@ import type { Site } from "./types.ts";
 import { ScannerResult, SiteErrorType } from "./enums.ts";
 import { getSiteUserUrl } from "./fetcher.ts";
 
-const responseIsUserPage = async (
+const responseIsUserPage = (
   response: Response,
   site: Site,
   username: string,

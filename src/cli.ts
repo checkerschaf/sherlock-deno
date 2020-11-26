@@ -67,7 +67,7 @@ const getShowVersionStr = (): string => {
   );
 };
 
-const getUsername = async (args: Args): Promise<string> => {
+const getUsername = (args: Args): string => {
   if (args._?.length) return String(args._[0]);
   return prompt(c.green(c.bold(`[>] Input username: `))) ?? "";
 };
