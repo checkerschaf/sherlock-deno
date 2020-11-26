@@ -2,7 +2,7 @@ export {
   assert,
   assertEquals,
   assertStringIncludes,
-} from "https://deno.land/std@0.77.0/testing/asserts.ts";
+} from "https://deno.land/std@0.79.0/testing/asserts.ts";
 
 export { FakeTime } from "https://deno.land/x/mock@v0.9.2/time.ts";
 
