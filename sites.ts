@@ -606,6 +606,14 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "GitHub Support Community": {
+    "errorMsg": "Oops! That page doesn’t exist or is private.",
+    "errorType": "message",
+    "url": "https://github.community/u/{}/summary",
+    "urlMain": "https://github.community",
+    "username_claimed": "jperl",
+    "username_unclaimed": "noonewouldusethis298",
+  },
   "GitLab": {
     "errorMsg": "[]",
     "errorType": "message",
@@ -1412,6 +1420,15 @@ export const sites: SiteList = {
     "urlMain": "https://forum.sublimetext.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis",
+  },
+  "TETR.IO": {
+    "errorMsg": "No such user!",
+    "errorType": "message",
+    "url": "https://ch.tetr.io/u/{}",
+    "urlMain": "https://tetr.io",
+    "urlProbe": "https://ch.tetr.io/api/users/{}",
+    "username_claimed": "osk",
+    "username_unclaimed": "noonewouldeverusethis7",
   },
   "Telegram": {
     "errorMsg": '<meta property="og:description" content="">',
