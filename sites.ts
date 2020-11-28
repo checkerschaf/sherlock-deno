@@ -771,7 +771,7 @@ export const sites: SiteList = {
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Instagram": {
-    "errorMsg": 'href="/static/bundles/metro/HttpErrorPage.js/',
+    "errorMsg": 'src="/static/bundles/es6/HttpErrorPage.js',
     "errorType": "message",
     "url": "https://www.instagram.com/{}",
     "urlMain": "https://www.instagram.com/",
