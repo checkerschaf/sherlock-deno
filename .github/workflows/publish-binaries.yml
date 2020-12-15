@@ -1,0 +1,35 @@
+name: Publish Binaries
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  publish:
+    name: Publish binaries for ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            artifact_name: sherlock
+            asset_name: sherlock-linux
+          - os: windows-latest
+            artifact_name: sherlock.exe
+            asset_name: sherlock-windows
+          - os: macos-latest
+            artifact_name: sherlock
+            asset_name: sherlock-macos
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Compile to binaries
+      run: deno compile --output=sherlock --unstable cli.ts
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: ${{ matrix.artifact_name }}
+        asset_name: ${{ matrix.asset_name }}
+        tag: ${{ github.ref }}
