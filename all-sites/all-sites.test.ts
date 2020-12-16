@@ -1,8 +1,8 @@
-import { getSiteResult } from "../../src/fetcher.ts";
-import { sites } from "../../sites.ts";
-import { assert } from "../testing-deps.ts";
-import { ScannerResult } from "../../src/enums.ts";
-import type { Site } from "../../src/types.ts";
+import { getSiteResult } from "../src/fetcher.ts";
+import { sites } from "../sites.ts";
+import { assert } from "../src/testing-deps.ts";
+import { ScannerResult } from "../src/enums.ts";
+import type { Site } from "../src/types.ts";
 
 const getClaimedUsername = (site: Site) => site.username_claimed ?? "JohnDoe";
 

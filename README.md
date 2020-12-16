@@ -2,7 +2,7 @@
 
 <p align="center">
   <br>
-  <img alt="Screenshot" src="https://github.com/checkerschaf/sherlock-deno/raw/master/screenshot.png" />
+  <img alt="Screenshot Sherlock-Deno" src="https://github.com/checkerschaf/sherlock-deno/raw/master/screenshot.png" />
   <br>
 </p>
 
@@ -75,10 +75,10 @@ Feel free to create an issue if you have an idea what could be added next. Thank
 
 ### Useful development commands:
 
-- `deno lint --unstable` - Runs a code linter to check the code style.
-- `deno test tests/src` - Runs all tests.
-- `deno test tests/src --coverage --unstable` - Runs all tests and creates a code coverage report.
-- `deno test --allow-net tests/sites` - Runs false positive & false negative tests for every site. Add `--filter=SITE` to only test a specific site.
+- `deno test src` - Runs all tests.
+- `deno test src --coverage --unstable` - Runs all tests and creates a code coverage report.
+- `deno test --allow-net all-sites` - Runs false positive & false negative tests for every site. Add `--filter=SITE` to only test a specific site.
 - `deno run -A src/scripts/update-sites.ts` - Downloads all sites from project-sherlock, applies patches and saves them to sites.ts.
+- `deno lint --unstable` - Runs a code linter to check the code style.
 
 _Tip: You can find more info about the deno cli [here](https://deno.land/manual/getting_started/command_line_interface)._
