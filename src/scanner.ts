@@ -17,6 +17,11 @@ export default class Scanner {
    * @param options
    */
   constructor(options: ScannerOptions) {
+    // Validate the username
+    if (this.isValidUsername(options.username)) {
+      throw new Error("Username contains invalid characters. Stopping.");
+    }
+
     this.options = options;
   }
 
@@ -24,11 +29,6 @@ export default class Scanner {
    * Start the scan to process all sites with the scanners options.
    */
   async scan(): Promise<void> {
-    // Validate the username
-    if (this.isValidUsername(this.options.username)) {
-      throw new Error("Username contains invalid characters. Stopping.");
-    }
-
     // Start the timer to track the runtime
     this.timer.start();
 

@@ -1,5 +1,5 @@
-import { assertEquals, FakeTime } from "../../testing-deps.ts";
-import Timer from "../../../src/lib/timer.ts";
+import { assertEquals, FakeTime } from "../testing-deps.ts";
+import Timer from "./timer.ts";
 
 Deno.test("timer.ts: calculate time between start and end", () => {
   const time: FakeTime = new FakeTime();

@@ -3,10 +3,10 @@ import {
   getShowVersionStr,
   parseArguments,
   readCliArguments,
-} from "../../src/cli.ts";
-import { assertEquals, assertStringIncludes } from "../testing-deps.ts";
-import { SHERLOCK_VERSION } from "../../mod.ts";
-import { sitesCount } from "../../sites.ts";
+} from "./cli.ts";
+import { assertEquals, assertStringIncludes } from "./testing-deps.ts";
+import { SHERLOCK_VERSION } from "../mod.ts";
+import { sitesCount } from "../sites.ts";
 
 Deno.test("cli.ts: parseArguments() parses all arguments correctly", () => {
   assertEquals(

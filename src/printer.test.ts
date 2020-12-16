@@ -1,14 +1,14 @@
-import { assertStringIncludes, Stub, stub } from "../testing-deps.ts";
+import { assertStringIncludes, Stub, stub } from "./testing-deps.ts";
 import {
   printFatalError,
   printSherlockDeno,
   printSiteResult,
-} from "../../src/printer.ts";
-import { SHERLOCK_VERSION } from "../../mod.ts";
-import { sitesCount } from "../../sites.ts";
-import { ScannerResult } from "../../src/enums.ts";
-import { siteStatusCode } from "../testing-helpers.ts";
-import { c } from "../../src/deps.ts";
+} from "./printer.ts";
+import { SHERLOCK_VERSION } from "../mod.ts";
+import { sitesCount } from "../sites.ts";
+import { ScannerResult } from "./enums.ts";
+import { siteStatusCode } from "./testing-helpers.ts";
+import { c } from "./deps.ts";
 
 const createConsoleStub = (method = "log"): Stub<Console> => {
   return stub(
