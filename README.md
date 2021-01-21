@@ -6,7 +6,9 @@
   <br>
 </p>
 
-Sherlock-Deno is an improved remake of the original [project-sherlock](https://github.com/sherlock-project/sherlock) by [sdushantha](https://github.com/sdushantha).
+Sherlock-Deno is an improved remake of the original
+[project-sherlock](https://github.com/sherlock-project/sherlock) by
+[sdushantha](https://github.com/sdushantha).
 
 #### Why use Sherlock-Deno?
 
@@ -14,7 +16,8 @@ Sherlock-Deno is an improved remake of the original [project-sherlock](https://g
 - Extremely lightweight
 - Can be run without installation
 - Runs all checks concurrently (asynchronous)
-- Cleverly looks through the response to determine if a user has an account (status code, redirect, page content)
+- Cleverly looks through the response to determine if a user has an account
+  (status code, redirect, page content)
 - Follows HTTP(S) redirections
 - Only uses the deno standard modules (colors, flags)
 
@@ -28,7 +31,8 @@ Sherlock-Deno is an improved remake of the original [project-sherlock](https://g
 
 ## How to use the CLI (Command Line Interface)?
 
-Simply install deno on your system with a single command. You can find the offical command [here](https://deno.land/#installation).
+Simply install deno on your system with a single command. You can find the
+offical command [here](https://deno.land/#installation).
 
 #### With installation (recommended):
 
@@ -54,7 +58,8 @@ Verify the installation by typing `sherlock`
 
 ## How to update the CLI?
 
-Deno caches the dependencies locally, so you may need to clear the cache to update. To do so simply run:
+Deno caches the dependencies locally, so you may need to clear the cache to
+update. To do so simply run:
 
 `deno cache --reload https://deno.land/x/sherlock/cli.ts`
 
@@ -62,23 +67,31 @@ Next run the installation command from above again.
 
 ## How to contribute?
 
-If you encounter any issues please create an issue [here](https://github.com/checkerschaf/sherlock-deno/issues) but please look for existing issues first before creating a new one 😉
+If you encounter any issues please create an issue
+[here](https://github.com/checkerschaf/sherlock-deno/issues) but please look for
+existing issues first before creating a new one 😉
 
-Feel free to create an issue if you have an idea what could be added next. Thanks in advance!
+Feel free to create an issue if you have an idea what could be added next.
+Thanks in advance!
 
 ## How to install the source code?
 
 1. Clone the repository.
 2. Run `deno run --allow-net cli.ts`
 
-**Done!** 🎉 You now have a running version of the Sherlock-Deno CLI on your machine.
+**Done!** 🎉 You now have a running version of the Sherlock-Deno CLI on your
+machine.
 
 ### Useful development commands:
 
 - `deno test src` - Runs all tests.
-- `deno test src --coverage --unstable` - Runs all tests and creates a code coverage report.
-- `deno test --allow-net all-sites` - Runs false positive & false negative tests for every site. Add `--filter=SITE` to only test a specific site.
-- `deno run -A src/scripts/update-sites.ts` - Downloads all sites from project-sherlock, applies patches and saves them to sites.ts.
+- `deno test src --coverage --unstable` - Runs all tests and creates a code
+  coverage report.
+- `deno test --allow-net all-sites` - Runs false positive & false negative tests
+  for every site. Add `--filter=SITE` to only test a specific site.
+- `deno run -A src/scripts/update-sites.ts` - Downloads all sites from
+  project-sherlock, applies patches and saves them to sites.ts.
 - `deno lint --unstable` - Runs a code linter to check the code style.
 
-_Tip: You can find more info about the deno cli [here](https://deno.land/manual/getting_started/command_line_interface)._
+_Tip: You can find more info about the deno cli
+[here](https://deno.land/manual/getting_started/command_line_interface)._
