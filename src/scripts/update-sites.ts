@@ -58,7 +58,7 @@ const patchSites = (sites: SiteList): SiteList => {
   // 404 message is not working as site includes CSS with 404 in it
   sites["Repl.it"].errorMsg = "USER_DATA = undefined";
   // Instagram now adds a new script tag if the page is not found
-  sites["Instagram"].errorMsg = 'src="/static/bundles/es6/HttpErrorPage.js';
+  // sites["Instagram"].errorMsg = 'src="/static/bundles/es6/HttpErrorPage.js';
   return sites;
 };
 
