@@ -11,7 +11,7 @@ export enum ScannerResult {
 }
 
 export enum SiteErrorType {
-  status_code = "status_code",
-  message = "message",
-  response_url = "response_url",
+  STATUS_CODE = "status_code",
+  MESSAGE = "message",
+  RESPONSE_URL = "response_url",
 }

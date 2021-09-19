@@ -8,11 +8,11 @@ const responseIsUserPage = (
   username: string,
 ): Promise<ScannerResult> => {
   switch (site.errorType) {
-    case SiteErrorType.message:
+    case SiteErrorType.MESSAGE:
       return checkStatusMessage(response, site, username);
-    case SiteErrorType.response_url:
+    case SiteErrorType.RESPONSE_URL:
       return checkResponseUrl(response, site, username);
-    case SiteErrorType.status_code:
+    case SiteErrorType.STATUS_CODE:
       return checkStatusCode(response);
     default:
       return checkStatusCode(response);
@@ -65,10 +65,7 @@ const checkResponseUrl = async (
 ): Promise<ScannerResult> => {
   const pageContent = await getPageContent(response);
 
-  if (
-    response.url !==
-      getSiteUserUrl(site, username)
-  ) {
+  if (response.url !== getSiteUserUrl(site, username)) {
     return ScannerResult.NOT_FOUND;
   }
 

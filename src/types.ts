@@ -22,12 +22,15 @@ export type Site = {
   errorType: SiteErrorType | string;
   errorUrl?: string;
   errorMsg?: string | string[];
+  // deno-lint-ignore camelcase
   username_claimed?: string;
+  // deno-lint-ignore camelcase
   username_unclaimed?: string;
 
-  // Unused
+  // Unused site options
   regexCheck?: string;
   urlMain?: string;
+  // deno-lint-ignore camelcase
   request_head_only?: boolean;
   noPeriod?: string;
   rank?: number;

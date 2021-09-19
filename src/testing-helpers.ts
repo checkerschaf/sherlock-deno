@@ -13,20 +13,23 @@ const successResponse = new Response(
 const url = "http://localhost/users/{}/hello";
 const siteStatusCode: Site = {
   url,
-  errorType: SiteErrorType.status_code,
-  "username_claimed": testUsername,
+  errorType: SiteErrorType.STATUS_CODE,
+  // deno-lint-ignore camelcase
+  username_claimed: testUsername,
 };
 const siteStatusMessage: Site = {
   url,
-  errorType: SiteErrorType.message,
+  errorType: SiteErrorType.MESSAGE,
   errorMsg: "User not found",
-  "username_claimed": testUsername,
+  // deno-lint-ignore camelcase
+  username_claimed: testUsername,
 };
 const siteRedirect: Site = {
   url,
-  errorType: SiteErrorType.response_url,
+  errorType: SiteErrorType.RESPONSE_URL,
   errorUrl: "http://localhost/redirect-to-error",
-  "username_claimed": testUsername,
+  // deno-lint-ignore camelcase
+  username_claimed: testUsername,
 };
 
 export {
