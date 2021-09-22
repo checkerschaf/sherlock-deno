@@ -1,81 +1,118 @@
+import { SHERLOCK_VERSION } from "../mod.ts";
 import { Args, c, parse } from "./deps.ts";
 import { sites } from "../sites.ts";
-import type { ScannerOptions } from "./types.ts";
-import { SHERLOCK_VERSION } from "../mod.ts";
-import { printSherlockDeno } from "./printer.ts";
+import { Formatter } from "./formatters/formatter.ts";
+import { ConsoleFormatter } from "./formatters/console-formatter.ts";
+import { JsonFormatter } from "./formatters/json-formatter.ts";
+import { CsvFormatter } from "./formatters/csv-formatter.ts";
+import { PrettyJsonFormatter } from "./formatters/pretty-json-formatter.ts";
+import type { SherlockScannerOptions } from "./types.ts";
+import { sitesCount } from "../sites.ts";
 
-const readCliArguments = async (
+export const readCliArguments = (
   argsInput = Deno.args,
-): Promise<ScannerOptions> => {
+): SherlockScannerOptions => {
   const args = parseArguments(argsInput);
-
-  // Show a beautiful Sherlock ASCII image if no format is
-  if (!args.format || args.help || args.version) {
-    printSherlockDeno();
-  }
 
   // Show help
   if (args.help) {
-    console.log(getShowHelpStr());
+    printSherlockDenoAscii();
+    showHelpMessage();
     Deno.exit();
   }
 
   // Show version
   if (args.version) {
-    console.log(getShowVersionStr());
+    printSherlockDenoAscii();
+    showVersionMessage();
     Deno.exit();
   }
 
+  const formatter = getFormatterFromArguments(args);
+  formatter.onInit();
+
   return {
-    username: await getUsername(args),
-    showAll: args.all ?? false,
-    realtimeOutput: !args.format,
+    formatter,
     timeout: args.timeout ?? 30,
-    format: args.format ?? "",
+    username: parseUsername(args),
   };
 };
 
-const parseArguments = (argsInput = Deno.args): Args => {
+export const parseArguments = (argsInput = Deno.args): Args => {
   return parse(argsInput, {
     boolean: ["all"],
     alias: {
       all: ["a"],
       timeout: ["t"],
       format: ["f"],
+      help: ["h"],
+      version: ["v"],
     },
   });
 };
 
-const getShowHelpStr = (): string => {
-  return `Options:
-    --help          Show help
-    --version       Show version number and number of active sites
-    -a, --all       Show all results                                   [boolean]
+export const parseUsername = (args: Args): string => {
+  if (args._?.length) return String(args._[0]);
+  return prompt(c.green(c.bold(`[>] Input username: `))) ?? "";
+};
+
+export const getFormatterFromArguments = (args: Args): Formatter => {
+  const showAll = !!args.all;
+  switch (args.format || "console") {
+    case "json":
+      return new JsonFormatter({ showAll });
+    case "pretty_json":
+      return new PrettyJsonFormatter({ showAll });
+    case "csv":
+      return new CsvFormatter({ showAll });
+    case "console":
+    default:
+      return new ConsoleFormatter({ showAll });
+  }
+};
+
+export const printSherlockDenoAscii = (): void => {
+  console.log(
+    c.cyan(`
+                                                                         ,_
+   ███████╗██╗  ██╗███████╗██████╗ ██╗      ██████╗  ██████╗██╗  ██╗   ,'  \`\\,_
+   ██╔════╝██║  ██║██╔════╝██╔══██╗██║     ██╔═══██╗██╔════╝██║ ██╔╝   |_,-'_)
+   ███████╗███████║█████╗  ██████╔╝██║     ██║   ██║██║     █████╔╝    /##c '\\  (
+   ╚════██║██╔══██║██╔══╝  ██╔══██╗██║     ██║   ██║██║     ██╔═██╗   ' |'  -{.  )
+   ███████║██║  ██║███████╗██║  ██║███████╗╚██████╔╝╚██████╗██║  ██╗    /\\__-' \\[]
+   ╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝ ╚═════╝  ╚═════╝╚═╝  ╚═╝    /\`-_\`\\
+    Version: ${SHERLOCK_VERSION}  |  Sites: ${sitesCount}  |  Made with ${
+      c.red(
+        "<3",
+      )
+    } by checkerschaf.     '     \\
+`),
+  );
+};
+
+export const showVersionMessage = () => {
+  console.log(
+    c.green(
+      `You are using version v${
+        c.bold(
+          SHERLOCK_VERSION,
+        )
+      }. with a total of ${c.bold(`${Object.keys(sites).length}`)} sites.`,
+    ),
+  );
+};
+
+export const showHelpMessage = () => {
+  console.log(
+    `Options:
+-h, --help          Show help
+-v, --version       Show version number and number of active sites
+-a, --all           Show all results                                   [boolean]
 -t, --timeout       Set timout for requests in seconds    [number] [default: 30]
 -f, --format        Select output format [choices: "json", "pretty_json", "csv"]
 
 Examples:
 ${c.yellow("sherlock JohnDoe")}        Search for JohnDoe
-${c.yellow("sherlock -a JohnDoe")}     Search for JohnDoe and show all results`;
-};
-
-const getShowVersionStr = (): string => {
-  return c.green(
-    `You are using version v${c.bold(SHERLOCK_VERSION)}. with a total of ${
-      c.bold(`${Object.keys(sites).length}`)
-    } sites.`,
+${c.yellow("sherlock -a JohnDoe")}     Search for JohnDoe and show all results`,
   );
-};
-
-const getUsername = (args: Args): string => {
-  if (args._?.length) return String(args._[0]);
-  return prompt(c.green(c.bold(`[>] Input username: `))) ?? "";
-};
-
-export {
-  getShowHelpStr,
-  getShowVersionStr,
-  getUsername,
-  parseArguments,
-  readCliArguments,
 };

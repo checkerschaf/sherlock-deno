@@ -1,4 +1,3 @@
-export const SHERLOCK_VERSION = "1.10.0";
+export const SHERLOCK_VERSION = "2.0.0";
 
-import Scanner from "./src/scanner.ts";
-export { Scanner };
+export { SherlockScanner } from "./src/sherlock-scanner.ts";

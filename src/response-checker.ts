@@ -1,19 +1,24 @@
 import type { Site } from "./types.ts";
 import { ScannerResult, SiteErrorType } from "./enums.ts";
-import { getSiteUserUrl } from "./fetcher.ts";
+import { getSiteUserUrl } from "./lib/fetcher.ts";
 
-const responseIsUserPage = (
-  response: Response,
-  site: Site,
-  username: string,
-): Promise<ScannerResult> => {
+const responseIsUserPage = ({
+  response,
+  site,
+  username,
+  url = response.url,
+}: {
+  response: Response;
+  site: Site;
+  username: string;
+  url?: string;
+}): Promise<ScannerResult> => {
   switch (site.errorType) {
     case SiteErrorType.MESSAGE:
-      return checkStatusMessage(response, site, username);
+      return checkStatusMessage({ response, site, username });
     case SiteErrorType.RESPONSE_URL:
-      return checkResponseUrl(response, site, username);
+      return checkResponseUrl({ response, site, username, url });
     case SiteErrorType.STATUS_CODE:
-      return checkStatusCode(response);
     default:
       return checkStatusCode(response);
   }
@@ -28,26 +33,32 @@ const getPageContent = async (response: Response): Promise<string> => {
 };
 
 const checkStatusCode = async (response: Response): Promise<ScannerResult> => {
-  await response.arrayBuffer();
+  await getPageContent(response);
   if (response.status === 200) return ScannerResult.SUCCESS;
-  if (response.status >= 500 && response.status <= 599) {
+  if (
+    (response.status >= 500 && response.status <= 599) ||
+    response.status === 403
+  ) {
     return ScannerResult.ERROR;
   }
   return ScannerResult.NOT_FOUND;
 };
 
-const checkStatusMessage = async (
-  response: Response,
-  site: Site,
-  username: string,
-): Promise<ScannerResult> => {
+const checkStatusMessage = async ({
+  response,
+  site,
+  username,
+}: {
+  response: Response;
+  site: Site;
+  username: string;
+}): Promise<ScannerResult> => {
   const pageContent = await getPageContent(response);
 
   if (
     pageContent.includes(
-      site.errorMsg instanceof Array
-        ? site.errorMsg[0]
-        : site.errorMsg || "not found",
+      (site.errorMsg instanceof Array ? site.errorMsg[0] : site.errorMsg) ||
+        "not found",
     )
   ) {
     return ScannerResult.NOT_FOUND;
@@ -58,14 +69,20 @@ const checkStatusMessage = async (
     : ScannerResult.NOT_FOUND;
 };
 
-const checkResponseUrl = async (
-  response: Response,
-  site: Site,
-  username: string,
-): Promise<ScannerResult> => {
+const checkResponseUrl = async ({
+  response,
+  site,
+  username,
+  url = response.url,
+}: {
+  response: Response;
+  site: Site;
+  username: string;
+  url?: string;
+}): Promise<ScannerResult> => {
   const pageContent = await getPageContent(response);
 
-  if (response.url !== getSiteUserUrl(site, username)) {
+  if (url !== getSiteUserUrl(site, username)) {
     return ScannerResult.NOT_FOUND;
   }
 

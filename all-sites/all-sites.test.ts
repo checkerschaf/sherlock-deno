@@ -1,12 +1,12 @@
-import { getSiteResult } from "../src/fetcher.ts";
+import { fetchSite } from "../src/lib/fetcher.ts";
 import { sites } from "../sites.ts";
-import { assert } from "../src/testing-deps.ts";
+import { assert, assertEquals } from "../src/testing-deps.ts";
 import { ScannerResult } from "../src/enums.ts";
 import type { Site } from "../src/types.ts";
 
 const getClaimedUsername = (site: Site) => site.username_claimed ?? "JohnDoe";
 
-const generateRandomString = (strLength = 12) => {
+const generateRandomString = (strLength = 16) => {
   let result = "";
   const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
   const charactersLength = characters.length;
@@ -19,23 +19,39 @@ const generateRandomString = (strLength = 12) => {
 const testSite = (siteName: string) => {
   const site = sites[siteName];
 
-  Deno.test(`site ${siteName}: a claimed username results in SUCCESS or ERROR`, async () => {
-    assert(
-      ((await getSiteResult(sites[siteName], getClaimedUsername(site)))
-        .result) !==
-        ScannerResult.NOT_FOUND,
-    );
+  Deno.test({
+    name: `site ${siteName}: a claimed username results in SUCCESS`,
+    fn: async () => {
+      assertEquals(
+        (
+          await fetchSite({
+            site,
+            siteName,
+            username: getClaimedUsername(site),
+          })
+        ).result,
+        ScannerResult.SUCCESS,
+      );
+    },
   });
 
-  Deno.test(`site ${siteName}: an unclaimed username results in NOT_FOUND or ERROR`, async () => {
-    assert(
-      ((await getSiteResult(sites[siteName], generateRandomString()))
-        .result) !==
-        ScannerResult.SUCCESS,
-    );
+  Deno.test({
+    name:
+      `site ${siteName}: an unclaimed username results in NOT_FOUND or ERROR`,
+    fn: async () => {
+      assert(
+        (
+          await fetchSite({
+            site,
+            siteName,
+            username: generateRandomString(),
+          })
+        ).result !== ScannerResult.SUCCESS,
+      );
+    },
   });
 };
 
-Object.keys(sites).map(async (siteName) => {
-  await testSite(siteName);
+Object.keys(sites).map((siteName) => {
+  testSite(siteName);
 });

@@ -11,7 +11,7 @@ export default class Timer {
     return this.elapsedTime();
   }
 
-  elapsedTime() {
+  elapsedTime(): number {
     if (this.endTime) {
       return Math.abs(this.endTime - this.startTime);
     }

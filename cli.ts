@@ -1,5 +1,5 @@
-import Scanner from "./src/scanner.ts";
-import { printFatalError } from "./src/printer.ts";
+import { SherlockScanner } from "./src/sherlock-scanner.ts";
+import { printFatalError } from "./src/errors.ts";
 import { readCliArguments } from "./src/cli.ts";
 
 /**
@@ -7,16 +7,16 @@ import { readCliArguments } from "./src/cli.ts";
  */
 const runSherlockCli = async (): Promise<void> => {
   // Create a new scanner with the arguments from the command line
-  const scanner = new Scanner(await readCliArguments());
+  const scanner = new SherlockScanner(readCliArguments());
 
   // Start the scan and wait for it to finish
-  await scanner.scan()
-    .catch(
-      (err: Error) => {
-        printFatalError(err);
-        Deno.exit(1);
-      },
-    );
+  await scanner
+    .scan()
+    .catch((err: Error) => {
+      printFatalError(err);
+      Deno.exit(1);
+    })
+    .finally(() => Deno.exit(0));
 };
 
 // Start the Sherlock-CLI

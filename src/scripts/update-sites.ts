@@ -10,41 +10,19 @@ const getSites = async (url: string): Promise<SiteList> => {
  * @param sites
  */
 const removeBuggySites = (sites: SiteList): SiteList => {
+  // These sites mostly require active JavaScript or are protected by CloudFlare
   const sitesToRemove = [
-    // TODO: reenable "WordPressOrg": "https://profiles.wordpress.org/{}/", in sites-old.json when https://github.com/denoland/deno/issues/7208 is fixed because of special character header
-    "WordPressOrg",
-    // TODO: reenable "Photobucket": "https://photobucket.com/user/{}/library", in sites-old.json when https://github.com/denoland/deno/issues/6465 is fixed because of HandshakeFailure in TLSv1_2
-    "Photobucket",
-    // These sites mostly require active JavaScript -> disable them
+    "", // Placeholder
+    "Alik.cz",
+    "Atom Discussions",
+    "Bandcamp",
     "Facebook",
-    "MixCloud",
-    "Twitch",
-    "Kik",
-    "Docker Hub",
-    "Twitter",
-    "Nightbot",
-    "radio_echo_msk",
-    "Spotify",
-    "RubyGems",
-    "9GAG",
-    "BinarySearch",
-    // Other broken sites
-    "Pling",
-    "Championat",
-    "YouNow",
-    "Carbonmade",
-    "ResearchGate",
-    "Duolingo",
-    "Taringa",
-    "pr0gramm",
-    "Polarsteps",
-    "4pda",
-    "Rate Your Music",
-    "tracr.co", // Site is closed
-    "Filmogs", // Site is closed
-    "fixya", // Uses Cloudflare
-    "svidbook", // Super slow
-    "ProductHunt", // Super slow
+    "Smashcast",
+    "Spotify", // JavaScript
+    "Strava",
+    "WordPressOrg",
+    "Zhihu",
+    "kofi",
   ];
 
   for (const site of sitesToRemove) {
@@ -55,10 +33,7 @@ const removeBuggySites = (sites: SiteList): SiteList => {
 };
 
 const patchSites = (sites: SiteList): SiteList => {
-  // 404 message is not working as site includes CSS with 404 in it
-  sites["Repl.it"].errorMsg = "USER_DATA = undefined";
-  // Instagram now adds a new script tag if the page is not found
-  // sites["Instagram"].errorMsg = 'src="/static/bundles/es6/HttpErrorPage.js';
+  // Placeholder to patch sites that are broken but easily patchable
   return sites;
 };
 

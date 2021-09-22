@@ -1,13 +1,11 @@
-import type { ScannerOptions, SiteResult } from "./types.ts";
-import { ScannerResult } from "./enums.ts";
-import { getSiteResult } from "./fetcher.ts";
+import type { SherlockScannerOptions, SiteResult } from "./types.ts";
+import { fetchSite } from "./lib/fetcher.ts";
 import { sites } from "../sites.ts";
-import { printSiteResult, printTotalResults } from "./printer.ts";
 import Timer from "./lib/timer.ts";
 
-export default class Scanner {
-  options: ScannerOptions;
-  results: Array<SiteResult> = new Array<SiteResult>();
+export class SherlockScanner {
+  options: SherlockScannerOptions;
+  results: SiteResult[] = [];
   timer = new Timer();
 
   /**
@@ -16,7 +14,7 @@ export default class Scanner {
    *
    * @param options
    */
-  constructor(options: ScannerOptions) {
+  constructor(options: SherlockScannerOptions) {
     // Validate the username
     if (this.isValidUsername(options.username)) {
       throw new Error("Username contains invalid characters. Stopping.");
@@ -29,24 +27,22 @@ export default class Scanner {
    * Start the scan to process all sites with the scanners options.
    */
   async scan(): Promise<void> {
+    this.options.formatter.onStart();
+
     // Start the timer to track the runtime
     this.timer.start();
 
     // Scan all sites asynchronous
     await Promise.all(
       Object.keys(sites).map(async (siteName) => {
-        const siteResult = await getSiteResult(
-          sites[siteName],
-          this.options.username,
-          this.options.timeout * 1000, // convert seconds from CLI to milliseconds
-        );
-        if (
-          siteResult.result === ScannerResult.SUCCESS ||
-          this.options.showAll
-        ) {
-          this.results.push(siteResult);
-          this.onSiteProcessed(siteResult, siteName);
-        }
+        const siteResult = await fetchSite({
+          site: sites[siteName],
+          siteName,
+          username: this.options.username,
+          timeout: this.options.timeout * 1000, // convert seconds from CLI to milliseconds
+        });
+        this.results.push(siteResult);
+        this.onSiteProcessed(siteResult);
       }),
     );
 
@@ -73,10 +69,8 @@ export default class Scanner {
    * @param result Result of the site scan.
    * @param siteName The name of the site.
    */
-  onSiteProcessed(result: SiteResult, siteName: string): void {
-    if (this.options.realtimeOutput) {
-      printSiteResult(result, siteName);
-    }
+  onSiteProcessed(result: SiteResult): void {
+    this.options.formatter.onResult(result);
   }
 
   /**
@@ -84,6 +78,10 @@ export default class Scanner {
    * Overwrite this function to define a custom onFinish() handler.
    */
   onFinish(): void {
-    printTotalResults(this);
+    this.options.formatter.onFinish({
+      results: this.results,
+      elapsedTime: this.timer.elapsedTime(),
+      username: this.options.username,
+    });
   }
 }
