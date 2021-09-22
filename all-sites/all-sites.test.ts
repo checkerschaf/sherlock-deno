@@ -1,7 +1,10 @@
 import { fetchSite } from "../src/lib/fetcher.ts";
 import { sites } from "../sites.ts";
-import { assert } from "../src/testing-deps.ts";
+import { assert, assertEquals } from "../src/testing-deps.ts";
 import { ScannerResult } from "../src/enums.ts";
+import type { Site } from "../src/types.ts";
+
+const getClaimedUsername = (site: Site) => site.username_claimed ?? "JohnDoe";
 
 const generateRandomString = (strLength = 16) => {
   let result = "";
@@ -16,21 +19,21 @@ const generateRandomString = (strLength = 16) => {
 const testSite = (siteName: string) => {
   const site = sites[siteName];
 
-  // Deno.test({
-  //   name: `site ${siteName}: a claimed username results in SUCCESS`,
-  //   fn: async () => {
-  //     assertEquals(
-  //       (
-  //         await fetchSite({
-  //           site,
-  //           siteName,
-  //           username: getClaimedUsername(site),
-  //         })
-  //       ).result,
-  //       ScannerResult.SUCCESS
-  //     );
-  //   },
-  // });
+  Deno.test({
+    name: `site ${siteName}: a claimed username results in SUCCESS`,
+    fn: async () => {
+      assertEquals(
+        (
+          await fetchSite({
+            site,
+            siteName,
+            username: getClaimedUsername(site),
+          })
+        ).result,
+        ScannerResult.SUCCESS,
+      );
+    },
+  });
 
   Deno.test({
     name:
