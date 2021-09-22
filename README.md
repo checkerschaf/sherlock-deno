@@ -6,11 +6,13 @@
   <br>
 </p>
 
-Sherlock-Deno is an improved remake of the original
+Sherlock-Deno lets you quickly scan hundreds of websites for an username. 🕵️
+
+This is an improved remake of the original
 [project-sherlock](https://github.com/sherlock-project/sherlock) by
 [sdushantha](https://github.com/sdushantha).
 
-#### Why use Sherlock-Deno?
+#### 🕵️ Why Sherlock-Deno?
 
 - Super fast
 - Extremely lightweight
@@ -32,16 +34,18 @@ Sherlock-Deno is an improved remake of the original
 ![Code size](https://img.shields.io/github/languages/code-size/checkerschaf/sherlock-deno?label=Code%20Size)
 [![vr scripts](https://badges.velociraptor.run/flat.svg)](https://velociraptor.run)
 
-## How to use?
+---
 
-### Install using Deno (recommended)
+## 🤔 How to use?
+
+### 🦕 Install using Deno (recommended ✔️)
 
 Simply install deno on your system with a single command. You can find the
 offical command [here](https://deno.land/#installation).
 
-#### With installation (recommended):
+#### With installation (recommended ✔️):
 
-`deno install --allow-net -qrfn sherlock https://deno.land/x/sherlock/cli.ts`
+`deno install --allow-net --reload -qfn sherlock https://deno.land/x/sherlock/cli.ts`
 
 Verify the installation by typing `sherlock`
 
@@ -51,18 +55,26 @@ Verify the installation by typing `sherlock`
 
 **Done!** 🎉 You now have a running version of Sherlock-Deno.
 
-### Use an executable file
+### 📦 Executable file
 
 Go to
 [latest release](https://github.com/checkerschaf/sherlock-deno/releases/latest)
 and download the executable for Windows, MacOS or Linux.
 
-### Use Docker
+### 🐳 Docker
 
 Run
 `docker run -it denoland/deno run -q --allow-net https://deno.land/x/sherlock/cli.ts`
 
-## Command Line Options
+## 🔄 How to update the CLI?
+
+Deno caches the dependencies locally, so you have to rerun the installation
+command from
+[here](https://github.com/checkerschaf/sherlock-deno-update#with-installation-recommended).
+
+---
+
+## ⚙️ Command Line Options
 
 |    Argument     |                 Description                 |
 | :-------------: | :-----------------------------------------: |
@@ -72,13 +84,9 @@ Run
 | `-t, --timeout` |     Set timout for requests in seconds      |
 | `-f, --format`  | Select output format [json,pretty_json,csv] |
 
-## How to update the CLI?
+---
 
-Deno caches the dependencies locally, so you have to rerun the installation
-command from
-[here](https://github.com/checkerschaf/sherlock-deno-update#with-installation-recommended)
-
-## How to contribute?
+## ✨ How to contribute?
 
 If you encounter any issues please create an issue
 [here](https://github.com/checkerschaf/sherlock-deno/issues) but please look for
@@ -87,7 +95,7 @@ existing issues first before creating a new one 😉
 Feel free to create an issue if you have an idea what could be added next.
 Thanks in advance!
 
-## How to install the source code?
+## 💻 How to install the source code?
 
 1. Clone the repository.
 2. Install [Velociraptor](https://velociraptor.run)
