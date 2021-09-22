@@ -1,0 +1,50 @@
+allow:
+  - net
+
+scripts:
+  start:
+    desc: Starts Sherlock-Deno locally
+    cmd: deno run -q cli.ts
+
+  update-sites:
+    desc: Updates the sites.ts using the latest version from project-sherlock
+    cmd: deno run ./src/scripts/update-sites.ts
+    allow:
+      - write
+      - run
+
+  test:
+    desc: Runs all source code tests
+    cmd: deno test src
+
+  test-sites:
+    desc: Runs all site tests
+    cmd: deno test all-sites
+
+  lint:
+    desc: Lints the code
+    cmd: deno lint
+
+  format-check:
+    desc: Formats the code
+    cmd: deno fmt --check
+
+  pre-commit:
+    cmd:
+      - vr lint
+      - vr format-check
+      - vr test
+    gitHook: pre-commit
+
+  compile:
+    desc: Compile the local CLI to an executable
+    cmd: deno compile --output=sherlock -q --allow-net cli.ts
+
+  coverage: vr run test --coverage=coverage/profile
+  coverage-pretty:
+    - vr run coverage
+    - deno coverage coverage/profile
+  coverage-html:
+    - vr run coverage
+    - deno coverage coverage/profile --lcov > coverage/coverage.lcov
+    - genhtml -o coverage/html coverage/coverage.lcov

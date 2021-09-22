@@ -14,18 +14,18 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup Deno
-        uses: denolib/setup-deno@v2
+        uses: denoland/setup-deno@v1
         with:
           deno-version: ${{ matrix.deno }}
 
-      - name: Show Deno Version
-        run: deno --version
-
-      - name: Check Code Format
-        run: deno fmt --check
+      - name: Setup Velociraptor
+        uses: jurassiscripts/setup-velociraptor@v1
 
       - name: Lint Code
-        run: deno lint --unstable
+        run: vr run lint
+
+      - name: Check Code Format
+        run: vr run format-check
 
       - name: Run Tests
-        run: deno test src
+        run: vr run test

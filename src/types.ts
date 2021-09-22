@@ -1,18 +1,19 @@
-import type { OutputFormat, ScannerResult } from "./enums.ts";
+import type { ScannerResult } from "./enums.ts";
 import type { SiteErrorType } from "./enums.ts";
+import { Formatter } from "./formatters/formatter.ts";
 
-export type ScannerOptions = {
+export type SherlockScannerOptions = {
   username: string;
-  showAll: boolean;
   timeout: number;
-  realtimeOutput?: boolean;
-  format?: OutputFormat | string;
+  formatter: Formatter;
 };
 
 export type SiteResult = {
   site: Site;
+  siteName: string;
   url: string;
   result: ScannerResult;
+  username: string;
   error?: string;
 };
 
@@ -34,6 +35,11 @@ export type Site = {
   request_head_only?: boolean;
   noPeriod?: string;
   rank?: number;
+  headers?: SiteHeaders;
+};
+
+type SiteHeaders = {
+  [name: string]: string;
 };
 
 export type SiteList = {
