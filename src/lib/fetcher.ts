@@ -34,8 +34,9 @@ export const fetchSite = async ({
       result: await responseIsUserPage({ response, site, username }),
     };
   } catch (error) {
+    const isDenoRuntime = "Deno" in window;
     // Process has insuficient permissions
-    if (error instanceof Deno.errors.PermissionDenied) {
+    if (isDenoRuntime && error instanceof Deno.errors.PermissionDenied) {
       throw new Error(
         "Permission error. Try again with the --allow-net flag. Learn more: https://deno.land/manual/getting_started/permissions#network-access"
       );
