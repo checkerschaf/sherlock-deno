@@ -1,4 +1,4 @@
-# Sherlock-Deno 🕵️ - search users across 270+ websites
+# Sherlock-Deno 🕵️ - search users across 310+ websites
 
 <p align="center">
   <br>
