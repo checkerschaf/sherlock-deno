@@ -52,7 +52,7 @@ await Deno.writeTextFile(
  * Please do NOT modify this file directly. This is an auto-generated file.
  * If you want to add or remove websites then please modify src/scripts/update-sites.ts instead.
  *
- * For details on how to run the update script please visit: https://github.com/checkerschaf/sherlock-deno#useful-development-commands
+ * For details on how to run the update script please visit: https://github.com/checkerschaf/sherlock-deno#development-commands
  */
 import type { SiteList } from "./src/types.ts";
 
