@@ -65,9 +65,9 @@ export const fetchSite = async ({
 
 export const fetchWithTimeout = async (
   resource: string | Request | URL,
-  options?: (RequestInit & { timeout: number }) | undefined
+  options: { headers: HeadersInit; timeout: number }
 ) => {
-  const { timeout = 10000 } = options || {};
+  const { timeout } = options;
 
   const controller = new AbortController();
   const id = setTimeout(() => {
@@ -75,7 +75,7 @@ export const fetchWithTimeout = async (
   }, timeout);
 
   const response = await fetch(resource, {
-    ...options,
+    ...options.headers,
     signal: controller.signal,
   });
 
