@@ -37,6 +37,9 @@ export type Site = {
   noPeriod?: string;
   rank?: number;
   headers?: SiteHeaders;
+  request_method?: string; // e.g. POST
+  // deno-lint-ignore no-explicit-any
+  request_payload?: any;
 };
 
 type SiteHeaders = {

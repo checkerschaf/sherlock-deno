@@ -2,7 +2,7 @@
  * Please do NOT modify this file directly. This is an auto-generated file.
  * If you want to add or remove websites then please modify src/scripts/update-sites.ts instead.
  *
- * For details on how to run the update script please visit: https://github.com/checkerschaf/sherlock-deno#useful-development-commands
+ * For details on how to run the update script please visit: https://github.com/checkerschaf/sherlock-deno#development-commands
  */
 import type { SiteList } from "./src/types.ts";
 
@@ -52,6 +52,44 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Airliners": {
+    "errorType": "status_code",
+    "url": "https://www.airliners.net/user/{}/profile/photos",
+    "urlMain": "https://www.airliners.net/",
+    "username_claimed": "yushinlin",
+    "username_unclaimed": "noonewouldeverusethis",
+  },
+  "AllMyLinks": {
+    "errorMsg": "Not Found",
+    "errorType": "message",
+    "url": "https://allmylinks.com/{}",
+    "urlMain": "https://allmylinks.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Anilist": {
+    "errorType": "status_code",
+    "regexCheck": "^[A-Za-z0-9]{2,20}$",
+    "request_method": "POST",
+    "request_payload": {
+      "query": "query($name:String){User(name:$name){id}}",
+      "variables": {
+        "name": "{}",
+      },
+    },
+    "url": "https://anilist.co/user/{}/",
+    "urlMain": "https://anilist.co/",
+    "urlProbe": "https://graphql.anilist.co/",
+    "username_claimed": "Josh",
+    "username_unclaimed": "noonewouldeverusethi",
+  },
+  "Apple Developer": {
+    "errorType": "status_code",
+    "url": "https://developer.apple.com/forums/profile/{}",
+    "urlMain": "https://developer.apple.com",
+    "username_claimed": "lio24d",
+    "username_unclaimed": "noonewouldeverusethis",
+  },
   "Apple Discussions": {
     "errorMsg":
       "The page you tried was not found. You may have used an outdated link or may have typed the address (URL) incorrectly.",
@@ -67,6 +105,21 @@ export const sites: SiteList = {
     "url": "https://archive.org/details/@{}",
     "urlMain": "https://archive.org",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewould",
+  },
+  "Arduino": {
+    "errorType": "status_code",
+    "regexCheck": "^(?![_-])[A-Za-z0-9_-]{3,}$",
+    "url": "https://create.arduino.cc/projecthub/{}",
+    "urlMain": "https://www.arduino.cc/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewould",
+  },
+  "ArtStation": {
+    "errorType": "status_code",
+    "url": "https://www.artstation.com/{}",
+    "urlMain": "https://www.artstation.com/",
+    "username_claimed": "Blue",
     "username_unclaimed": "noonewould",
   },
   "Asciinema": {
@@ -165,6 +218,14 @@ export const sites: SiteList = {
     "username_claimed": "bitcoinforum.com",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Bitwarden Forum": {
+    "errorType": "status_code",
+    "regexCheck": "^(?![.-])[a-zA-Z0-9_.-]{3,20}$",
+    "url": "https://community.bitwarden.com/u/{}/summary",
+    "urlMain": "https://bitwarden.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethi",
+  },
   "Blogger": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
@@ -180,6 +241,13 @@ export const sites: SiteList = {
     "urlMain": "https://bodyspace.bodybuilding.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "BongaCams": {
+    "errorType": "status_code",
+    "url": "https://pt.bongacams.com/profile/{}",
+    "urlMain": "https://pt.bongacams.com",
+    "username_claimed": "asuna-black",
+    "username_unclaimed": "noonewouldeverusethis77777",
   },
   "Bookcrossing": {
     "errorType": "status_code",
@@ -251,6 +319,13 @@ export const sites: SiteList = {
     "username_claimed": "david",
     "username_unclaimed": "noonewouldeverusethis",
   },
+  "ChaturBate": {
+    "errorType": "status_code",
+    "url": "https://chaturbate.com/{}",
+    "urlMain": "https://chaturbate.com",
+    "username_claimed": "cute18cute",
+    "username_unclaimed": "noonewouldeverusethis77777",
+  },
   "Chess": {
     "errorMsg": "usernameSuggestions",
     "errorType": "message",
@@ -258,13 +333,6 @@ export const sites: SiteList = {
     "url": "https://www.chess.com/member/{}",
     "urlMain": "https://www.chess.com/",
     "urlProbe": "https://www.chess.com/callback/user/valid?username={}",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
-  "Cloob": {
-    "errorType": "status_code",
-    "url": "https://www.cloob.com/name/{}",
-    "urlMain": "https://www.cloob.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
@@ -284,7 +352,8 @@ export const sites: SiteList = {
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Codecademy": {
-    "errorType": "status_code",
+    "errorMsg": "This profile could not be found",
+    "errorType": "message",
     "url": "https://www.codecademy.com/profiles/{}",
     "urlMain": "https://www.codecademy.com/",
     "username_claimed": "blue",
@@ -310,6 +379,24 @@ export const sites: SiteList = {
     "url": "https://www.codewars.com/users/{}",
     "urlMain": "https://www.codewars.com",
     "username_claimed": "example",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Coil": {
+    "errorMsg": "User not found",
+    "errorType": "message",
+    "request_method": "POST",
+    "request_payload": {
+      "operationName": "getCreator",
+      "query":
+        "query getCreator($userShortName:String!){getCreator(userShortName:$userShortName){id}}",
+      "variables": {
+        "userShortName": "{}",
+      },
+    },
+    "url": "https://coil.com/u/{}",
+    "urlMain": "https://coil.com/",
+    "urlProbe": "https://coil.com/gateway",
+    "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "ColourLovers": {
@@ -354,6 +441,14 @@ export const sites: SiteList = {
     "errorType": "status_code",
     "url": "https://{}.crevado.com",
     "urlMain": "https://crevado.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Crowdin": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9._-]{2,255}$",
+    "url": "https://crowdin.com/profile/{}",
+    "urlMain": "https://crowdin.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
@@ -472,14 +567,13 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
-  "Facenama": {
-    "errorType": "response_url",
-    "errorUrl": "https://facenama.com/404.html",
-    "regexCheck": "^[-a-zA-Z0-9_]+$",
-    "url": "https://facenama.com/{}",
-    "urlMain": "https://facenama.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis77",
+  "FanCentro": {
+    "errorMsg": "var environment",
+    "errorType": "message",
+    "url": "https://fancentro.com/{}",
+    "urlMain": "https://fancentro.com/",
+    "username_claimed": "nielsrosanna",
+    "username_unclaimed": "noonewouldeverusethis7",
   },
   "Fandom": {
     "errorType": "status_code",
@@ -487,6 +581,20 @@ export const sites: SiteList = {
     "urlMain": "https://www.fandom.com/",
     "username_claimed": "Jungypoo",
     "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Fiverr": {
+    "errorMsg": '"status":"success"',
+    "errorType": "message",
+    "regexCheck": "^[A-Za-z][A-Za-z\\d_]{5,14}$",
+    "request_method": "POST",
+    "request_payload": {
+      "username": "{}",
+    },
+    "url": "https://www.fiverr.com/{}",
+    "urlMain": "https://www.fiverr.com/",
+    "urlProbe": "https://www.fiverr.com/validate_username",
+    "username_claimed": "blueman",
+    "username_unclaimed": "noonewouldeveru",
   },
   "Flickr": {
     "errorType": "status_code",
@@ -526,6 +634,14 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis",
   },
+  "Fosstodon": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9_]{1,30}$",
+    "url": "https://fosstodon.org/@{}",
+    "urlMain": "https://fosstodon.org/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "Freelance.habr": {
     "errorMsg": '<div class="icon_user_locked"></div>',
     "errorType": "message",
@@ -551,6 +667,30 @@ export const sites: SiteList = {
     "urlMain": "https://freesound.org/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis",
+  },
+  "GNOME VCS": {
+    "errorType": "response_url",
+    "errorUrl": "https://gitlab.gnome.org/{}",
+    "regexCheck": "^(?!-)[a-zA-Z0-9_.-]{2,255}(?<!\\.)$",
+    "url": "https://gitlab.gnome.org/{}",
+    "urlMain": "https://gitlab.gnome.org/",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "GaiaOnline": {
+    "errorMsg": "No user ID specified or user does not exist",
+    "errorType": "message",
+    "url": "https://www.gaiaonline.com/profiles/{}",
+    "urlMain": "https://www.gaiaonline.com/",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis77777",
+  },
+  "Gam1ng": {
+    "errorType": "status_code",
+    "url": "https://gam1ng.com.br/user/{}",
+    "urlMain": "https://gam1ng.com.br",
+    "username_claimed": "PinKgirl",
+    "username_unclaimed": "noonewouldeverusethis77777",
   },
   "Gamespot": {
     "errorType": "status_code",
@@ -612,6 +752,14 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Gradle": {
+    "errorType": "status_code",
+    "regexCheck": "^(?!-)[a-zA-Z0-9-]{3,}(?<!-)$",
+    "url": "https://plugins.gradle.org/u/{}",
+    "urlMain": "https://gradle.org/",
+    "username_claimed": "jetbrains",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "Gravatar": {
     "errorType": "status_code",
     "regexCheck": "^((?!\\.).)*$",
@@ -642,6 +790,15 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "HEXRPG": {
+    "errorMsg": "Error : User ",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_ ]{3,20}$",
+    "url": "https://www.hexrpg.com/userinfo/{}",
+    "urlMain": "https://www.hexrpg.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethi",
+  },
   "HackTheBox": {
     "errorType": "status_code",
     "url": "https://forum.hackthebox.eu/profile/{}",
@@ -655,6 +812,14 @@ export const sites: SiteList = {
     "urlMain": "https://hackaday.io/",
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis",
+  },
+  "HackerEarth": {
+    "errorMsg": "404. URL not found.",
+    "errorType": "message",
+    "url": "https://hackerearth.com/@{}",
+    "urlMain": "https://hackerearth.com/",
+    "username_claimed": "naveennamani877",
+    "username_unclaimed": "noonewouldeverusethis7",
   },
   "HackerNews": {
     "errorMsg": "No such user.",
@@ -704,9 +869,8 @@ export const sites: SiteList = {
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "ICQ": {
-    "errorMsg": "Profile not found",
-    "errorType": "message",
-    "url": "https://icq.im/{}",
+    "errorType": "status_code",
+    "url": "https://icq.im/{}/en",
     "urlMain": "https://icq.com/",
     "username_claimed": "Micheal",
     "username_unclaimed": "noonewouldeverusethis7",
@@ -733,6 +897,15 @@ export const sites: SiteList = {
     "urlMain": "https://imgur.com/",
     "urlProbe":
       "https://api.imgur.com/account/v1/accounts/{}?client_id=546c25a59c58ad7",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Instagram": {
+    "errorMsg": "Nothing found!",
+    "errorType": "message",
+    "url": "https://www.instagram.com/{}",
+    "urlMain": "https://www.instagram.com/",
+    "urlProbe": "https://www.picuki.com/profile/{}",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
@@ -766,6 +939,14 @@ export const sites: SiteList = {
     "urlMain": "https://www.itemfix.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis",
+  },
+  "Jellyfin Weblate": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9@._-]{1,150}$",
+    "url": "https://translate.jellyfin.org/user/{}/",
+    "urlMain": "https://translate.jellyfin.org/",
+    "username_claimed": "EraYaN",
+    "username_unclaimed": "noonewouldeverusethis7",
   },
   "Jimdo": {
     "errorType": "status_code",
@@ -842,6 +1023,13 @@ export const sites: SiteList = {
     "url": "https://lichess.org/@/{}",
     "urlMain": "https://lichess.org",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Linktree": {
+    "errorType": "status_code",
+    "url": "https://linktr.ee/{}",
+    "urlMain": "https://linktr.ee/",
+    "username_claimed": "anne",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "LiveJournal": {
@@ -960,6 +1148,14 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Nextcloud Forum": {
+    "errorType": "status_code",
+    "regexCheck": "^(?![.-])[a-zA-Z0-9_.-]{3,20}$",
+    "url": "https://help.nextcloud.com/u/{}/summary",
+    "urlMain": "https://nextcloud.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethi",
+  },
   "Nightbot": {
     "errorType": "status_code",
     "url": "https://nightbot.tv/t/{}/commands",
@@ -967,6 +1163,14 @@ export const sites: SiteList = {
     "urlProbe": "https://api.nightbot.tv/1/channels/t/{}",
     "username_claimed": "green",
     "username_unclaimed": "noonewouldeverusethis",
+  },
+  "Ninja Kiwi": {
+    "errorType": "response_url",
+    "errorUrl": "https://ninjakiwi.com/profile/{}",
+    "url": "https://ninjakiwi.com/profile/{}",
+    "urlMain": "https://ninjakiwi.com/",
+    "username_claimed": "Kyruko",
+    "username_unclaimed": "noonewouldeverusethis7",
   },
   "NotABug.org": {
     "errorType": "status_code",
@@ -976,12 +1180,27 @@ export const sites: SiteList = {
     "username_claimed": "red",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Nyaa.si": {
+    "errorType": "status_code",
+    "url": "https://nyaa.si/user/{}",
+    "urlMain": "https://nyaa.si/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "OK": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_.-]*$",
     "url": "https://ok.ru/{}",
     "urlMain": "https://ok.ru/",
     "username_claimed": "ok",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "OnlyFans": {
+    "errorType": "status_code",
+    "url": "https://onlyfans.com/{}",
+    "urlMain": "https://onlyfans.com/",
+    "urlProbe": "https://onlyfans.com/api2/v2/users/{}",
+    "username_claimed": "theemilylynne",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "OpenStreetMap": {
@@ -1095,13 +1314,6 @@ export const sites: SiteList = {
     "username_claimed": "Facebook",
     "username_unclaimed": "noonewouldeverusethis7",
   },
-  "Plug.DJ": {
-    "errorType": "status_code",
-    "url": "https://plug.dj/@/{}",
-    "urlMain": "https://plug.dj/",
-    "username_claimed": "plug-dj-rock",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
   "Pokemon Showdown": {
     "errorType": "status_code",
     "url": "https://pokemonshowdown.com/users/{}",
@@ -1122,6 +1334,13 @@ export const sites: SiteList = {
     "url": "https://www.polygon.com/users/{}",
     "urlMain": "https://www.polygon.com/",
     "username_claimed": "swiftstickler",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Pornhub": {
+    "errorType": "status_code",
+    "url": "https://pornhub.com/users/{}",
+    "urlMain": "https://pornhub.com/",
+    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "ProductHunt": {
@@ -1193,10 +1412,10 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
-  "Repl.it": {
+  "Replit.com": {
     "errorType": "status_code",
-    "url": "https://repl.it/@{}",
-    "urlMain": "https://repl.it/",
+    "url": "https://replit.com/@{}",
+    "urlMain": "https://replit.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
@@ -1225,6 +1444,13 @@ export const sites: SiteList = {
     "username_claimed": "bluewolfekiller",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "RoyalCams": {
+    "errorType": "status_code",
+    "url": "https://royalcams.com/profile/{}",
+    "urlMain": "https://royalcams.com",
+    "username_claimed": "asuna-black",
+    "username_unclaimed": "noonewouldeverusethis77777",
+  },
   "RubyGems": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]{1,40}",
@@ -1232,6 +1458,15 @@ export const sites: SiteList = {
     "urlMain": "https://rubygems.org/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "RuneScape": {
+    "errorMsg": '{"error":"NO_PROFILE","loggedIn":"false"}',
+    "errorType": "message",
+    "regexCheck": "(?! )^[a-zA-Z0-9- ]{,12}(?<! )$",
+    "url": "https://apps.runescape.com/runemetrics/profile/profile?user={}",
+    "urlMain": "https://www.runescape.com/",
+    "username_claimed": "Blue",
+    "username_unclaimed": "noonewouldev",
   },
   "Sbazar.cz": {
     "errorType": "status_code",
@@ -1278,6 +1513,14 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Slant": {
+    "errorType": "status_code",
+    "regexCheck": "^.{2,32}$",
+    "url": "https://www.slant.co/users/{}",
+    "urlMain": "https://www.slant.co/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "Slashdot": {
     "errorMsg": "user you requested does not exist",
     "errorType": "message",
@@ -1299,6 +1542,24 @@ export const sites: SiteList = {
     "urlMain": "https://www.smule.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Snapchat": {
+    "errorMsg": "OK",
+    "errorType": "message",
+    "headers": {
+      "Cookie":
+        "xsrf_token=PlEcin8s5H600toD4Swngg; sc-cookies-accepted=true; web_client_id=b1e4a3c7-4a38-4c1a-9996-2c4f24f7f956; oauth_client_id=c2Nhbg==",
+      "User-Agent":
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:66.0) Gecko/20100101 Firefox/66.0",
+    },
+    "regexCheck": "^[a-z][a-z-_.]{3,15}",
+    "request_method": "POST",
+    "url": "https://www.snapchat.com/add/{}",
+    "urlMain": "https://www.snapchat.com",
+    "urlProbe":
+      "https://accounts.snapchat.com/accounts/get_username_suggestions?requested_username={}&xsrf_token=PlEcin8s5H600toD4Swngg",
+    "username_claimed": "teamsnapchat",
+    "username_unclaimed": "revedluowenoon",
   },
   "SoundCloud": {
     "errorType": "status_code",
@@ -1391,6 +1652,14 @@ export const sites: SiteList = {
     "username_claimed": "osk",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "TLDR Legal": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9]{3,20}$",
+    "url": "https://tldrlegal.com/users/{}/",
+    "urlMain": "https://tldrlegal.com/",
+    "username_claimed": "kevin",
+    "username_unclaimed": "noonewouldeverusethi",
+  },
   "Telegram": {
     "errorMsg": '<meta property="og:description" content="">',
     "errorType": "message",
@@ -1406,6 +1675,14 @@ export const sites: SiteList = {
     "urlMain": "https://tellonym.me/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Tenor": {
+    "errorType": "status_code",
+    "regexCheck": "^[A-Za-z0-9_]{2,32}$",
+    "url": "https://tenor.com/users/{}",
+    "urlMain": "https://tenor.com/",
+    "username_claimed": "red",
+    "username_unclaimed": "impossibleusername",
   },
   "TikTok": {
     "errorType": "status_code",
@@ -1424,14 +1701,6 @@ export const sites: SiteList = {
     "urlMain": "https://tinder.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
-  },
-  "TrackmaniaLadder": {
-    "errorMsg": "player unknown or invalid",
-    "errorType": "message",
-    "url": "http://en.tm-ladder.com/{}_rech.php",
-    "urlMain": "http://en.tm-ladder.com/index.php",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis",
   },
   "TradingView": {
     "errorType": "status_code",
@@ -1481,6 +1750,16 @@ export const sites: SiteList = {
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Twitter": {
+    "errorMsg": "<title>Error | nitter</title>",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_]{1,15}$",
+    "url": "https://twitter.com/{}",
+    "urlMain": "https://twitter.com/",
+    "urlProbe": "https://nitter.net/{}",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeveru",
+  },
   "Typeracer": {
     "errorMsg": "Profile Not Found",
     "errorType": "message",
@@ -1528,15 +1807,16 @@ export const sites: SiteList = {
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Venmo": {
-    "errorType": "status_code",
-    "url": "https://venmo.com/{}",
+    "errorMsg": "The profile you&#x27;re looking for isn&#x27;t available",
+    "errorType": "message",
+    "url": "https://venmo.com/u/{}",
     "urlMain": "https://venmo.com/",
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Vero": {
     "errorType": "status_code",
-    "request_head_only": false,
+    "request_method": "GET",
     "url": "https://vero.co/{}",
     "urlMain": "https://vero.co/",
     "username_claimed": "blue",
@@ -1559,12 +1839,20 @@ export const sites: SiteList = {
   },
   "VirusTotal": {
     "errorType": "status_code",
-    "request_head_only": false,
+    "request_method": "GET",
     "url": "https://www.virustotal.com/ui/users/{}/trusted_users",
     "urlMain": "https://www.virustotal.com/",
     "urlProbe": "https://www.virustotal.com/ui/users/{}/avatar",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "WICG Forum": {
+    "errorType": "status_code",
+    "regexCheck": "^(?![.-])[a-zA-Z0-9_.-]{3,20}$",
+    "url": "https://discourse.wicg.io/u/{}/summary",
+    "urlMain": "https://discourse.wicg.io/",
+    "username_claimed": "stefano",
+    "username_unclaimed": "noonewouldeverusethi",
   },
   "Warrior Forum": {
     "errorType": "status_code",
@@ -1596,6 +1884,14 @@ export const sites: SiteList = {
     "username_claimed": "radkabalcarova",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Weblate": {
+    "errorType": "status_code",
+    "regexCheck": "^[a-zA-Z0-9@._-]{1,150}$",
+    "url": "https://hosted.weblate.org/user/{}/",
+    "urlMain": "https://hosted.weblate.org/",
+    "username_claimed": "adam",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "Whonix Forum": {
     "errorType": "status_code",
     "url": "https://forums.whonix.org/u/{}",
@@ -1612,10 +1908,9 @@ export const sites: SiteList = {
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Wikipedia": {
-    "errorMsg":
-      '<b>Wikipedia does not have a <a href="/wiki/Wikipedia:User_pages" title="Wikipedia:User pages">user page</a> with this exact name.</b>',
+    "errorMsg": "centralauth-admin-nonexistent:",
     "errorType": "message",
-    "url": "https://www.wikipedia.org/wiki/User:{}",
+    "url": "https://en.wikipedia.org/wiki/Special:CentralAuth/{}?uselang=qqx",
     "urlMain": "https://www.wikipedia.org/",
     "username_claimed": "Hoadlck",
     "username_unclaimed": "noonewouldeverusethis7",
@@ -1643,11 +1938,27 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Wordnik": {
+    "errorMsg": "Page Not Found",
+    "errorType": "message",
+    "regexCheck": "^[a-zA-Z0-9_.+-]{1,40}$",
+    "url": "https://www.wordnik.com/users/{}",
+    "urlMain": "https://www.wordnik.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "Xbox Gamertag": {
     "errorType": "status_code",
     "url": "https://xboxgamertag.com/search/{}",
     "urlMain": "https://xboxgamertag.com/",
     "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Xvideos": {
+    "errorType": "status_code",
+    "url": "https://xvideos.com/profiles/{}",
+    "urlMain": "https://xvideos.com/",
+    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "YouNow": {
@@ -1665,6 +1976,13 @@ export const sites: SiteList = {
     "urlMain": "https://youpic.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "YouPorn": {
+    "errorType": "status_code",
+    "url": "https://youporn.com/uservids/{}",
+    "urlMain": "https://youporn.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77777",
   },
   "akniga": {
     "errorType": "status_code",
@@ -1696,10 +2014,9 @@ export const sites: SiteList = {
     "username_unclaimed": "noonewouldeverusethis",
   },
   "babyblogRU": {
-    "errorMsg":
-      "<title>Сообщество родителей на BabyBlog — крупнейшее сообщество по беременности, развитию и воспитанию детей</title>",
-    "errorType": "message",
-    "url": "https://www.babyblog.ru/user/info/{}",
+    "errorType": "response_url",
+    "errorUrl": "https://www.babyblog.ru/",
+    "url": "https://www.babyblog.ru/user/{}",
     "urlMain": "https://www.babyblog.ru/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis",
@@ -2100,6 +2417,28 @@ export const sites: SiteList = {
     "url": "http://uid.me/{}",
     "urlMain": "https://uid.me/",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "wiki.vg": {
+    "errorType": "status_code",
+    "url": "https://wiki.vg/User:{}",
+    "urlMain": "https://wiki.vg/",
+    "username_claimed": "Auri",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "xHamster": {
+    "errorType": "status_code",
+    "url": "https://xhamster.com/users/{}",
+    "urlMain": "https://xhamster.com",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis77777",
+  },
+  "zoomit": {
+    "errorMsg": "متاسفانه صفحه یافت نشد",
+    "errorType": "message",
+    "url": "https://www.zoomit.ir/user/{}",
+    "urlMain": "https://www.zoomit.ir",
+    "username_claimed": "kossher",
     "username_unclaimed": "noonewouldeverusethis7",
   },
 };
