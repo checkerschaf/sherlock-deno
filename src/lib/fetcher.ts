@@ -75,7 +75,7 @@ export const fetchWithTimeout = async (
   }, timeout);
 
   const response = await fetch(resource, {
-    ...options.headers,
+    headers: options.headers,
     signal: controller.signal,
   });
 
