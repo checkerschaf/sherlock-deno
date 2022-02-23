@@ -6,6 +6,7 @@ export type SherlockScannerOptions = {
   username: string;
   timeout: number;
   formatter: Formatter;
+  proxyConfig?: ProxyConfig;
 };
 
 export type SiteResult = {
@@ -47,4 +48,9 @@ type SiteHeaders = {
 
 export type SiteList = {
   [name: string]: Site;
+};
+
+export type ProxyConfig = {
+  url: string;
+  headers?: HeadersInit;
 };

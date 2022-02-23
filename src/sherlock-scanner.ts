@@ -40,6 +40,7 @@ export class SherlockScanner {
           siteName,
           username: this.options.username,
           timeout: this.options.timeout * 1000, // convert seconds from CLI to milliseconds
+          proxyConfig: this.options.proxyConfig,
         });
         this.results.push(siteResult);
         this.onSiteProcessed(siteResult);

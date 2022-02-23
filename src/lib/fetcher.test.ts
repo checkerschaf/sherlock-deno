@@ -44,7 +44,7 @@ Deno.test(
 );
 
 Deno.test(
-  "fetcher.ts: fetchTimeout() can get the response of a site",
+  "fetcher.ts: fetchWithTimeout() can get the response of a site",
   async () => {
     const fetchStub: Stub<Window & typeof globalThis> = stub(self, "fetch", [
       githubPromise(),
@@ -53,11 +53,101 @@ Deno.test(
     try {
       const response = await fetchWithTimeout(
         "https://github.com/checkerschaf/sherlock-deno",
+        { headers: {}, timeout: 10 },
       );
       assertEquals(response.status, 200);
 
       const content = await response.text();
       assertStringIncludes(content, "sherlock-deno");
+    } finally {
+      fetchStub.restore();
+    }
+  },
+);
+
+Deno.test(
+  "fetcher.ts: fetchSite() does NOT prepend a proxy url by default",
+  async () => {
+    const fetchStub: Stub<Window & typeof globalThis> = stub(self, "fetch", [
+      githubPromise(),
+    ]);
+
+    try {
+      const site = sites["GitHub"];
+      await fetchSite({
+        site,
+        siteName: "GitHub",
+        username: testUsername,
+      });
+
+      const call = fetchStub.calls[0];
+
+      const actualUrl = call.args[0];
+      const expectedUrl = site.url.replace("{}", testUsername);
+      assertEquals(actualUrl, expectedUrl);
+    } finally {
+      fetchStub.restore();
+    }
+  },
+);
+
+Deno.test("fetcher.ts: fetchSite() can append proxy headers", async () => {
+  const fetchStub: Stub<Window & typeof globalThis> = stub(self, "fetch", [
+    githubPromise(),
+  ]);
+
+  try {
+    const site = sites["GitHub"];
+    const expectedProxyHeaders = {
+      "x-show-me-please": "okay",
+    };
+    await fetchSite({
+      site,
+      siteName: "GitHub",
+      username: testUsername,
+      proxyConfig: {
+        url: "doesnt matter",
+        headers: expectedProxyHeaders,
+      },
+    });
+
+    const call = fetchStub.calls[0];
+
+    const actualHeaders: Headers = call.args[1].headers;
+    const proxyHeaderIsPresent = actualHeaders.has("x-show-me-please");
+
+    assertEquals(proxyHeaderIsPresent, true);
+  } finally {
+    fetchStub.restore();
+  }
+});
+
+Deno.test(
+  "fetcher.ts: fetchSite() prepends a proxy url if provided",
+  async () => {
+    const fetchStub: Stub<Window & typeof globalThis> = stub(self, "fetch", [
+      githubPromise(),
+    ]);
+
+    try {
+      const site = sites["GitHub"];
+      const proxyUrl = "INCLUDE ME PLEASE";
+      const siteResult = await fetchSite({
+        site,
+        siteName: "GitHub",
+        username: testUsername,
+        proxyConfig: {
+          url: proxyUrl,
+        },
+      });
+
+      const call = fetchStub.calls[0];
+
+      const actualUrl = call.args[0];
+      const expectedUrl = proxyUrl + site.url.replace("{}", testUsername);
+      assertEquals(actualUrl, expectedUrl);
+
+      assertEquals(siteResult.site.url.includes(proxyUrl), false);
     } finally {
       fetchStub.restore();
     }

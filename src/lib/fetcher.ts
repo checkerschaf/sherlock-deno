@@ -1,5 +1,5 @@
 import { ScannerResult } from "../enums.ts";
-import type { Site, SiteResult } from "../types.ts";
+import type { ProxyConfig, Site, SiteResult } from "../types.ts";
 import { responseIsUserPage } from "../response-checker.ts";
 
 export const fetchSite = async ({
@@ -7,22 +7,26 @@ export const fetchSite = async ({
   siteName,
   username,
   timeout = 10000,
+  proxyConfig,
 }: {
   site: Site;
   siteName: string;
   username: string;
   timeout?: number;
+  proxyConfig?: ProxyConfig;
 }): Promise<SiteResult> => {
   const userPageUrl = getSiteUserUrl(site, username);
   const siteResult = { site, siteName, url: userPageUrl, username };
 
   try {
-    const response = await fetchWithTimeout(userPageUrl, {
+    const urlToFetch = (proxyConfig?.url || "") + userPageUrl;
+    const response = await fetchWithTimeout(urlToFetch, {
       timeout,
       headers: new Headers({
         "Accept-Language": "en-US,en",
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36",
+        ...proxyConfig?.headers,
       }),
     });
     return {
@@ -30,8 +34,9 @@ export const fetchSite = async ({
       result: await responseIsUserPage({ response, site, username }),
     };
   } catch (error) {
+    const isDenoRuntime = "Deno" in window;
     // Process has insuficient permissions
-    if (error instanceof Deno.errors.PermissionDenied) {
+    if (isDenoRuntime && error instanceof Deno.errors.PermissionDenied) {
       throw new Error(
         "Permission error. Try again with the --allow-net flag. Learn more: https://deno.land/manual/getting_started/permissions#network-access",
       );
@@ -60,9 +65,9 @@ export const fetchSite = async ({
 
 export const fetchWithTimeout = async (
   resource: string | Request | URL,
-  options?: (RequestInit & { timeout: number }) | undefined,
+  options: { headers: HeadersInit; timeout: number },
 ) => {
-  const { timeout = 10000 } = options || {};
+  const { timeout } = options;
 
   const controller = new AbortController();
   const id = setTimeout(() => {
@@ -70,7 +75,7 @@ export const fetchWithTimeout = async (
   }, timeout);
 
   const response = await fetch(resource, {
-    ...options,
+    headers: options.headers,
     signal: controller.signal,
   });
 
