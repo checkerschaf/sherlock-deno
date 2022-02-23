@@ -44,7 +44,7 @@ export class SherlockScanner {
         });
         this.results.push(siteResult);
         this.onSiteProcessed(siteResult);
-      })
+      }),
     );
 
     // Stop the timer to get the total runtime

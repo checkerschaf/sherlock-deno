@@ -1,5 +1,5 @@
 import { ScannerResult } from "../enums.ts";
-import type { Site, SiteResult, ProxyConfig } from "../types.ts";
+import type { ProxyConfig, Site, SiteResult } from "../types.ts";
 import { responseIsUserPage } from "../response-checker.ts";
 
 export const fetchSite = async ({
@@ -38,7 +38,7 @@ export const fetchSite = async ({
     // Process has insuficient permissions
     if (isDenoRuntime && error instanceof Deno.errors.PermissionDenied) {
       throw new Error(
-        "Permission error. Try again with the --allow-net flag. Learn more: https://deno.land/manual/getting_started/permissions#network-access"
+        "Permission error. Try again with the --allow-net flag. Learn more: https://deno.land/manual/getting_started/permissions#network-access",
       );
     }
 
@@ -65,7 +65,7 @@ export const fetchSite = async ({
 
 export const fetchWithTimeout = async (
   resource: string | Request | URL,
-  options: { headers: HeadersInit; timeout: number }
+  options: { headers: HeadersInit; timeout: number },
 ) => {
   const { timeout } = options;
 
