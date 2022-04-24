@@ -24,6 +24,7 @@ export type Site = {
   errorType: SiteErrorType | string;
   errorUrl?: string;
   errorMsg?: string | string[];
+  errorCode?: number;
   // deno-lint-ignore camelcase
   username_claimed?: string;
   // deno-lint-ignore camelcase

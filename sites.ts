@@ -52,11 +52,25 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Airbit": {
+    "errorType": "status_code",
+    "url": "https://airbit.com/{}",
+    "urlMain": "https://airbit.com/",
+    "username_claimed": "airbit",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "Airliners": {
     "errorType": "status_code",
     "url": "https://www.airliners.net/user/{}/profile/photos",
     "urlMain": "https://www.airliners.net/",
     "username_claimed": "yushinlin",
+    "username_unclaimed": "noonewouldeverusethis",
+  },
+  "Alik.cz": {
+    "errorType": "status_code",
+    "url": "https://www.alik.cz/u/{}",
+    "urlMain": "https://www.alik.cz/",
+    "username_claimed": "julian",
     "username_unclaimed": "noonewouldeverusethis",
   },
   "AllMyLinks": {
@@ -145,12 +159,27 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Atom Discussions": {
+    "errorMsg": "Oops! That page doesn’t exist or is private.",
+    "errorType": "message",
+    "url": "https://discuss.atom.io/u/{}/summary",
+    "urlMain": "https://discuss.atom.io",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis",
+  },
   "Audiojungle": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9_]+$",
     "url": "https://audiojungle.net/user/{}",
     "urlMain": "https://audiojungle.net/",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Autofrage": {
+    "errorType": "status_code",
+    "url": "https://www.autofrage.net/nutzer/{}",
+    "urlMain": "https://www.autofrage.net/",
+    "username_claimed": "autofrage",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Avizo": {
@@ -177,6 +206,13 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Bandcamp": {
+    "errorType": "status_code",
+    "url": "https://www.bandcamp.com/{}",
+    "urlMain": "https://www.bandcamp.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "Bazar.cz": {
     "errorType": "response_url",
     "errorUrl": "https://www.bazar.cz/error404.aspx",
@@ -192,6 +228,20 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Bezuzyteczna": {
+    "errorType": "status_code",
+    "url": "https://bezuzyteczna.pl/uzytkownicy/{}",
+    "urlMain": "https://bezuzyteczna.pl",
+    "username_claimed": "Jackson",
+    "username_unclaimed": "ktobysietaknazwalnawb69",
+  },
+  "Bikemap": {
+    "errorType": "status_code",
+    "url": "https://www.bikemap.net/en/u/{}/routes/created/",
+    "urlMain": "https://www.bikemap.net/",
+    "username_claimed": "bikemap",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "BinarySearch": {
     "errorMsg": "{}",
     "errorType": "message",
@@ -201,6 +251,13 @@ export const sites: SiteList = {
     "urlProbe": "https://binarysearch.io/api/users/{}/profile",
     "username_claimed": "Eyes_Wide_Shut",
     "username_unclaimed": "hihowareyou101",
+  },
+  "BioHacking": {
+    "errorType": "status_code",
+    "url": "https://forum.dangerousthings.com/u/{}",
+    "urlMain": "https://forum.dangerousthings.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
   },
   "BitBucket": {
     "errorType": "status_code",
@@ -256,6 +313,13 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis",
   },
+  "BraveCommunity": {
+    "errorType": "status_code",
+    "url": "https://community.brave.com/u/{}/",
+    "urlMain": "https://community.brave.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis",
+  },
   "BuyMeACoffee": {
     "errorType": "status_code",
     "url": "https://buymeacoff.ee/{}",
@@ -277,15 +341,6 @@ export const sites: SiteList = {
     "urlMain": "https://www.cnet.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis",
-  },
-  "CapFriendly": {
-    "errorMsg": '<div class="err show p5">No results found</div>',
-    "errorType": "message",
-    "regexCheck": "^[a-zA-z][a-zA-Z0-9_]{2,79}$",
-    "url": "https://www.capfriendly.com/users/{}",
-    "urlMain": "https://www.capfriendly.com/",
-    "username_claimed": "thisactuallyexists",
-    "username_unclaimed": "noonewouldeverusethis7",
   },
   "Carbonmade": {
     "errorType": "response_url",
@@ -327,7 +382,7 @@ export const sites: SiteList = {
     "username_unclaimed": "noonewouldeverusethis77777",
   },
   "Chess": {
-    "errorMsg": "usernameSuggestions",
+    "errorMsg": '"valid": false',
     "errorType": "message",
     "regexCheck": "^[a-z1-9]{3,25}$",
     "url": "https://www.chess.com/member/{}",
@@ -351,6 +406,13 @@ export const sites: SiteList = {
     "username_claimed": "green",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Clubhouse": {
+    "errorType": "status_code",
+    "url": "https://www.clubhouse.com/@{}",
+    "urlMain": "https://www.clubhouse.com",
+    "username_claimed": "waniathar",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "Codecademy": {
     "errorMsg": "This profile could not be found",
     "errorType": "message",
@@ -366,6 +428,14 @@ export const sites: SiteList = {
     "urlMain": "https://www.codechef.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Codeforces": {
+    "errorType": "response_url",
+    "errorUrl": "https://codeforces.com/",
+    "url": "https://codeforces.com/profile/{}",
+    "urlMain": "https://www.codeforces.com/",
+    "username_claimed": "tourist",
+    "username_unclaimed": "noonewouldeverusethis789",
   },
   "Codepen": {
     "errorType": "status_code",
@@ -422,13 +492,6 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
-  "Countable": {
-    "errorType": "status_code",
-    "url": "https://www.countable.us/{}",
-    "urlMain": "https://www.countable.us/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
   "Cracked": {
     "errorType": "response_url",
     "errorUrl": "https://www.cracked.com/",
@@ -452,6 +515,13 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Cryptomator Forum": {
+    "errorType": "status_code",
+    "url": "https://community.cryptomator.org/u/{}",
+    "urlMain": "https://community.cryptomator.org/",
+    "username_claimed": "michael",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "DEV Community": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
@@ -464,13 +534,6 @@ export const sites: SiteList = {
     "errorType": "status_code",
     "url": "https://www.dailymotion.com/{}",
     "urlMain": "https://www.dailymotion.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
-  "Designspiration": {
-    "errorType": "status_code",
-    "url": "https://www.designspiration.net/{}/",
-    "urlMain": "https://www.designspiration.net/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
@@ -537,6 +600,13 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Envato Forum": {
+    "errorType": "status_code",
+    "url": "https://forums.envato.com/u/{}",
+    "urlMain": "https://forums.envato.com/",
+    "username_claimed": "enabled",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "Etsy": {
     "errorType": "status_code",
     "url": "https://www.etsy.com/shop/{}",
@@ -567,6 +637,13 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Fameswap": {
+    "errorType": "status_code",
+    "url": "https://fameswap.com/user/{}",
+    "urlMain": "https://fameswap.com/",
+    "username_claimed": "fameswap",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "FanCentro": {
     "errorMsg": "var environment",
     "errorType": "message",
@@ -580,6 +657,13 @@ export const sites: SiteList = {
     "url": "https://www.fandom.com/u/{}",
     "urlMain": "https://www.fandom.com/",
     "username_claimed": "Jungypoo",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Finanzfrage": {
+    "errorType": "status_code",
+    "url": "https://www.finanzfrage.net/nutzer/{}",
+    "urlMain": "https://www.finanzfrage.net/",
+    "username_claimed": "finanzfrage",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Fiverr": {
@@ -602,14 +686,6 @@ export const sites: SiteList = {
     "urlMain": "https://www.flickr.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
-  },
-  "Flightradar24": {
-    "errorType": "status_code",
-    "regexCheck": "^[a-zA-Z0-9_]{3,20}$",
-    "url": "https://my.flightradar24.com/{}",
-    "urlMain": "https://www.flightradar24.com/",
-    "username_claimed": "jebbrooks",
-    "username_unclaimed": "xgtrq",
   },
   "Flipboard": {
     "errorType": "status_code",
@@ -668,6 +744,14 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis",
   },
+  "G2G": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.g2g.com/{}",
+    "url": "https://www.g2g.com/{}",
+    "urlMain": "https://www.g2g.com/",
+    "username_claimed": "user",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "GNOME VCS": {
     "errorType": "response_url",
     "errorUrl": "https://gitlab.gnome.org/{}",
@@ -676,6 +760,14 @@ export const sites: SiteList = {
     "urlMain": "https://gitlab.gnome.org/",
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Gab": {
+    "errorMsg": "The page you are looking for isn't here.",
+    "errorType": "message",
+    "url": "https://gab.com/{}",
+    "urlMain": "https://gab.com",
+    "username_claimed": "a",
+    "username_unclaimed": "noonewouldeverusethis",
   },
   "GaiaOnline": {
     "errorMsg": "No user ID specified or user does not exist",
@@ -699,6 +791,27 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis",
   },
+  "Genius (Artists)": {
+    "errorType": "status_code",
+    "url": "https://genius.com/artists/{}",
+    "urlMain": "https://genius.com/",
+    "username_claimed": "genius",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Genius (Users)": {
+    "errorType": "status_code",
+    "url": "https://genius.com/{}",
+    "urlMain": "https://genius.com/",
+    "username_claimed": "genius",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Gesundheitsfrage": {
+    "errorType": "status_code",
+    "url": "https://www.gesundheitsfrage.net/nutzer/{}",
+    "urlMain": "https://www.gesundheitsfrage.net/",
+    "username_claimed": "gutefrage",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "GetMyUni": {
     "errorType": "status_code",
     "url": "https://www.getmyuni.com/user/{}",
@@ -706,11 +819,26 @@ export const sites: SiteList = {
     "username_claimed": "Upneet.Grover17",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Ghost": {
+    "errorMsg": "Domain Error",
+    "errorType": "message",
+    "url": "https://{}.ghost.io/",
+    "urlMain": "https://ghost.org/",
+    "username_claimed": "troyhunt",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "Giphy": {
     "errorType": "status_code",
     "url": "https://giphy.com/{}",
     "urlMain": "https://giphy.com/",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "GitBook": {
+    "errorType": "status_code",
+    "url": "https://{}.gitbook.io/",
+    "urlMain": "https://gitbook.com/",
+    "username_claimed": "gitbook",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "GitHub": {
@@ -760,6 +888,14 @@ export const sites: SiteList = {
     "username_claimed": "jetbrains",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Grailed": {
+    "errorType": "response_url",
+    "errorUrl": "https://www.grailed.com/{}",
+    "url": "https://www.grailed.com/{}",
+    "urlMain": "https://www.grailed.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "Gravatar": {
     "errorType": "status_code",
     "regexCheck": "^((?!\\.).)*$",
@@ -769,7 +905,7 @@ export const sites: SiteList = {
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Gumroad": {
-    "errorMsg": "Page not found.",
+    "errorMsg": "Page not found (404) - Gumroad",
     "errorType": "message",
     "url": "https://www.gumroad.com/{}",
     "urlMain": "https://www.gumroad.com/",
@@ -788,6 +924,13 @@ export const sites: SiteList = {
     "url": "https://gurushots.com/{}/photos",
     "urlMain": "https://gurushots.com/",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Gutefrage": {
+    "errorType": "status_code",
+    "url": "https://www.gutefrage.net/nutzer/{}",
+    "urlMain": "https://www.gutefrage.net/",
+    "username_claimed": "gutefrage",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "HEXRPG": {
@@ -918,6 +1061,13 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Ionic Forum": {
+    "errorType": "status_code",
+    "url": "https://forum.ionicframework.com/u/{}",
+    "urlMain": "https://forum.ionicframework.com/",
+    "username_claimed": "theblue222",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "Issuu": {
     "errorType": "status_code",
     "url": "https://issuu.com/{}",
@@ -954,6 +1104,20 @@ export const sites: SiteList = {
     "url": "https://{}.jimdosite.com",
     "urlMain": "https://jimdosite.com/",
     "username_claimed": "jenny",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Joplin Forum": {
+    "errorType": "status_code",
+    "url": "https://discourse.joplinapp.org/u/{}",
+    "urlMain": "https://discourse.joplinapp.org/",
+    "username_claimed": "laurent",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "KEAKR": {
+    "errorType": "status_code",
+    "url": "https://www.keakr.com/en/profile/{}",
+    "urlMain": "https://www.keakr.com/",
+    "username_claimed": "beats",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Kaggle": {
@@ -1009,6 +1173,13 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "LessWrong": {
+    "errorType": "status_code",
+    "url": "https://www.lesswrong.com/users/@{}",
+    "urlMain": "https://www.lesswrong.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7why",
+  },
   "Letterboxd": {
     "errorMsg": "Sorry, we can’t find the page you’ve requested.",
     "errorType": "message",
@@ -1030,6 +1201,14 @@ export const sites: SiteList = {
     "url": "https://linktr.ee/{}",
     "urlMain": "https://linktr.ee/",
     "username_claimed": "anne",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Listed": {
+    "errorType": "response_url",
+    "errorUrl": "https://listed.to/@{}",
+    "url": "https://listed.to/@{}",
+    "urlMain": "https://listed.to/",
+    "username_claimed": "listed",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "LiveJournal": {
@@ -1056,6 +1235,21 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "LottieFiles": {
+    "errorType": "status_code",
+    "url": "https://lottiefiles.com/{}",
+    "urlMain": "https://lottiefiles.com/",
+    "username_claimed": "lottiefiles",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Mapify": {
+    "errorType": "response_url",
+    "errorUrl": "https://mapify.travel/{}",
+    "url": "https://mapify.travel/{}",
+    "urlMain": "https://mapify.travel/",
+    "username_claimed": "mapify",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "Medium": {
     "errorMsg": "<body",
     "errorType": "message",
@@ -1072,12 +1266,27 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Minecraft": {
+    "errorCode": 204,
+    "errorType": "status_code",
+    "url": "https://api.mojang.com/users/profiles/minecraft/{}",
+    "urlMain": "https://minecraft.net/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "MixCloud": {
     "errorType": "status_code",
     "url": "https://www.mixcloud.com/{}/",
     "urlMain": "https://www.mixcloud.com/",
     "urlProbe": "https://api.mixcloud.com/{}/",
     "username_claimed": "jenny",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Motorradfrage": {
+    "errorType": "status_code",
+    "url": "https://www.motorradfrage.net/nutzer/{}",
+    "urlMain": "https://www.motorradfrage.net/",
+    "username_claimed": "gutefrage",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Munzee": {
@@ -1140,6 +1349,13 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewould",
   },
+  "Needrom": {
+    "errorType": "status_code",
+    "url": "https://www.needrom.com/author/{}/",
+    "urlMain": "https://www.needrom.com/",
+    "username_claimed": "needrom",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "Newgrounds": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z][a-zA-Z0-9_-]*$",
@@ -1185,6 +1401,13 @@ export const sites: SiteList = {
     "url": "https://nyaa.si/user/{}",
     "urlMain": "https://nyaa.si/",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "OGUsers": {
+    "errorType": "status_code",
+    "url": "https://ogusers.com/{}",
+    "urlMain": "https://ogusers.com/",
+    "username_claimed": "ogusers",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "OK": {
@@ -1336,6 +1559,14 @@ export const sites: SiteList = {
     "username_claimed": "swiftstickler",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Polymart": {
+    "errorMsg": "Looks like we couldn't find this user. Sorry!",
+    "errorType": "message",
+    "url": "https://polymart.org/user/{}",
+    "urlMain": "https://polymart.org/",
+    "username_claimed": "craciu25yt",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "Pornhub": {
     "errorType": "status_code",
     "url": "https://pornhub.com/users/{}",
@@ -1373,13 +1604,6 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis",
   },
-  "Raidforums": {
-    "errorType": "status_code",
-    "url": "https://raidforums.com/User-{}",
-    "urlMain": "https://raidforums.com/",
-    "username_claimed": "red",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
   "Rajce.net": {
     "errorType": "status_code",
     "url": "https://{}.rajce.idnes.cz/",
@@ -1392,6 +1616,13 @@ export const sites: SiteList = {
     "url": "https://rateyourmusic.com/~{}",
     "urlMain": "https://rateyourmusic.com/",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Rclone Forum": {
+    "errorType": "status_code",
+    "url": "https://forum.rclone.org/u/{}",
+    "urlMain": "https://forum.rclone.org/",
+    "username_claimed": "ncw",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Redbubble": {
@@ -1410,6 +1641,13 @@ export const sites: SiteList = {
     "url": "https://www.reddit.com/user/{}",
     "urlMain": "https://www.reddit.com/",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Reisefrage": {
+    "errorType": "status_code",
+    "url": "https://www.reisefrage.net/nutzer/{}",
+    "urlMain": "https://www.reisefrage.net/",
+    "username_claimed": "reisefrage",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Replit.com": {
@@ -1468,6 +1706,13 @@ export const sites: SiteList = {
     "username_claimed": "Blue",
     "username_unclaimed": "noonewouldev",
   },
+  "SWAPD": {
+    "errorType": "status_code",
+    "url": "https://swapd.co/u/{}",
+    "urlMain": "https://swapd.co/",
+    "username_claimed": "swapd",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "Sbazar.cz": {
     "errorType": "status_code",
     "url": "https://www.sbazar.cz/{}",
@@ -1496,6 +1741,13 @@ export const sites: SiteList = {
     "urlMain": "https://www.shitpostbot.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis",
+  },
+  "Shpock": {
+    "errorType": "status_code",
+    "url": "https://www.shpock.com/shop/{}/items",
+    "urlMain": "https://www.shpock.com/",
+    "username_claimed": "user",
+    "username_unclaimed": "noonewouldeverusethis7",
   },
   "Signal": {
     "errorMsg": "Oops! That page doesn’t exist or is private.",
@@ -1536,8 +1788,16 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
-  "Smule": {
+  "Smashcast": {
     "errorType": "status_code",
+    "url": "https://www.smashcast.tv/api/media/live/{}",
+    "urlMain": "https://www.smashcast.tv/",
+    "username_claimed": "hello",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Smule": {
+    "errorMsg": "Smule | Page Not Found (404)",
+    "errorType": "message",
     "url": "https://www.smule.com/{}",
     "urlMain": "https://www.smule.com/",
     "username_claimed": "blue",
@@ -1592,6 +1852,13 @@ export const sites: SiteList = {
     "username_claimed": "3Tau",
     "username_unclaimed": "noonewould",
   },
+  "Splice": {
+    "errorType": "status_code",
+    "url": "https://splice.com/{}",
+    "urlMain": "https://splice.com/",
+    "username_claimed": "splice",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "Splits.io": {
     "errorType": "status_code",
     "url": "https://splits.io/users/{}",
@@ -1604,6 +1871,13 @@ export const sites: SiteList = {
     "url": "https://www.sporcle.com/user/{}/people",
     "urlMain": "https://www.sporcle.com/",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Sportlerfrage": {
+    "errorType": "status_code",
+    "url": "https://www.sportlerfrage.net/nutzer/{}",
+    "urlMain": "https://www.sportlerfrage.net/",
+    "username_claimed": "sportlerfrage",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "SportsRU": {
@@ -1636,6 +1910,15 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Strava": {
+    "errorMsg":
+      "Strava | Run and Cycling Tracking on the Social Network for Athletes",
+    "errorType": "message",
+    "url": "https://www.strava.com/athletes/{}",
+    "urlMain": "https://www.strava.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "SublimeForum": {
     "errorType": "status_code",
     "url": "https://forum.sublimetext.com/u/{}",
@@ -1659,6 +1942,13 @@ export const sites: SiteList = {
     "urlMain": "https://tldrlegal.com/",
     "username_claimed": "kevin",
     "username_unclaimed": "noonewouldeverusethi",
+  },
+  "TRAKTRAIN": {
+    "errorType": "status_code",
+    "url": "https://traktrain.com/{}",
+    "urlMain": "https://traktrain.com/",
+    "username_claimed": "traktrain",
+    "username_unclaimed": "noonewouldeverusethis7",
   },
   "Telegram": {
     "errorMsg": '<meta property="og:description" content="">',
@@ -1684,11 +1974,11 @@ export const sites: SiteList = {
     "username_claimed": "red",
     "username_unclaimed": "impossibleusername",
   },
-  "TikTok": {
+  "ThemeForest": {
     "errorType": "status_code",
-    "url": "https://tiktok.com/@{}",
-    "urlMain": "https://tiktok.com/",
-    "username_claimed": "red",
+    "url": "https://themeforest.net/user/{}",
+    "urlMain": "https://themeforest.net/",
+    "username_claimed": "user",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Tinder": {
@@ -1704,6 +1994,7 @@ export const sites: SiteList = {
   },
   "TradingView": {
     "errorType": "status_code",
+    "request_method": "GET",
     "url": "https://www.tradingview.com/u/{}/",
     "urlMain": "https://www.tradingview.com/",
     "username_claimed": "blue",
@@ -1749,16 +2040,6 @@ export const sites: SiteList = {
     "urlProbe": "https://m.twitch.tv/{}",
     "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7",
-  },
-  "Twitter": {
-    "errorMsg": "<title>Error | nitter</title>",
-    "errorType": "message",
-    "regexCheck": "^[a-zA-Z0-9_]{1,15}$",
-    "url": "https://twitter.com/{}",
-    "urlMain": "https://twitter.com/",
-    "urlProbe": "https://nitter.net/{}",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeveru",
   },
   "Typeracer": {
     "errorMsg": "Profile Not Found",
@@ -1947,6 +2228,13 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
+  "Wykop": {
+    "errorType": "status_code",
+    "url": "https://www.wykop.pl/ludzie/{}",
+    "urlMain": "https://www.wykop.pl",
+    "username_claimed": "blue",
+    "username_unclaimed": "bumpewastaken",
+  },
   "Xbox Gamertag": {
     "errorType": "status_code",
     "url": "https://xboxgamertag.com/search/{}",
@@ -2068,6 +2356,24 @@ export const sites: SiteList = {
     "errorType": "status_code",
     "url": "https://www.drive2.ru/users/{}",
     "urlMain": "https://www.drive2.ru/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "eBay.com": {
+    "errorMsg":
+      "The User ID you entered was not found. Please check the User ID and try again.",
+    "errorType": "message",
+    "url": "https://www.ebay.com/usr/{}",
+    "urlMain": "https://www.ebay.com/",
+    "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "eBay.de": {
+    "errorMsg":
+      "Der eingegebene Nutzername wurde nicht gefunden. Bitte prüfen Sie den Nutzernamen und versuchen Sie es erneut.",
+    "errorType": "message",
+    "url": "https://www.ebay.de/usr/{}",
+    "urlMain": "https://www.ebay.de/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
@@ -2199,6 +2505,14 @@ export const sites: SiteList = {
     "urlMain": "http://www.jeuxvideo.com",
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "kofi": {
+    "errorType": "response_url",
+    "errorUrl": "https://ko-fi.com/art?=redirect",
+    "url": "https://ko-fi.com/{}",
+    "urlMain": "https://ko-fi.com",
+    "username_claimed": "yeahkenny",
+    "username_unclaimed": "noonewouldeverusethis77777",
   },
   "kwork": {
     "errorType": "status_code",
@@ -2433,12 +2747,35 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis77777",
   },
+  "znanylekarz.pl": {
+    "errorType": "status_code",
+    "url": "https://www.znanylekarz.pl/{}",
+    "urlMain": "https://znanylekarz.pl",
+    "username_claimed": "janusz-nowak",
+    "username_unclaimed": "kto-by-sie-tak-nazwal-69",
+  },
   "zoomit": {
     "errorMsg": "متاسفانه صفحه یافت نشد",
     "errorType": "message",
     "url": "https://www.zoomit.ir/user/{}",
     "urlMain": "https://www.zoomit.ir",
     "username_claimed": "kossher",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "koo": {
+    "errorMsg": "Invalid Profile",
+    "errorType": "message",
+    "url": "https://www.kooapp.com/profile/{}",
+    "urlMain": "https://www.kooapp.com",
+    "username_claimed": "john",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "minds": {
+    "errorMsg": "Sorry, this channel doesn't appear to exist",
+    "errorType": "message",
+    "url": "https://www.minds.com/{}/",
+    "urlMain": "https://www.minds.com",
+    "username_claimed": "john",
     "username_unclaimed": "noonewouldeverusethis7",
   },
 };

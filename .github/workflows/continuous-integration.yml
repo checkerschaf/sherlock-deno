@@ -18,14 +18,11 @@ jobs:
         with:
           deno-version: ${{ matrix.deno }}
 
-      - name: Setup Velociraptor
-        uses: jurassiscripts/setup-velociraptor@v1
-
       - name: Lint Code
-        run: vr run lint
+        run: deno lint
 
       - name: Check Code Format
-        run: vr run format-check
+        run: deno fmt --check
 
       - name: Run Tests
-        run: vr run test
+        run: deno task test

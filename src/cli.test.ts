@@ -4,7 +4,7 @@ import {
   showHelpMessage,
   showVersionMessage,
 } from "./cli.ts";
-import { assertEquals, assertStringIncludes } from "./testing-deps.ts";
+import { assertEquals, assertStringIncludes } from "std/testing/asserts.ts";
 import { SHERLOCK_VERSION } from "../mod.ts";
 import { sitesCount } from "../sites.ts";
 import { ConsoleFormatter } from "./formatters/console-formatter.ts";
@@ -37,22 +37,32 @@ Deno.test("cli.ts: parseArguments() parses all arguments correctly", () => {
 Deno.test(
   "cli.ts: readCliArguments() parses default arguments correctly",
   () => {
-    assertEquals(readCliArguments(["checkerschaf"]), {
-      formatter: new ConsoleFormatter(),
-      timeout: 30,
-      username: "checkerschaf",
-    });
+    const consoleStub = createConsoleStub();
+    try {
+      assertEquals(readCliArguments(["checkerschaf"]), {
+        formatter: new ConsoleFormatter(),
+        timeout: 30,
+        username: "checkerschaf",
+      });
+    } finally {
+      consoleStub.restore();
+    }
   },
 );
 
 Deno.test(
   "cli.ts: readCliArguments() parses show all argument correctly",
   () => {
-    assertEquals(readCliArguments(["-a", "checkerschaf"]), {
-      formatter: new ConsoleFormatter({ showAll: true }),
-      timeout: 30,
-      username: "checkerschaf",
-    });
+    const consoleStub = createConsoleStub();
+    try {
+      assertEquals(readCliArguments(["-a", "checkerschaf"]), {
+        formatter: new ConsoleFormatter({ showAll: true }),
+        timeout: 30,
+        username: "checkerschaf",
+      });
+    } finally {
+      consoleStub.restore();
+    }
   },
 );
 

@@ -1,5 +1,5 @@
-import { c } from "../deps.ts";
 import { SiteList } from "../types.ts";
+import { green } from "std/fmt/colors.ts";
 
 const getSites = async (url: string): Promise<SiteList> => {
   return (await fetch(url)).json();
@@ -12,17 +12,17 @@ const getSites = async (url: string): Promise<SiteList> => {
 const removeBuggySites = (sites: SiteList): SiteList => {
   // These sites mostly require active JavaScript or are protected by CloudFlare
   const sitesToRemove = [
-    "", // Placeholder
-    "Alik.cz",
-    "Atom Discussions",
-    "Bandcamp",
+    "CapFriendly",
+    "Countable",
     "Facebook",
-    "Smashcast",
+    "Flightradar24",
+    "Raidforums",
+    "skyrock",
     "Spotify", // JavaScript
-    "Strava",
+    "TikTok",
+    "Twitter",
     "WordPressOrg",
     "Zhihu",
-    "kofi",
   ];
 
   for (const site of sitesToRemove) {
@@ -62,16 +62,9 @@ export const sitesCount = Object.keys(sites).length;
 `,
 );
 console.log(
-  c.green(
+  green(
     `Successfully downloaded, patched and saved ${
       Object.keys(sites).length
     } sites to ${fileName}.`,
   ),
 );
-
-// Format the new file with "deno fmt"
-console.log(c.green(`Running ${c.yellow(`deno fmt ${fileName}`)}...`));
-await Deno.run({
-  cmd: ["deno", "fmt", fileName],
-}).status();
-console.log(c.green(`${fileName} formatted successfully. Done.`));

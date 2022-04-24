@@ -5,12 +5,8 @@ import {
   replaceUsernameInUrl,
 } from "./fetcher.ts";
 import { sites } from "../../sites.ts";
-import {
-  assertEquals,
-  assertStringIncludes,
-  Stub,
-  stub,
-} from "../testing-deps.ts";
+import { assertEquals, assertStringIncludes } from "std/testing/asserts.ts";
+import { returnsNext, stub } from "std/testing/mock.ts";
 import { siteStatusCode, testUsername } from "../testing-helpers.ts";
 import { ScannerResult } from "../enums.ts";
 
@@ -46,9 +42,7 @@ Deno.test(
 Deno.test(
   "fetcher.ts: fetchWithTimeout() can get the response of a site",
   async () => {
-    const fetchStub: Stub<Window & typeof globalThis> = stub(self, "fetch", [
-      githubPromise(),
-    ]);
+    const fetchStub = stub(self, "fetch", returnsNext([githubPromise()]));
 
     try {
       const response = await fetchWithTimeout(
@@ -68,9 +62,7 @@ Deno.test(
 Deno.test(
   "fetcher.ts: fetchSite() does NOT prepend a proxy url by default",
   async () => {
-    const fetchStub: Stub<Window & typeof globalThis> = stub(self, "fetch", [
-      githubPromise(),
-    ]);
+    const fetchStub = stub(self, "fetch", returnsNext([githubPromise()]));
 
     try {
       const site = sites["GitHub"];
@@ -92,9 +84,7 @@ Deno.test(
 );
 
 Deno.test("fetcher.ts: fetchSite() can append proxy headers", async () => {
-  const fetchStub: Stub<Window & typeof globalThis> = stub(self, "fetch", [
-    githubPromise(),
-  ]);
+  const fetchStub = stub(self, "fetch", returnsNext([githubPromise()]));
 
   try {
     const site = sites["GitHub"];
@@ -125,9 +115,7 @@ Deno.test("fetcher.ts: fetchSite() can append proxy headers", async () => {
 Deno.test(
   "fetcher.ts: fetchSite() prepends a proxy url if provided",
   async () => {
-    const fetchStub: Stub<Window & typeof globalThis> = stub(self, "fetch", [
-      githubPromise(),
-    ]);
+    const fetchStub = stub(self, "fetch", returnsNext([githubPromise()]));
 
     try {
       const site = sites["GitHub"];
@@ -157,11 +145,7 @@ Deno.test(
 Deno.test(
   "fetcher.ts: getSiteResult() - gets the scanner result of a site (GitHub)",
   async () => {
-    const fetchStub: Stub<Window & typeof globalThis> = stub(
-      globalThis,
-      "fetch",
-      [githubPromise()],
-    );
+    const fetchStub = stub(self, "fetch", returnsNext([githubPromise()]));
 
     try {
       const site = sites["GitHub"];

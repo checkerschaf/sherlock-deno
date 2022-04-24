@@ -1,4 +1,4 @@
-import { c } from "./deps.ts";
+import { red } from "std/fmt/colors.ts";
 
 export class AppError extends Error {
   constructor(message?: string) {
@@ -8,5 +8,5 @@ export class AppError extends Error {
 }
 
 export const printFatalError = (err: Error): void => {
-  console.log(c.red(`[!] Fatal error: ${err.message || err}`));
+  console.log(red(`[!] Fatal error: ${err.message || err}`));
 };

@@ -1,7 +1,7 @@
 import { Formatter } from "./formatter.ts";
 import type { FormatterOnFinishOptions } from "./formatter.ts";
 import { printSherlockDenoAscii } from "../cli.ts";
-import { c } from "../deps.ts";
+import { bold, brightGreen, gray, green, red } from "std/fmt/colors.ts";
 import type { SiteResult } from "../types.ts";
 import { ScannerResult } from "../enums.ts";
 import { sitesCount } from "../../sites.ts";
@@ -26,13 +26,13 @@ export class ConsoleFormatter extends Formatter {
     ).length;
 
     console.log(
-      c.green(`\nFinished in ${Math.round(elapsedTime / 1000)} seconds.`),
+      green(`\nFinished in ${Math.round(elapsedTime / 1000)} seconds.`),
     );
     console.log(
-      c.green(
+      green(
         `Found a total of ${
-          c.bold(
-            c.brightGreen(`${totalMatches} matches`),
+          bold(
+            brightGreen(`${totalMatches} matches`),
           )
         } across ${sitesCount} sites.`,
       ),
@@ -44,15 +44,15 @@ const printSiteResult = (siteResult: SiteResult): void => {
   const { result, siteName, url, error } = siteResult;
   switch (result) {
     case ScannerResult.SUCCESS:
-      console.log(c.bold(`[${c.green("+")}] ${c.green(siteName)}: ${url}`));
+      console.log(bold(`[${green("+")}] ${green(siteName)}: ${url}`));
       break;
     case ScannerResult.NOT_FOUND:
-      console.log(c.bold(`[${c.red("-")}] ${c.gray(siteName)}`));
+      console.log(bold(`[${red("-")}] ${gray(siteName)}`));
       break;
     default:
       console.log(
-        c.bold(
-          `[${c.red("-")}] ${c.red(siteName)}${error ? `: ${error}` : ""}`,
+        bold(
+          `[${red("-")}] ${red(siteName)}${error ? `: ${error}` : ""}`,
         ),
       );
   }
