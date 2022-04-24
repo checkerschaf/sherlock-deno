@@ -46,8 +46,8 @@ export class SherlockScanner {
             this.results.push(siteResult);
             this.onSiteProcessed(siteResult);
             resolve();
-          }).catch(() => {
-            reject();
+          }).catch((error) => {
+            reject(error);
           });
         }, 1);
       });
