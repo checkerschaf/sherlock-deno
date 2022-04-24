@@ -1,9 +1,11 @@
 import type { Site } from "../src/types.ts";
 import { SiteErrorType } from "../src/enums.ts";
-import type { Stub } from "./testing-deps.ts";
-import { stub } from "./testing-deps.ts";
+import type { Stub } from "std/testing/mock.ts";
+import { stub } from "std/testing/mock.ts";
 
-export const createConsoleStub = (method = "log"): Stub<Console> => {
+export const createConsoleStub = (
+  method: keyof Console = "log",
+): Stub<Console> => {
   return stub(console, method);
 };
 

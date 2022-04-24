@@ -5,8 +5,8 @@ import {
 } from "../testing-helpers.ts";
 import { ConsoleFormatter } from "./console-formatter.ts";
 import { ScannerResult } from "../enums.ts";
-import { assertStringIncludes } from "../testing-deps.ts";
-import { c } from "../deps.ts";
+import { assertStringIncludes } from "std/testing/asserts.ts";
+import { gray, green, red } from "std/fmt/colors.ts";
 
 Deno.test("console-formatter.ts: onResult() prints a SUCCESS result", () => {
   const consoleStub = createConsoleStub();
@@ -21,7 +21,7 @@ Deno.test("console-formatter.ts: onResult() prints a SUCCESS result", () => {
     });
     const consoleCallArgs = consoleStub.calls[0]?.args[0];
     assertStringIncludes(consoleCallArgs, `+`);
-    assertStringIncludes(consoleCallArgs, c.green("Demo Site"));
+    assertStringIncludes(consoleCallArgs, green("Demo Site"));
     assertStringIncludes(consoleCallArgs, siteStatusCode.url);
   } finally {
     consoleStub.restore();
@@ -40,8 +40,8 @@ Deno.test("console-formatter.ts: onResult() prints a NOT_FOUND result", () => {
       username: testUsername,
     });
     const consoleCallArgs = consoleStub.calls[0]?.args[0];
-    assertStringIncludes(consoleCallArgs, c.red("-"));
-    assertStringIncludes(consoleCallArgs, c.gray("Demo Site"));
+    assertStringIncludes(consoleCallArgs, red("-"));
+    assertStringIncludes(consoleCallArgs, gray("Demo Site"));
   } finally {
     consoleStub.restore();
   }
@@ -60,8 +60,8 @@ Deno.test("console-formatter.ts: onResult() prints an ERROR result", () => {
       username: testUsername,
     });
     const consoleCallArgs = consoleStub.calls[0]?.args[0];
-    assertStringIncludes(consoleCallArgs, c.red("-"));
-    assertStringIncludes(consoleCallArgs, c.red("Demo Site"));
+    assertStringIncludes(consoleCallArgs, red("-"));
+    assertStringIncludes(consoleCallArgs, red("Demo Site"));
     assertStringIncludes(consoleCallArgs, "Example Error");
   } finally {
     consoleStub.restore();

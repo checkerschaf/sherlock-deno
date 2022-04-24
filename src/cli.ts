@@ -1,5 +1,7 @@
 import { SHERLOCK_VERSION } from "../mod.ts";
-import { Args, c, parse } from "./deps.ts";
+import type { Args } from "std/flags/mod.ts";
+import { parse } from "std/flags/mod.ts";
+import { bold, cyan, green, red, yellow } from "std/fmt/colors.ts";
 import { sites } from "../sites.ts";
 import { Formatter } from "./formatters/formatter.ts";
 import { ConsoleFormatter } from "./formatters/console-formatter.ts";
@@ -53,7 +55,7 @@ export const parseArguments = (argsInput = Deno.args): Args => {
 
 export const parseUsername = (args: Args): string => {
   if (args._?.length) return String(args._[0]);
-  return prompt(c.green(c.bold(`[>] Input username: `))) ?? "";
+  return prompt(green(bold(`[>] Input username: `))) ?? "";
 };
 
 export const getFormatterFromArguments = (args: Args): Formatter => {
@@ -73,7 +75,7 @@ export const getFormatterFromArguments = (args: Args): Formatter => {
 
 export const printSherlockDenoAscii = (): void => {
   console.log(
-    c.cyan(`
+    cyan(`
                                                                          ,_
    ███████╗██╗  ██╗███████╗██████╗ ██╗      ██████╗  ██████╗██╗  ██╗   ,'  \`\\,_
    ██╔════╝██║  ██║██╔════╝██╔══██╗██║     ██╔═══██╗██╔════╝██║ ██╔╝   |_,-'_)
@@ -82,7 +84,7 @@ export const printSherlockDenoAscii = (): void => {
    ███████║██║  ██║███████╗██║  ██║███████╗╚██████╔╝╚██████╗██║  ██╗    /\\__-' \\[]
    ╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝ ╚═════╝  ╚═════╝╚═╝  ╚═╝    /\`-_\`\\
     Version: ${SHERLOCK_VERSION}  |  Sites: ${sitesCount}  |  Made with ${
-      c.red(
+      red(
         "<3",
       )
     } by checkerschaf.     '     \\
@@ -92,12 +94,12 @@ export const printSherlockDenoAscii = (): void => {
 
 export const showVersionMessage = () => {
   console.log(
-    c.green(
+    green(
       `You are using version v${
-        c.bold(
+        bold(
           SHERLOCK_VERSION,
         )
-      }. with a total of ${c.bold(`${Object.keys(sites).length}`)} sites.`,
+      }. with a total of ${bold(`${Object.keys(sites).length}`)} sites.`,
     ),
   );
 };
@@ -112,7 +114,7 @@ export const showHelpMessage = () => {
 -f, --format        Select output format [choices: "json", "pretty_json", "csv"]
 
 Examples:
-${c.yellow("sherlock JohnDoe")}        Search for JohnDoe
-${c.yellow("sherlock -a JohnDoe")}     Search for JohnDoe and show all results`,
+${yellow("sherlock JohnDoe")}        Search for JohnDoe
+${yellow("sherlock -a JohnDoe")}     Search for JohnDoe and show all results`,
   );
 };

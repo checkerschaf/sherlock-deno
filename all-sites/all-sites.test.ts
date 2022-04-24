@@ -1,6 +1,6 @@
 import { fetchSite } from "../src/lib/fetcher.ts";
 import { sites } from "../sites.ts";
-import { assert, assertEquals } from "../src/testing-deps.ts";
+import { assert, assertEquals } from "std/testing/asserts.ts";
 import { ScannerResult } from "../src/enums.ts";
 import type { Site } from "../src/types.ts";
 

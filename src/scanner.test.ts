@@ -1,5 +1,5 @@
 import { SherlockScanner } from "./sherlock-scanner.ts";
-import { assertThrows } from "./testing-deps.ts";
+import { assertThrows } from "std/testing/asserts.ts";
 import { ConsoleFormatter } from "./formatters/console-formatter.ts";
 
 Deno.test("scanner.ts: an invalid username throws an exception", () => {

@@ -32,20 +32,29 @@ export class SherlockScanner {
     // Start the timer to track the runtime
     this.timer.start();
 
-    // Scan all sites asynchronous
-    await Promise.all(
-      Object.keys(sites).map(async (siteName) => {
-        const siteResult = await fetchSite({
-          site: sites[siteName],
-          siteName,
-          username: this.options.username,
-          timeout: this.options.timeout * 1000, // convert seconds from CLI to milliseconds
-          proxyConfig: this.options.proxyConfig,
-        });
-        this.results.push(siteResult);
-        this.onSiteProcessed(siteResult);
-      }),
-    );
+    // Scan all sites asynchronously
+    const fetches = Object.keys(sites).map((siteName) => {
+      return new Promise<void>((resolve, reject) => {
+        setTimeout(() => {
+          fetchSite({
+            site: sites[siteName],
+            siteName,
+            username: this.options.username,
+            timeout: this.options.timeout * 1000, // convert seconds from CLI to milliseconds
+            proxyConfig: this.options.proxyConfig,
+          }).then((siteResult) => {
+            this.results.push(siteResult);
+            this.onSiteProcessed(siteResult);
+            resolve();
+          }).catch(() => {
+            reject();
+          });
+        }, 1);
+      });
+    });
+
+    // Wait for all promised to be finished
+    await Promise.allSettled(fetches);
 
     // Stop the timer to get the total runtime
     this.timer.end();

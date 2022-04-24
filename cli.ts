@@ -11,12 +11,7 @@ const runSherlockCli = async (): Promise<void> => {
 
   // Start the scan and wait for it to finish
   await scanner
-    .scan()
-    .catch((err: Error) => {
-      printFatalError(err);
-      Deno.exit(1);
-    })
-    .finally(() => Deno.exit(0));
+    .scan();
 };
 
 // Start the Sherlock-CLI

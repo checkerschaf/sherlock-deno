@@ -1,4 +1,4 @@
-# Sherlock-Deno 🕵️ - search users across 310+ websites
+# Sherlock-Deno 🕵️ - search users across 350+ websites
 
 <p align="center">
   <br>
@@ -30,9 +30,8 @@ This is an improved remake of the original
 [![Latest Release](https://img.shields.io/github/release/checkerschaf/sherlock-deno.svg?label=Latest%20Release)](https://github.com/checkerschaf/sherlock-deno/releases/latest)
 [![Deno CI](https://img.shields.io/github/workflow/status/checkerschaf/sherlock-deno/Deno%20CI?label=Deno%20CI&logo=GitHub)](https://github.com/checkerschaf/sherlock-deno/actions)
 [![Deno Land](https://img.shields.io/badge/available%20on-deno.land/x-lightgrey.svg?logo=deno)](https://deno.land/x/sherlock)
-[![Deno Version](https://img.shields.io/badge/Deno%20Version-^1.14.0-lightgrey?logo=deno)](https://deno.land)
+[![Deno Version](https://img.shields.io/badge/Deno%20Version-^1.21.0-lightgrey?logo=deno)](https://deno.land)
 ![Code size](https://img.shields.io/github/languages/code-size/checkerschaf/sherlock-deno?label=Code%20Size)
-[![vr scripts](https://badges.velociraptor.run/flat.svg)](https://velociraptor.run)
 
 ---
 
@@ -98,18 +97,14 @@ Thanks in advance!
 ## 💻 How to install the source code?
 
 1. Clone the repository.
-2. Install [Velociraptor](https://velociraptor.run)
-3. Run `vr run start`
+2. Run `deno task start`
 
 **Done!** 🎉 You now have a running version of the Sherlock-Deno CLI on your
 machine.
 
 ### Development commands:
 
-We use [Velociraptor](https://velociraptor.run) as our script runner.
+We use [Deno Task Runner](https://deno.land/manual/tools/task_runner) as our
+script runner.
 
-Follow the installation instructions and then run `vr` to view all available
-commands.
-
-_Tip: You can find more info about the deno cli
-[here](https://deno.land/manual/getting_started/command_line_interface)._
+Run `deno task` to view all available commands.

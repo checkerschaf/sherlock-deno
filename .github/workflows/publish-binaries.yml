@@ -28,7 +28,7 @@ jobs:
         deno-version: ${{ matrix.deno }}
 
     - name: Compile to binary
-      run: deno compile --output=${{ matrix.asset_name }} -q --allow-net cli.ts
+      run: deno compile --output=${{ matrix.asset_name }} -q --allow-net --import-map=import_map.json cli.ts
 
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
