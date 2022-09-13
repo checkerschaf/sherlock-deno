@@ -159,14 +159,6 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
-  "Atom Discussions": {
-    "errorMsg": "Oops! That page doesn’t exist or is private.",
-    "errorType": "message",
-    "url": "https://discuss.atom.io/u/{}/summary",
-    "urlMain": "https://discuss.atom.io",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis",
-  },
   "Audiojungle": {
     "errorType": "status_code",
     "regexCheck": "^[a-zA-Z0-9_]+$",
@@ -382,7 +374,7 @@ export const sites: SiteList = {
     "username_unclaimed": "noonewouldeverusethis77777",
   },
   "Chess": {
-    "errorMsg": '"valid": false',
+    "errorMsg": "Username is valid",
     "errorType": "message",
     "regexCheck": "^[a-z1-9]{3,25}$",
     "url": "https://www.chess.com/member/{}",
@@ -428,14 +420,6 @@ export const sites: SiteList = {
     "urlMain": "https://www.codechef.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
-  },
-  "Codeforces": {
-    "errorType": "response_url",
-    "errorUrl": "https://codeforces.com/",
-    "url": "https://codeforces.com/profile/{}",
-    "urlMain": "https://www.codeforces.com/",
-    "username_claimed": "tourist",
-    "username_unclaimed": "noonewouldeverusethis789",
   },
   "Codepen": {
     "errorType": "status_code",
@@ -592,14 +576,6 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
-  "Ello": {
-    "errorMsg": "We couldn't find the page you're looking for",
-    "errorType": "message",
-    "url": "https://ello.co/{}",
-    "urlMain": "https://ello.co/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
   "Envato Forum": {
     "errorType": "status_code",
     "url": "https://forums.envato.com/u/{}",
@@ -642,14 +618,6 @@ export const sites: SiteList = {
     "url": "https://fameswap.com/user/{}",
     "urlMain": "https://fameswap.com/",
     "username_claimed": "fameswap",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
-  "FanCentro": {
-    "errorMsg": "var environment",
-    "errorType": "message",
-    "url": "https://fancentro.com/{}",
-    "urlMain": "https://fancentro.com/",
-    "username_claimed": "nielsrosanna",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Fandom": {
@@ -761,27 +729,12 @@ export const sites: SiteList = {
     "username_claimed": "adam",
     "username_unclaimed": "noonewouldeverusethis7",
   },
-  "Gab": {
-    "errorMsg": "The page you are looking for isn't here.",
-    "errorType": "message",
-    "url": "https://gab.com/{}",
-    "urlMain": "https://gab.com",
-    "username_claimed": "a",
-    "username_unclaimed": "noonewouldeverusethis",
-  },
   "GaiaOnline": {
     "errorMsg": "No user ID specified or user does not exist",
     "errorType": "message",
     "url": "https://www.gaiaonline.com/profiles/{}",
     "urlMain": "https://www.gaiaonline.com/",
     "username_claimed": "adam",
-    "username_unclaimed": "noonewouldeverusethis77777",
-  },
-  "Gam1ng": {
-    "errorType": "status_code",
-    "url": "https://gam1ng.com.br/user/{}",
-    "urlMain": "https://gam1ng.com.br",
-    "username_claimed": "PinKgirl",
     "username_unclaimed": "noonewouldeverusethis77777",
   },
   "Gamespot": {
@@ -819,14 +772,6 @@ export const sites: SiteList = {
     "username_claimed": "Upneet.Grover17",
     "username_unclaimed": "noonewouldeverusethis7",
   },
-  "Ghost": {
-    "errorMsg": "Domain Error",
-    "errorType": "message",
-    "url": "https://{}.ghost.io/",
-    "urlMain": "https://ghost.org/",
-    "username_claimed": "troyhunt",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
   "Giphy": {
     "errorType": "status_code",
     "url": "https://giphy.com/{}",
@@ -849,14 +794,6 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
-  "GitHub Support Community": {
-    "errorMsg": "Oops! That page doesn’t exist or is private.",
-    "errorType": "message",
-    "url": "https://github.community/u/{}/summary",
-    "urlMain": "https://github.community",
-    "username_claimed": "jperl",
-    "username_unclaimed": "noonewouldusethis298",
-  },
   "GitLab": {
     "errorMsg": "[]",
     "errorType": "message",
@@ -878,6 +815,14 @@ export const sites: SiteList = {
     "url": "https://www.goodreads.com/{}",
     "urlMain": "https://www.goodreads.com/",
     "username_claimed": "blue",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "Google Play": {
+    "errorMsg": "the requested URL was not found on this server",
+    "errorType": "message",
+    "url": "https://play.google.com/store/apps/developer?id={}",
+    "urlMain": "https://play.google.com",
+    "username_claimed": "GitHub",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Gradle": {
@@ -917,13 +862,6 @@ export const sites: SiteList = {
     "url": "https://forums.gunsandammo.com/profile/{}",
     "urlMain": "https://gunsandammo.com/",
     "username_claimed": "adam",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
-  "GuruShots": {
-    "errorType": "status_code",
-    "url": "https://gurushots.com/{}/photos",
-    "urlMain": "https://gurushots.com/",
-    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Gutefrage": {
@@ -1405,8 +1343,8 @@ export const sites: SiteList = {
   },
   "OGUsers": {
     "errorType": "status_code",
-    "url": "https://ogusers.com/{}",
-    "urlMain": "https://ogusers.com/",
+    "url": "https://ogu.gg/{}",
+    "urlMain": "https://ogu.gg/",
     "username_claimed": "ogusers",
     "username_unclaimed": "noonewouldeverusethis7",
   },
@@ -1447,13 +1385,6 @@ export const sites: SiteList = {
     "username_claimed": "dev",
     "username_unclaimed": "noonewouldeverusethis7",
   },
-  "Otzovik": {
-    "errorType": "status_code",
-    "url": "https://otzovik.com/profile/{}",
-    "urlMain": "https://otzovik.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
   "OurDJTalk": {
     "errorMsg": "The specified member cannot be found",
     "errorType": "message",
@@ -1469,13 +1400,6 @@ export const sites: SiteList = {
     "url": "https://forums.pcgamer.com/members/?username={}",
     "urlMain": "https://pcgamer.com",
     "username_claimed": "admin",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
-  "PCPartPicker": {
-    "errorType": "status_code",
-    "url": "https://pcpartpicker.com/user/{}",
-    "urlMain": "https://pcpartpicker.com",
-    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "PSNProfiles.com": {
@@ -1520,13 +1444,6 @@ export const sites: SiteList = {
     "errorType": "status_code",
     "url": "https://www.pinkbike.com/u/{}/",
     "urlMain": "https://www.pinkbike.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
-  "Pinterest": {
-    "errorType": "status_code",
-    "url": "https://www.pinterest.com/{}/",
-    "urlMain": "https://www.pinterest.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
@@ -1597,7 +1514,7 @@ export const sites: SiteList = {
     "username_unclaimed": "noonewouldeverusethis",
   },
   "Quizlet": {
-    "errorMsg": "Page Unavailable",
+    "errorMsg": "Page Unavailable</title>",
     "errorType": "message",
     "url": "https://quizlet.com/{}",
     "urlMain": "https://quizlet.com",
@@ -1700,10 +1617,12 @@ export const sites: SiteList = {
   "RuneScape": {
     "errorMsg": '{"error":"NO_PROFILE","loggedIn":"false"}',
     "errorType": "message",
-    "regexCheck": "(?! )^[a-zA-Z0-9- ]{,12}(?<! )$",
-    "url": "https://apps.runescape.com/runemetrics/profile/profile?user={}",
+    "regexCheck": "^(?! )[\\w -]{1,12}(?<! )$",
+    "url": "https://apps.runescape.com/runemetrics/app/overview/player/{}",
     "urlMain": "https://www.runescape.com/",
-    "username_claimed": "Blue",
+    "urlProbe":
+      "https://apps.runescape.com/runemetrics/profile/profile?user={}",
+    "username_claimed": "L33",
     "username_unclaimed": "noonewouldev",
   },
   "SWAPD": {
@@ -1788,13 +1707,6 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
-  "Smashcast": {
-    "errorType": "status_code",
-    "url": "https://www.smashcast.tv/api/media/live/{}",
-    "urlMain": "https://www.smashcast.tv/",
-    "username_claimed": "hello",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
   "Smule": {
     "errorMsg": "Smule | Page Not Found (404)",
     "errorType": "message",
@@ -1804,20 +1716,11 @@ export const sites: SiteList = {
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Snapchat": {
-    "errorMsg": "OK",
-    "errorType": "message",
-    "headers": {
-      "Cookie":
-        "xsrf_token=PlEcin8s5H600toD4Swngg; sc-cookies-accepted=true; web_client_id=b1e4a3c7-4a38-4c1a-9996-2c4f24f7f956; oauth_client_id=c2Nhbg==",
-      "User-Agent":
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:66.0) Gecko/20100101 Firefox/66.0",
-    },
+    "errorType": "status_code",
     "regexCheck": "^[a-z][a-z-_.]{3,15}",
-    "request_method": "POST",
+    "request_method": "GET",
     "url": "https://www.snapchat.com/add/{}",
     "urlMain": "https://www.snapchat.com",
-    "urlProbe":
-      "https://accounts.snapchat.com/accounts/get_username_suggestions?requested_username={}&xsrf_token=PlEcin8s5H600toD4Swngg",
     "username_claimed": "teamsnapchat",
     "username_unclaimed": "revedluowenoon",
   },
@@ -1891,14 +1794,6 @@ export const sites: SiteList = {
     "errorType": "status_code",
     "url": "https://robertsspaceindustries.com/citizens/{}",
     "urlMain": "https://robertsspaceindustries.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
-  "Steam": {
-    "errorMsg": "The specified profile could not be found",
-    "errorType": "message",
-    "url": "https://steamcommunity.com/id/{}",
-    "urlMain": "https://steamcommunity.com/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
@@ -2068,7 +1963,7 @@ export const sites: SiteList = {
     "errorUrl": "https://www.quora.com/profile/{}",
     "url": "https://vk.com/{}",
     "urlMain": "https://vk.com/",
-    "username_claimed": "smith",
+    "username_claimed": "brown",
     "username_unclaimed": "blah62831",
   },
   "VSCO": {
@@ -2085,14 +1980,6 @@ export const sites: SiteList = {
     "url": "https://forum.velomania.ru/member.php?username={}",
     "urlMain": "https://forum.velomania.ru/",
     "username_claimed": "red",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
-  "Venmo": {
-    "errorMsg": "The profile you&#x27;re looking for isn&#x27;t available",
-    "errorType": "message",
-    "url": "https://venmo.com/u/{}",
-    "urlMain": "https://venmo.com/",
-    "username_claimed": "jenny",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "Vero": {
@@ -2359,24 +2246,6 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
-  "eBay.com": {
-    "errorMsg":
-      "The User ID you entered was not found. Please check the User ID and try again.",
-    "errorType": "message",
-    "url": "https://www.ebay.com/usr/{}",
-    "urlMain": "https://www.ebay.com/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
-  "eBay.de": {
-    "errorMsg":
-      "Der eingegebene Nutzername wurde nicht gefunden. Bitte prüfen Sie den Nutzernamen und versuchen Sie es erneut.",
-    "errorType": "message",
-    "url": "https://www.ebay.de/usr/{}",
-    "urlMain": "https://www.ebay.de/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
   "eGPU": {
     "errorType": "status_code",
     "url": "https://egpu.io/forums/profile/{}/",
@@ -2420,6 +2289,14 @@ export const sites: SiteList = {
     "url": "https://www.forumhouse.ru/members/?username={}",
     "urlMain": "https://www.forumhouse.ru/",
     "username_claimed": "red",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
+  "furaffinity": {
+    "errorMsg": "This user cannot be found.",
+    "errorType": "message",
+    "url": "https://www.furaffinity.net/user/{}",
+    "urlMain": "https://www.furaffinity.net",
+    "username_claimed": "jesus",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "geocaching": {
@@ -2514,6 +2391,14 @@ export const sites: SiteList = {
     "username_claimed": "yeahkenny",
     "username_unclaimed": "noonewouldeverusethis77777",
   },
+  "koo": {
+    "errorMsg": "Invalid Profile",
+    "errorType": "message",
+    "url": "https://www.kooapp.com/profile/{}",
+    "urlMain": "https://www.kooapp.com",
+    "username_claimed": "john",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "kwork": {
     "errorType": "status_code",
     "url": "https://kwork.ru/user/{}",
@@ -2594,6 +2479,15 @@ export const sites: SiteList = {
     "username_claimed": "blue",
     "username_unclaimed": "noonewould",
   },
+  "minds": {
+    "errorMsg": '"valid":true',
+    "errorType": "message",
+    "url": "https://www.minds.com/{}/",
+    "urlMain": "https://www.minds.com",
+    "urlProbe": "https://www.minds.com/api/v3/register/validate?username={}",
+    "username_claimed": "john",
+    "username_unclaimed": "noonewouldeverusethis7",
+  },
   "moikrug": {
     "errorType": "status_code",
     "url": "https://moikrug.ru/{}",
@@ -2618,7 +2512,7 @@ export const sites: SiteList = {
   "nnRU": {
     "errorType": "status_code",
     "url": "https://{}.www.nn.ru/",
-    "urlMain": "https://https://www.nn.ru/",
+    "urlMain": "https://www.nn.ru/",
     "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
@@ -2682,13 +2576,6 @@ export const sites: SiteList = {
     "url": "https://prog.hu/azonosito/info/{}",
     "urlMain": "https://prog.hu/",
     "username_claimed": "Sting",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
-  "radio_echo_msk": {
-    "errorType": "status_code",
-    "url": "https://echo.msk.ru/users/{}",
-    "urlMain": "https://echo.msk.ru/",
-    "username_claimed": "blue",
     "username_unclaimed": "noonewouldeverusethis7",
   },
   "satsisRU": {
@@ -2760,22 +2647,6 @@ export const sites: SiteList = {
     "url": "https://www.zoomit.ir/user/{}",
     "urlMain": "https://www.zoomit.ir",
     "username_claimed": "kossher",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
-  "koo": {
-    "errorMsg": "Invalid Profile",
-    "errorType": "message",
-    "url": "https://www.kooapp.com/profile/{}",
-    "urlMain": "https://www.kooapp.com",
-    "username_claimed": "john",
-    "username_unclaimed": "noonewouldeverusethis7",
-  },
-  "minds": {
-    "errorMsg": "Sorry, this channel doesn't appear to exist",
-    "errorType": "message",
-    "url": "https://www.minds.com/{}/",
-    "urlMain": "https://www.minds.com",
-    "username_claimed": "john",
     "username_unclaimed": "noonewouldeverusethis7",
   },
 };

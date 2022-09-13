@@ -1,3 +1,4 @@
+import { afterEach, beforeEach, describe, it } from "std/testing/bdd.ts";
 import {
   parseArguments,
   readCliArguments,
@@ -5,107 +6,89 @@ import {
   showVersionMessage,
 } from "./cli.ts";
 import { assertEquals, assertStringIncludes } from "std/testing/asserts.ts";
+import type { Stub } from "std/testing/mock.ts";
 import { SHERLOCK_VERSION } from "../mod.ts";
 import { sitesCount } from "../sites.ts";
 import { ConsoleFormatter } from "./formatters/console-formatter.ts";
 import { createConsoleStub } from "./testing-helpers.ts";
 
-Deno.test("cli.ts: parseArguments() parses all arguments correctly", () => {
-  assertEquals(parseArguments(["--help"]), {
-    _: [],
-    all: false,
-    a: false,
-    help: true,
-    h: true,
-  });
-  assertEquals(parseArguments(["-a", "-f=json"]), {
-    _: [],
-    all: true,
-    a: true,
-    f: "json",
-    format: "json",
-  });
-  assertEquals(parseArguments(["-a", "-f=csv", "checkerschaf"]), {
-    _: ["checkerschaf"],
-    all: true,
-    a: true,
-    f: "csv",
-    format: "csv",
-  });
-});
+describe("CLI", () => {
+  let consoleStub: Stub<Console>;
 
-Deno.test(
-  "cli.ts: readCliArguments() parses default arguments correctly",
-  () => {
-    const consoleStub = createConsoleStub();
-    try {
+  beforeEach(() => {
+    consoleStub = createConsoleStub();
+  });
+
+  afterEach(() => {
+    consoleStub.restore();
+  });
+
+  it("parseArguments() parses all arguments correctly", () => {
+    assertEquals(parseArguments(["--help"]), {
+      _: [],
+      all: false,
+      help: true,
+      h: true,
+    });
+
+    assertEquals(parseArguments(["-a", "-f=json"]), {
+      _: [],
+      a: true,
+      all: true,
+      f: "json",
+      format: "json",
+    });
+
+    assertEquals(parseArguments(["-a", "-f=csv", "checkerschaf"]), {
+      _: ["checkerschaf"],
+      a: true,
+      all: true,
+      f: "csv",
+      format: "csv",
+    });
+  });
+
+  describe("readCliArguments", () => {
+    it("parses default arguments correctly", () => {
       assertEquals(readCliArguments(["checkerschaf"]), {
         formatter: new ConsoleFormatter(),
         timeout: 30,
         username: "checkerschaf",
       });
-    } finally {
-      consoleStub.restore();
-    }
-  },
-);
+    });
 
-Deno.test(
-  "cli.ts: readCliArguments() parses show all argument correctly",
-  () => {
-    const consoleStub = createConsoleStub();
-    try {
+    it("parses show all argument correctly", () => {
       assertEquals(readCliArguments(["-a", "checkerschaf"]), {
         formatter: new ConsoleFormatter({ showAll: true }),
         timeout: 30,
         username: "checkerschaf",
       });
-    } finally {
-      consoleStub.restore();
-    }
-  },
-);
+    });
+  });
 
-Deno.test(
-  "cli.ts: showVersionMessage() contains the project version and the amount of active sites",
-  () => {
-    const consoleStub = createConsoleStub();
+  it("showVersionMessage() contains the project version and the amount of active sites", () => {
+    showVersionMessage();
 
-    try {
-      showVersionMessage();
+    assertEquals(consoleStub.calls.length, 1);
 
-      assertEquals(consoleStub.calls.length, 1);
+    const versionStr = consoleStub.calls[0].args[0];
+    assertStringIncludes(versionStr, `version`);
+    assertStringIncludes(versionStr, `${SHERLOCK_VERSION}`);
+    assertStringIncludes(versionStr, `sites`);
+    assertStringIncludes(versionStr, `${sitesCount}`);
+  });
 
-      const versionStr = consoleStub.calls[0].args[0];
-      assertStringIncludes(versionStr, `version`);
-      assertStringIncludes(versionStr, `${SHERLOCK_VERSION}`);
-      assertStringIncludes(versionStr, `sites`);
-      assertStringIncludes(versionStr, `${sitesCount}`);
-    } finally {
-      consoleStub.restore();
-    }
-  },
-);
+  it("showHelpMessage() contains the project version and the amount of active sites", () => {
+    showHelpMessage();
 
-Deno.test(
-  "cli.ts: showHelpMessage() contains the project version and the amount of active sites",
-  () => {
-    const consoleStub = createConsoleStub();
+    assertEquals(consoleStub.calls.length, 1);
 
-    try {
-      showHelpMessage();
-
-      assertEquals(consoleStub.calls.length, 1);
-
-      const helpStr = consoleStub.calls[0].args[0];
-      assertStringIncludes(helpStr, `--help`);
-      assertStringIncludes(helpStr, `--version`);
-      assertStringIncludes(helpStr, `--all`);
-      assertStringIncludes(helpStr, `--timeout`);
-      assertStringIncludes(helpStr, `--format`);
-      assertStringIncludes(helpStr, `Examples`);
-    } finally {
-      consoleStub.restore();
-    }
-  },
-);
+    const helpStr = consoleStub.calls[0].args[0];
+    assertStringIncludes(helpStr, `--help`);
+    assertStringIncludes(helpStr, `--version`);
+    assertStringIncludes(helpStr, `--all`);
+    assertStringIncludes(helpStr, `--timeout`);
+    assertStringIncludes(helpStr, `--format`);
+    assertStringIncludes(helpStr, `Examples`);
+  });
+});
