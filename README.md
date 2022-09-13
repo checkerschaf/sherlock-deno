@@ -44,13 +44,17 @@ offical command [here](https://deno.land/#installation).
 
 #### With installation (recommended ✔️):
 
-`deno install --allow-net --reload -qfn sherlock https://deno.land/x/sherlock/cli.ts`
+```
+deno install --allow-net --reload --import-map=import_map.json -qfn sherlock https://deno.land/x/sherlock/cli.ts
+```
 
-Verify the installation by typing `sherlock`
+Verify the installation by typing `sherlock`.
 
 #### Without installation:
 
-`deno run --allow-net -q https://deno.land/x/sherlock/cli.ts`
+```
+deno run --allow-net -q --import-map=import_map.json https://deno.land/x/sherlock/cli.ts
+```
 
 **Done!** 🎉 You now have a running version of Sherlock-Deno.
 
@@ -62,8 +66,11 @@ and download the executable for Windows, MacOS or Linux.
 
 ### 🐳 Docker
 
-Run
-`docker run -it denoland/deno run -q --allow-net https://deno.land/x/sherlock/cli.ts`
+Start Docker and run:
+
+```
+docker run -it denoland/deno run --allow-net -q --import-map=import_map.json https://deno.land/x/sherlock/cli.ts
+```
 
 ## 🔄 How to update the CLI?
 
