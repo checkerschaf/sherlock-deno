@@ -20,8 +20,8 @@ export const fetchSite = async ({
 
   try {
     const urlToFetch = (proxyConfig?.url || "") + userPageUrl;
-    const response = await fetchWithTimeout(urlToFetch, {
-      timeout,
+    const response = await fetch(urlToFetch, {
+      signal: AbortSignal.timeout(timeout),
       headers: new Headers({
         "Accept-Language": "en-US,en",
         "User-Agent":
@@ -45,7 +45,7 @@ export const fetchSite = async ({
     // Request was aborted by the timeout
     if (
       error instanceof DOMException &&
-      error.message === "Ongoing fetch was aborted."
+      error.name === "TimeoutError"
     ) {
       return {
         ...siteResult,
@@ -61,26 +61,6 @@ export const fetchSite = async ({
       error: error.name || "",
     };
   }
-};
-
-export const fetchWithTimeout = async (
-  resource: string | Request | URL,
-  options: { headers: HeadersInit; timeout: number },
-) => {
-  const { timeout } = options;
-
-  const controller = new AbortController();
-  const id = setTimeout(() => {
-    controller.abort();
-  }, timeout);
-
-  const response = await fetch(resource, {
-    headers: options.headers,
-    signal: controller.signal,
-  });
-
-  clearTimeout(id);
-  return response;
 };
 
 export const getSiteUserUrl = (site: Site, username: string): string => {

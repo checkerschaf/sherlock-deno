@@ -1,11 +1,20 @@
+import { afterEach, beforeEach, describe, it } from "std/testing/bdd.ts";
 import { assertEquals } from "std/testing/asserts.ts";
 import { FakeTime } from "std/testing/time.ts";
 import Timer from "./timer.ts";
 
-Deno.test("timer.ts: calculate time between start and end", () => {
-  const time: FakeTime = new FakeTime();
+describe("Timer", () => {
+  let time: FakeTime;
 
-  try {
+  beforeEach(() => {
+    time = new FakeTime();
+  });
+
+  afterEach(() => {
+    time.restore();
+  });
+
+  it("calculate time between start and end", () => {
     const timer = new Timer();
     timer.start();
     time.tick(1000);
@@ -15,7 +24,5 @@ Deno.test("timer.ts: calculate time between start and end", () => {
     assertEquals(timer.elapsedTime(), 1500);
     time.tick(500);
     assertEquals(timer.elapsedTime(), 1500);
-  } finally {
-    time.restore();
-  }
+  });
 });
