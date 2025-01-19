@@ -1,5 +1,7 @@
 # Sherlock-Deno 🕵️ - search users across 350+ websites
 
+> I don't have time to maintain this repository, so it's now archived.
+
 <p align="center">
   <br>
   <img alt="Screenshot Sherlock-Deno" src="https://github.com/checkerschaf/sherlock-deno/raw/master/screenshot.png" />
